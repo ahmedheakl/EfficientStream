@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "efficientstream"
+version = "0.1.0"
+description = "Streaming video QA: bounded frame store, MobileCLIP2-S0 frame index, MiniCPM-V-4.6 answering in one forward pass"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["torch>=2.4", "transformers>=5.7", "open_clip_torch>=3.3", "pillow>=10", "numpy>=1.26",
+                "opencv-python>=4.8", "huggingface_hub>=0.34"]
+
+[tool.setuptools]
+packages = ["efficientstream"]

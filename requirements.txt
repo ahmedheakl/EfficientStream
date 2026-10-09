@@ -1,0 +1,8 @@
+# versions the package was verified with (newer ones should work; MiniCPM-V-4.6 needs transformers >= 5.7)
+torch>=2.4
+transformers>=5.7
+open_clip_torch>=3.3
+pillow>=10
+numpy>=1.26
+opencv-python>=4.8
+huggingface_hub>=0.34
