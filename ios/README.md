@@ -13,13 +13,14 @@ MobileCLIP2-S0 frame index on Core ML), with nothing sent off the device. The ap
 | `app/` | the Xcode project (`EfficientStream.xcodeproj`), SwiftUI app |
 | `tools/export_ios.py` | weights -> `ios/models/` (MLX safetensors for MiniCPM-V-4.6, Core ML for MobileCLIP2-S0) |
 | `tools/install_models.sh` | copies `ios/models/` into the app on a connected iPhone |
-| `tools/dump_reference.py`, `tools/dump_index_reference.py` | PyTorch reference dumps for `es-verify` |
+| `tools/dump_*.py` | PyTorch reference dumps for `es-verify` |
 
 | Swift file | Python counterpart |
 |---|---|
 | `Config.swift` | `config.py` (reads the exported `efficientstream_config.json`) |
 | `FrameStore.swift` | `frames.py` `BoundedStore`, `index.py` `top_k_in_time_order` |
-| `ImageOps.swift` | `frames.py` resizing (Pillow's resampler, ported with its fixed-point arithmetic), letterbox, JPEG |
+| `ImageOps.swift` | `frames.py` resizing (Pillow's resampler, ported with its fixed-point arithmetic), letterbox |
+| `JPEGRoundTrip.swift` | `frames.py` `jpeg_roundtrip` (libjpeg-turbo's lossy steps, ported) |
 | `FrameIndex.swift` | `index.py` (open_clip preprocessing and `SimpleTokenizer`, ported) |
 | `Prompt.swift` | `prompt.py` + the MiniCPM-V-4.6 chat template |
 | `ImageProcessor.swift` | transformers' `MiniCPMV4_6ImageProcessor` (slicing, views, placeholders) |
@@ -39,30 +40,36 @@ MobileCLIP2-S0 frame index on Core ML), with nothing sent off the device. The ap
 
 ## Checked against the PyTorch package
 
-`es-verify` runs the Swift code on a Mac against dumps of the PyTorch package (bfloat16 on CPU, Big Buck Bunny,
-questions at 60 s and 200 s):
+`EfficientStreamKit/Sources/es-verify` runs the Swift code on a Mac against dumps of the PyTorch package
+(bfloat16 on CPU; Big Buck Bunny, 854x480; 3 questions at 60 s and at 200 s; `tools/dump_*.py` make the dumps):
 
 | Check | Result |
 |---|---|
-| Prompt token ids (whole prompt, 1,714 tokens) | identical |
-| Vision views (grids; pixels after the processor's resizes) | same grids, pixels within 1 of torchvision's |
-| Vision features (same view pixels) | cosine 0.999 mean |
-| Answers | identical (open-ended: word for word) |
-| MobileCLIP2-S0 tokenizer, 12 questions | identical ids |
-| Frame embeddings (same stored frames; Core ML float32) | cosine >= 0.9999 |
-| Store resize from raw frames | bit-exact |
+| Whole session from the decoded frames (store, eviction, JPEG, index, retrieval, latest frame, answer) | the same 16 retrieved moments in 6/6 questions; the same answer in 5/6 |
+| Answers from the reference's inputs | multiple choice 4/4 identical (letters and probabilities); open-ended 1/2 word for word, the other identical for its first 25 words |
+| Prompt token ids (whole prompt, ~1,714 tokens) | identical, 6/6 |
+| Vision views (grids; pixels after the processor's resizes) | same grids; pixels within 1 of torchvision's |
+| Vision features (same view pixels) | cosine 0.998-0.999 mean; on the few low tokens, PyTorch's bfloat16 is as far from float32 as MLX's |
+| JPEG round trip (13 sizes, 1x1 to 896x504) | bit-exact with Pillow (libjpeg-turbo 3.1) |
+| Store resize (Pillow bicubic) from raw frames | bit-exact |
+| MobileCLIP2-S0: tokenizer (12 questions), preprocessing, embeddings | identical ids; identical inputs; cosine >= 0.9999 (Core ML float32) |
 
-Known difference: iOS JPEG encoding (ImageIO) is not libjpeg's, so stored frames differ slightly from the
-reference's (embedding cosine 0.998 mean; 15-16 of the same 16 frames retrieved).
+The one open-ended difference is the kind the package's own GPU check found (29/30 identical): bfloat16 arithmetic
+differs between PyTorch and MLX, and greedy decoding diverges after many tokens.
+
+Timings on an M4 Mac (Release build): a stored frame 0.33 s (resize, JPEG, MobileCLIP2-S0, the thumbnail through
+the vision tower); a question 2.4-2.8 s to the answer (multiple choice) or to the first words (the latest frame's
+three views through the vision tower 0.9 s, the prefill of 1,714 tokens 1.4 s). Not yet measured on an iPhone.
 
 ## Run it on an iPhone
 
 Requirements: a Mac with Xcode 27 (with the Metal Toolchain component), an iPhone 15 Pro or newer (8 GB RAM; the
 app holds about 3 GB of weights), Python 3.10+ for the export.
 
-1. Export the models (once; downloads the weights from Hugging Face, about 3 GB):
+1. Export the models (once; downloads the weights from Hugging Face, about 3 GB; the repo is private, so log in
+   with `hf auth login` first):
    ```bash
-   pip install -r requirements.txt coremltools mlx
+   pip install -r requirements.txt coremltools
    pip install -e .
    python ios/tools/export_ios.py --weights ahmedheakl/efficientstream --out ios/models
    ```

@@ -44,6 +44,20 @@ func rgb(_ a: MLXArray) -> RGBImage {
 struct Verify {
     static func main() async throws {
         let args = CommandLine.arguments
+        if args.count >= 3 && args[1] == "bench" {
+            try await bench(models: URL(fileURLWithPath: args[2]))
+            return
+        }
+        if args.count >= 5 && args[1] == "session" {
+            try await checkSession(
+                models: URL(fileURLWithPath: args[2]), frames: URL(fileURLWithPath: args[3]),
+                ref: URL(fileURLWithPath: args[4]))
+            return
+        }
+        if args.count >= 3 && args[1] == "jpeg" {
+            try checkJPEG(file: URL(fileURLWithPath: args[2]))
+            return
+        }
         if args.count >= 4 && args[1] == "index" {
             try checkIndex(models: URL(fileURLWithPath: args[2]), file: URL(fileURLWithPath: args[3]))
             return

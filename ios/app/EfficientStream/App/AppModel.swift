@@ -17,9 +17,15 @@ final class AppModel {
     private(set) var controller: StreamController?
     private(set) var loadSeconds: Double = 0
 
-    static var modelsDirectory: URL {
-        FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-            .appendingPathComponent("models", isDirectory: true)
+    static var documents: URL { FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0] }
+
+    /// Where downloads go.
+    static var modelsDirectory: URL { documents.appendingPathComponent("models", isDirectory: true) }
+
+    /// The folder that holds the models: Documents/models, or one level deeper / shallower if a copy nested it.
+    static var installedModelsDirectory: URL? {
+        [modelsDirectory, modelsDirectory.appendingPathComponent("models", isDirectory: true), documents]
+            .first { EfficientStream.modelsPresent(in: $0) }
     }
 
     static var cacheDirectory: URL {
@@ -27,18 +33,18 @@ final class AppModel {
             .appendingPathComponent("coreml", isDirectory: true)
     }
 
-    var modelsPresent: Bool { EfficientStream.modelsPresent(in: Self.modelsDirectory) }
+    var modelsPresent: Bool { Self.installedModelsDirectory != nil }
 
     func loadIfPossible() async {
         guard state != .loading, state != .ready else { return }
-        guard modelsPresent else {
+        guard let directory = Self.installedModelsDirectory else {
             state = .needsModels
             return
         }
         state = .loading
         let start = Date()
         do {
-            let es = try await EfficientStream(directory: Self.modelsDirectory, cacheDirectory: Self.cacheDirectory)
+            let es = try await EfficientStream(directory: directory, cacheDirectory: Self.cacheDirectory)
             controller = StreamController(es: es)
             loadSeconds = Date().timeIntervalSince(start)
             state = .ready

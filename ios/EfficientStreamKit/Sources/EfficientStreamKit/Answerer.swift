@@ -73,27 +73,35 @@ public final class Answerer: @unchecked Sendable {
     // MARK: text
 
     /// Token ids of a prompt string: special tokens by id, the text between them by the tokenizer (the
-    /// reference tokenizer splits on added tokens the same way).
+    /// reference tokenizer splits on added tokens the same way). One pass over the UTF-8 bytes, matching special
+    /// tokens where they can start (they all begin with "<").
     public func tokenize(_ text: String) -> [Int] {
+        let bytes = Array(text.utf8)
+        let specials: [([UInt8], Int)] = specialPattern.map { (Array($0.utf8), spec.specialTokens[$0]!) }
         var ids: [Int] = []
-        var rest = Substring(text)
-        while !rest.isEmpty {
-            var hit: (Range<Substring.Index>, String)?
-            for tok in specialPattern {
-                if let r = rest.range(of: tok), hit == nil || r.lowerBound < hit!.0.lowerBound {
-                    hit = (r, tok)
-                }
+        var segmentStart = 0
+        var i = 0
+        func flush(_ end: Int) {
+            if end > segmentStart {
+                let piece = String(decoding: bytes[segmentStart ..< end], as: UTF8.self)
+                ids += tokenizer.encode(text: piece, addSpecialTokens: false)
             }
-            guard let (r, tok) = hit else {
-                ids += tokenizer.encode(text: String(rest), addSpecialTokens: false)
-                break
-            }
-            if r.lowerBound > rest.startIndex {
-                ids += tokenizer.encode(text: String(rest[..<r.lowerBound]), addSpecialTokens: false)
-            }
-            ids.append(spec.specialTokens[tok]!)
-            rest = rest[r.upperBound...]
         }
+        while i < bytes.count {
+            if bytes[i] == UInt8(ascii: "<"),
+                let (tok, id) = specials.first(where: { t in
+                    i + t.0.count <= bytes.count && bytes[i ..< i + t.0.count].elementsEqual(t.0)
+                })
+            {
+                flush(i)
+                ids.append(id)
+                i += tok.count
+                segmentStart = i
+            } else {
+                i += 1
+            }
+        }
+        flush(bytes.count)
         return ids
     }
 
@@ -116,7 +124,9 @@ public final class Answerer: @unchecked Sendable {
         parts: [PromptPart], images: [EncodedImage], numOptions: Int, maxNewTokens: Int = 128,
         onText: ((String) -> Void)? = nil
     ) -> Answer {
+        let tStart = Date()
         let ids = tokenize(spec.render(parts: parts)) + spec.answerOpenIds
+        let tTok = Date()
         let features = images.isEmpty
             ? MLXArray.zeros([0, model.config.text.hiddenSize])
             : concatenated(images.map(\.features), axis: 0)
@@ -124,6 +134,11 @@ public final class Answerer: @unchecked Sendable {
         let caches = model.makeCaches()
         let hidden = model.lm(embeddings: emb, caches: caches)
         var logits = model.lm.logits(hidden[0..., -1, 0...]).asType(.float32).squeezed()
+        if StreamSession.profile {
+            eval(logits)
+            print(String(format: "  tokenize %.3fs, prefill %.3fs (%d tokens)", tTok.timeIntervalSince(tStart),
+                         Date().timeIntervalSince(tTok), ids.count))
+        }
 
         if numOptions > 0 {
             let letters = MLXArray(spec.letterIds.prefix(numOptions).map { Int32($0) })
@@ -150,6 +165,13 @@ public final class Answerer: @unchecked Sendable {
         let text = Self.visible(decode(generated))
         onText?(text)
         return Answer(text: text, probs: nil, promptTokens: ids.count, visualTokens: features.dim(0))
+    }
+
+    /// One prefill over `embeddings` [1, L, hidden] and the last-position logits (for timing).
+    public func benchPrefill(_ embeddings: MLXArray) {
+        let caches = model.makeCaches()
+        let h = model.lm(embeddings: embeddings, caches: caches)
+        eval(model.lm.logits(h[0..., -1, 0...]))
     }
 
     static func visible(_ s: String) -> String {

@@ -122,9 +122,11 @@ final class StreamController {
         history.insert(qa, at: 0)
         isAnswering = true
         let session = self.session
+        let pending = PendingFrame(pb: frame.pb, rotation: frame.rotation)
         Task {
-            // the latest frame at full resolution, converted only now
-            session.setLatest(t: frame.t, image: RGBImage(pixelBuffer: frame.pb, rotation: frame.rotation))
+            // the latest frame at full resolution, converted only now (off the main thread)
+            let image = await Task.detached(priority: .userInitiated) { pending.image() }.value
+            session.setLatest(t: frame.t, image: image)
             do {
                 let r = try await session.ask(q, options: options) { text in
                     Task { @MainActor in qa.answer = text }
@@ -143,6 +145,13 @@ final class StreamController {
             isAnswering = false
         }
     }
+}
+
+/// A pixel buffer handed to a background task for conversion.
+struct PendingFrame: @unchecked Sendable {
+    let pb: CVPixelBuffer
+    let rotation: Int
+    func image() -> RGBImage { RGBImage(pixelBuffer: pb, rotation: rotation) }
 }
 
 /// The newest pixel buffer, shared between the capture queue and the main actor.

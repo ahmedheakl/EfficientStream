@@ -218,9 +218,15 @@ extension RGBImage {
         return resized(width: w, height: h, filter: .bicubic)
     }
 
-    /// JPEG round trip at `quality` (0-100), like `jpeg_roundtrip`. The encoder is ImageIO's, not libjpeg's, so
-    /// pixels differ slightly from the reference.
+    /// JPEG round trip at `quality` (1-100), like the reference's `jpeg_roundtrip` (Pillow + libjpeg-turbo):
+    /// libjpeg-turbo's lossy steps computed directly (JPEGRoundTrip.swift).
     public func jpegRoundTrip(quality: Int?) -> RGBImage {
+        guard let quality else { return self }
+        return LibJPEG.roundTrip(self, quality: quality)
+    }
+
+    /// JPEG round trip through ImageIO's encoder (not libjpeg's: pixels differ from the reference).
+    public func imageIOJPEGRoundTrip(quality: Int?) -> RGBImage {
         guard let quality, let cg = cgImage() else { return self }
         let data = NSMutableData()
         guard let dest = CGImageDestinationCreateWithData(data, UTType.jpeg.identifier as CFString, 1, nil)

@@ -58,7 +58,7 @@ func checkIndex(models: URL, file: URL) throws {
         swiftEmbs.append(e)
     }
     print("frames: preprocessing max |diff| \(preDiff); embedding of reference stored frames cosine min \(storedCos.min()!)")
-    print("store path (raw -> resize -> ImageIO JPEG -> embed): resize max pixel diff \(resizeDiff); embedding cosine min \(pathCos.min()!) mean \(pathCos.reduce(0, +) / Float(pathCos.count))")
+    print("store path (raw -> resize -> JPEG -> embed): resize max pixel diff \(resizeDiff); embedding cosine min \(pathCos.min()!) mean \(pathCos.reduce(0, +) / Float(pathCos.count))")
 
     // retrieval: top-16 with all-Swift embeddings vs all-reference embeddings
     var overlaps: [Int] = []

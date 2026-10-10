@@ -14,6 +14,7 @@ struct StreamView: View {
     @State private var loadingVideo = false
     @State private var showInfo = false
     @FocusState private var focused: Bool
+    @Environment(\.scenePhase) private var scenePhase
 
     private let suggestions = [
         "What is happening right now?", "What happened just before this?", "What changed since the start?",
@@ -42,6 +43,10 @@ struct StreamView: View {
             .onAppear { controller.start() }
             .onDisappear { controller.stop() }
             .onChange(of: pickerItem) { _, item in if let item { load(item) } }
+            // iOS does not allow GPU work in the background: stop feeding frames when the app is not active
+            .onChange(of: scenePhase) { _, phase in
+                if phase == .active { controller.start() } else if phase == .background { controller.stop() }
+            }
             .sheet(isPresented: $showInfo) { InfoView(controller: controller) }
         }
     }

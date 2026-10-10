@@ -54,6 +54,8 @@ public final class EfficientStream: @unchecked Sendable {
 }
 
 public final class StreamSession: @unchecked Sendable {
+    /// Prints a timing breakdown of each question (environment variable ES_PROFILE=1).
+    static let profile = ProcessInfo.processInfo.environment["ES_PROFILE"] != nil
     public let es: EfficientStream
     public var config: StreamConfig { es.config }
 
@@ -90,9 +92,13 @@ public final class StreamSession: @unchecked Sendable {
         if store { try await addStoreFrame(t: t, image: image) }
     }
 
-    /// Only the latest frame: shown at high resolution as "(now)" when a question is asked.
+    /// Only the latest frame: shown at high resolution as "(now)" when a question is asked. An older frame
+    /// (e.g. a store frame finishing after a newer frame was set) does not replace a newer one.
     public func setLatest(t: Double, image: RGBImage) {
-        lock.withLock { latest = (t, image) }
+        lock.withLock {
+            if let l = latest, t < l.time { return }
+            latest = (t, image)
+        }
     }
 
     /// Only the store: resize, JPEG round trip, embed, thumbnail features, store.
@@ -154,6 +160,8 @@ public final class StreamSession: @unchecked Sendable {
             work.async {
                 do {
                     let start = Date()
+                    var marks: [(String, Date)] = []
+                    func mark(_ n: String) { if StreamSession.profile { marks.append((n, Date())) } }
                     let q = es.answerer.sanitize(question)
                     let opts = options?.map { es.answerer.sanitize($0) }
                     var picked: [StoredFrame] = []
@@ -162,6 +170,7 @@ public final class StreamSession: @unchecked Sendable {
                         picked = topKInTimeOrder(candidates.map(\.embedding), query: qe, k: cfg.retrieveK)
                             .map { candidates[$0] }
                     }
+                    mark("retrieval")
                     var parts: [PromptPart] = []
                     var images: [EncodedImage] = []
                     for f in picked {
@@ -172,8 +181,10 @@ public final class StreamSession: @unchecked Sendable {
                         images.append(thumb)
                     }
                     let hi = latestImage.fittingLongSide(cfg.latestLongSide).jpegRoundTrip(quality: cfg.latestJpegQuality)
+                    mark("latest resize + jpeg")
                     let latestEnc = es.answerer.encode(
                         hi, scaleResolution: cfg.thumbSide, maxSlices: cfg.latestMaxSlices)
+                    mark("latest vision")
                     parts += [.text("frame time[\(formatTime(now, style: cfg.timestamps))] (now): "),
                               .image(placeholder: latestEnc.placeholder), .text("\n"),
                               .text(PromptText.questionBlock(q, options: opts))]
@@ -185,8 +196,13 @@ public final class StreamSession: @unchecked Sendable {
                         if firstToken == nil { firstToken = Date() }
                         onText?(text)
                     }
+                    mark("answer")
                     MLX.GPU.clearCache()
                     let end = Date()
+                    if StreamSession.profile {
+                        var last = start
+                        print(marks.map { m in defer { last = m.1 }; return String(format: "%@ %.3fs", m.0, m.1.timeIntervalSince(last)) }.joined(separator: " | "))
+                    }
                     cont.resume(
                         returning: StreamResult(
                             text: a.text, probs: a.probs, frameTimes: picked.map(\.time), now: now,
