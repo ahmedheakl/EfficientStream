@@ -1,0 +1,8 @@
+# exported weights (ios/tools/export_ios.py)
+models/
+# Xcode
+xcuserdata/
+DerivedData/
+*.xcuserstate
+.build/
+.swiftpm/

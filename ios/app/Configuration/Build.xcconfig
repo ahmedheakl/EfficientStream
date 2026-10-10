@@ -1,0 +1,4 @@
+// Signing: set your Apple Developer team and a bundle identifier that is unique to you.
+// (Xcode's Signing & Capabilities tab edits these too.)
+DEVELOPMENT_TEAM = 9N633YN88K
+PRODUCT_BUNDLE_IDENTIFIER = com.heakl.efficientstream

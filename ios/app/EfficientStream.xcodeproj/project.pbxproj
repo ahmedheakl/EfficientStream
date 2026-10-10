@@ -1,0 +1,324 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		31EC914E8AF734403FC029CA /* EfficientStreamKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2436B617CE66DA68C883381B /* EfficientStreamKit */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D58EB002F84696E84097AC04 /* EfficientStream.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EfficientStream.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		A850A321B1CE98D62D097B16 /* Exceptions for "EfficientStream" folder in "EfficientStream" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 45B593580ED95B7220ACC416 /* EfficientStream */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		A976C79742D61C63C8213A8C /* EfficientStream */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				A850A321B1CE98D62D097B16 /* Exceptions for "EfficientStream" folder in "EfficientStream" target */,
+			);
+			path = EfficientStream;
+			sourceTree = "<group>";
+		};
+		D861CD529F02D5377E5CB114 /* Configuration */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3122EB2688F139D89D5AE9C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31EC914E8AF734403FC029CA /* EfficientStreamKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AB2CE6CB65C80AD049CD6CE4 = {
+			isa = PBXGroup;
+			children = (
+				D861CD529F02D5377E5CB114 /* Configuration */,
+				A976C79742D61C63C8213A8C /* EfficientStream */,
+				7DE44417F90ECDBB620352E4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7DE44417F90ECDBB620352E4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D58EB002F84696E84097AC04 /* EfficientStream.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		45B593580ED95B7220ACC416 /* EfficientStream */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AB33D04E41E340B140760CDD /* Build configuration list for PBXNativeTarget "EfficientStream" */;
+			buildPhases = (
+				B40B116D639B6D56FF26C4C6 /* Sources */,
+				3122EB2688F139D89D5AE9C8 /* Frameworks */,
+				02B1E56EE9F509AE4F27490D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				A976C79742D61C63C8213A8C /* EfficientStream */,
+			);
+			name = EfficientStream;
+			packageProductDependencies = (
+				2436B617CE66DA68C883381B /* EfficientStreamKit */,
+			);
+			productName = EfficientStream;
+			productReference = D58EB002F84696E84097AC04 /* EfficientStream.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D8A0BE9D9812D3EB22DCA994 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2700;
+				LastUpgradeCheck = 2700;
+				TargetAttributes = {
+					45B593580ED95B7220ACC416 = {
+						CreatedOnToolsVersion = 27.0;
+					};
+				};
+			};
+			buildConfigurationList = 69A6983BC1EC4B5BBF59A011 /* Build configuration list for PBXProject "EfficientStream" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AB2CE6CB65C80AD049CD6CE4;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				A698FB54C38A71220D12A356 /* XCLocalSwiftPackageReference "../EfficientStreamKit" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 7DE44417F90ECDBB620352E4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				45B593580ED95B7220ACC416 /* EfficientStream */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		02B1E56EE9F509AE4F27490D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B40B116D639B6D56FF26C4C6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		CBE0680E2A81CD6904208163 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = D861CD529F02D5377E5CB114 /* Configuration */;
+			baseConfigurationReferenceRelativePath = Build.xcconfig;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1041E9F39D9152FAFD616247 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = D861CD529F02D5377E5CB114 /* Configuration */;
+			baseConfigurationReferenceRelativePath = Build.xcconfig;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		227FD4B360B5036BD4AD0D76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = EfficientStream/EfficientStream.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EfficientStream/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = EfficientStream;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_NSCameraUsageDescription = "EfficientStream answers questions about what the camera sees.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Pick a video to stream and ask questions about.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		734A13DBFD3167EFAB8458FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = EfficientStream/EfficientStream.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EfficientStream/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = EfficientStream;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_NSCameraUsageDescription = "EfficientStream answers questions about what the camera sees.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Pick a video to stream and ask questions about.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		69A6983BC1EC4B5BBF59A011 /* Build configuration list for PBXProject "EfficientStream" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBE0680E2A81CD6904208163 /* Debug */,
+				1041E9F39D9152FAFD616247 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AB33D04E41E340B140760CDD /* Build configuration list for PBXNativeTarget "EfficientStream" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				227FD4B360B5036BD4AD0D76 /* Debug */,
+				734A13DBFD3167EFAB8458FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		A698FB54C38A71220D12A356 /* XCLocalSwiftPackageReference "../EfficientStreamKit" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../EfficientStreamKit;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2436B617CE66DA68C883381B /* EfficientStreamKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = EfficientStreamKit;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = D8A0BE9D9812D3EB22DCA994 /* Project object */;
+}
