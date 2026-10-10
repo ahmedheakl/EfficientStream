@@ -28,7 +28,7 @@ for run in runs:
     for k, n in keys:
         v = [t[k] for t in T]
         out.append(f"| {n} | {mean(v):.3f} | {st.median(v):.3f} | {pct(v, .9):.3f} |")
-    dec = [t['decodeTokensPerSecond'] for t in T if t['generatedTokens'] > 1]
+    dec = [(t['generatedTokens'] - 1) / t['decode'] for t in T if t['generatedTokens'] > 1 and t['decode'] > 0]
     pre = [t['promptTokens'] / t['prefill'] for t in T]
     out.append(f"\nPrompt tokens mean {mean([t['promptTokens'] for t in T]):.0f}; answer tokens mean "
                f"{mean([t['generatedTokens'] for t in T]):.1f}; decode {mean(dec):.1f} tok/s (min {min(dec):.1f}, "
