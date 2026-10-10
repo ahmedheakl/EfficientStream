@@ -82,8 +82,7 @@ app holds about 3 GB of weights), Python 3.10+ for the export.
    ```
    then tap **Check again** in the app.
 
-## Licenses
+## Credits
 
-The app (`ios/app/`) is derived from Mobile-O's iOS app, which is licensed CC BY-NC-SA 4.0, so `ios/app/` is
-CC BY-NC-SA 4.0 as well (attribution to Mobile-O; non-commercial; share alike). MiniCPM-V-4.6: Apache-2.0.
-MobileCLIP2-S0: Apple Machine Learning Research Model License (research use only).
+The app is built on the [Mobile-O](https://github.com/Amshaker/Mobile-O) iOS app. Models: MiniCPM-V-4.6 (OpenBMB),
+MobileCLIP2-S0 (Apple).

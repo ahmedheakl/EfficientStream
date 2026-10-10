@@ -41,7 +41,9 @@ struct AnswerCard: View {
                 ProgressView()
             }
             if let r = qa.result {
-                Text(meta(r)).font(.caption2).foregroundStyle(.secondary)
+                Text(meta(r)).font(.caption2.monospacedDigit()).foregroundStyle(.secondary)
+                DisclosureGroup("Where the time went") { TimingTable(t: r.timings) }
+                    .font(.caption2).foregroundStyle(.secondary)
             }
             if !qa.thumbnails.isEmpty {
                 ScrollView(.horizontal, showsIndicators: false) {
@@ -65,8 +67,50 @@ struct AnswerCard: View {
     }
 
     private func meta(_ r: StreamResult) -> String {
-        var s = String(format: "%.2f s", r.seconds)
-        if qa.options == nil { s = String(format: "first words %.2f s · total ", r.secondsToFirstToken) + s }
-        return s + " · \(r.frameTimes.count) past moments + now · \(r.promptTokens) tokens"
+        let t = r.timings
+        var s: String
+        if qa.options == nil {
+            s = String(format: "%.1f tok/s · %d tokens · first words %.2f s · total %.2f s",
+                       t.decodeTokensPerSecond, t.generatedTokens, t.timeToFirstToken, t.total)
+        } else {
+            s = String(format: "%.2f s", t.total)
+        }
+        return s + " · \(r.frameTimes.count) past moments + now · \(r.promptTokens) prompt tokens"
+    }
+}
+
+/// The question's timing breakdown (StreamSession.ask), in order.
+struct TimingTable: View {
+    let t: QuestionTimings
+
+    var body: some View {
+        let rows: [(String, Double)] = [
+            ("Question embedding (MobileCLIP2-S0)", t.textEmbed),
+            ("Frame embeddings at question time", t.frameEmbeds),
+            ("Top-\(16) of \(t.candidates) stored frames", t.topK),
+            ("Thumbnails (precomputed when stored)", t.thumbnails),
+            ("Latest frame resize + JPEG", t.latestPrep),
+            ("Latest frame vision tower", t.latestVision),
+            ("Tokenize prompt", t.tokenize),
+            (String(format: "Prefill %d tokens (%.0f tok/s)", t.promptTokens, t.prefillTokensPerSecond), t.prefill),
+            (String(format: "Decode %d tokens (%.1f tok/s)", max(t.generatedTokens - 1, 0), t.decodeTokensPerSecond),
+             t.decode),
+        ]
+        VStack(alignment: .leading, spacing: 2) {
+            ForEach(Array(rows.enumerated()), id: \.offset) { _, r in
+                HStack {
+                    Text(r.0)
+                    Spacer()
+                    Text(String(format: "%.3f s", r.1)).monospacedDigit()
+                }
+            }
+            HStack {
+                Text("Total").bold()
+                Spacer()
+                Text(String(format: "%.3f s", t.total)).monospacedDigit().bold()
+            }
+        }
+        .font(.caption2)
+        .padding(.top, 4)
     }
 }

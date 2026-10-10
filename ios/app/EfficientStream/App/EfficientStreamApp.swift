@@ -5,13 +5,18 @@ import SwiftUI
 @main
 struct EfficientStreamApp: App {
     @State private var app = AppModel()
+    @State private var bench = BenchModel()
 
     var body: some Scene {
         WindowGroup {
             Group {
                 switch app.state {
                 case .ready:
-                    if let controller = app.controller { StreamView(controller: controller) }
+                    if let runs = BenchModel.requestedRuns, let es = app.es {
+                        BenchView(bench: bench).task { await bench.run(es: es, runs: runs) }
+                    } else if let controller = app.controller {
+                        StreamView(controller: controller)
+                    }
                 case .loading:
                     LoadingView()
                 case .needsModels, .failed:

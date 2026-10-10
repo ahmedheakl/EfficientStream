@@ -12,6 +12,14 @@ public struct Answer: Sendable {
     public var probs: [Double]?
     public var promptTokens: Int
     public var visualTokens: Int
+    /// Prompt text -> token ids.
+    public var tokenizeSeconds: Double = 0
+    /// Token embeddings + image features -> logits of the first answer token (evaluated).
+    public var prefillSeconds: Double = 0
+    /// After the first answer token: the remaining tokens (open-ended only).
+    public var decodeSeconds: Double = 0
+    /// Answer tokens generated (open-ended; the first one comes from the prefill).
+    public var generatedTokens: Int = 0
 }
 
 /// An image ready for the prompt: its placeholder text and its features ([tokens, hidden], in placeholder order).
@@ -133,38 +141,50 @@ public final class Answerer: @unchecked Sendable {
         let emb = model.inputEmbeddings(tokenIDs: ids.map { Int32($0) }, imageFeatures: features)
         let caches = model.makeCaches()
         let hidden = model.lm(embeddings: emb, caches: caches)
-        var logits = model.lm.logits(hidden[0..., -1, 0...]).asType(.float32).squeezed()
-        if StreamSession.profile {
-            eval(logits)
-            print(String(format: "  tokenize %.3fs, prefill %.3fs (%d tokens)", tTok.timeIntervalSince(tStart),
-                         Date().timeIntervalSince(tTok), ids.count))
-        }
+        let logits = model.lm.logits(hidden[0..., -1, 0...]).asType(.float32).squeezed()
+        var result = Answer(
+            text: "", probs: nil, promptTokens: ids.count, visualTokens: features.dim(0),
+            tokenizeSeconds: tTok.timeIntervalSince(tStart))
 
         if numOptions > 0 {
             let letters = MLXArray(spec.letterIds.prefix(numOptions).map { Int32($0) })
             let probs = softmax(logits[letters], axis: -1).asArray(Float.self).map(Double.init)
+            result.prefillSeconds = Date().timeIntervalSince(tTok)
             let best = probs.indices.max { probs[$0] < probs[$1] }!
-            return Answer(
-                text: String(UnicodeScalar(65 + best)!), probs: probs, promptTokens: ids.count,
-                visualTokens: features.dim(0))
+            result.text = String(UnicodeScalar(65 + best)!)
+            result.probs = probs
+            return result
         }
 
+        // Greedy decoding. The next step is queued on the GPU (asyncEval) before the current token is read back,
+        // so reading a token and decoding its text overlap with the next forward pass.
         let eos = Set(spec.eosTokenIds)
         var generated: [Int] = []
-        var next = logits.argMax().item(Int.self)
-        while !eos.contains(next) && generated.count < maxNewTokens {
-            generated.append(next)
-            let tail = decode(Array(generated.suffix(6)))
-            if let onText { onText(Self.visible(decode(generated))) }
-            if tail.contains(PromptText.answerClose) { break }
-            let e = model.lm.embedTokens(MLXArray([Int32(next)])).expandedDimensions(axis: 0)
-            let h = model.lm(embeddings: e, caches: caches)
-            logits = model.lm.logits(h[0..., -1, 0...]).asType(.float32).squeezed()
-            next = logits.argMax().item(Int.self)
+        func step(_ token: MLXArray) -> MLXArray {
+            let h = model.lm(embeddings: model.lm.embedTokens(token.reshaped([1])).expandedDimensions(axis: 0),
+                             caches: caches)
+            return model.lm.logits(h[0..., -1, 0...]).squeezed().argMax()
         }
-        let text = Self.visible(decode(generated))
-        onText?(text)
-        return Answer(text: text, probs: nil, promptTokens: ids.count, visualTokens: features.dim(0))
+        var current = logits.argMax()
+        eval(current)
+        let tFirst = Date()
+        result.prefillSeconds = tFirst.timeIntervalSince(tTok)
+        while true {
+            let next = current.item(Int.self)
+            if eos.contains(next) { break }
+            generated.append(next)
+            if generated.count >= maxNewTokens { break }
+            let upcoming = step(current)
+            asyncEval(upcoming)
+            if let onText { onText(Self.visible(decode(generated))) }
+            if decode(Array(generated.suffix(6))).contains(PromptText.answerClose) { break }
+            current = upcoming
+        }
+        result.decodeSeconds = Date().timeIntervalSince(tFirst)
+        result.generatedTokens = generated.count
+        result.text = Self.visible(decode(generated))
+        onText?(result.text)
+        return result
     }
 
     /// One prefill over `embeddings` [1, L, hidden] and the last-position logits (for timing).

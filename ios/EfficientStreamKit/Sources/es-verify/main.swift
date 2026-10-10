@@ -48,6 +48,12 @@ struct Verify {
             try await bench(models: URL(fileURLWithPath: args[2]))
             return
         }
+        if args.count >= 5 && args[1] == "testset" {
+            try await runTestSet(
+                models: URL(fileURLWithPath: args[2]), bench: URL(fileURLWithPath: args[3]), run: args[4],
+                gridFps: Double(args[5])!, limit: args.count > 6 ? Int(args[6]) : nil)
+            return
+        }
         if args.count >= 5 && args[1] == "session" {
             try await checkSession(
                 models: URL(fileURLWithPath: args[2]), frames: URL(fileURLWithPath: args[3]),

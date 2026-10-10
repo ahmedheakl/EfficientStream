@@ -1,0 +1,1352 @@
+[
+ {
+  "bench": "StreamBench",
+  "task": "SF",
+  "video": "streambench/Ego/2aa59fb1-a4a8-4d75-a2f6-88f8a06c0dea.mp4",
+  "time": 20.0,
+  "question": "What words are displayed on the poster on the wall?",
+  "answer": "It displays the words 'we can do it.'",
+  "options": null,
+  "gt": null,
+  "id": 0
+ },
+ {
+  "bench": "StreamBench",
+  "task": "SM",
+  "video": "streambench/Ego/2aa59fb1-a4a8-4d75-a2f6-88f8a06c0dea.mp4",
+  "time": 54.0,
+  "question": "Is the blanket on the sofa green?",
+  "answer": "No, I see the blanket is orange or brown.",
+  "options": null,
+  "gt": null,
+  "id": 1
+ },
+ {
+  "bench": "StreamBench",
+  "task": "KG",
+  "video": "streambench/Ego/2aa59fb1-a4a8-4d75-a2f6-88f8a06c0dea.mp4",
+  "time": 88.0,
+  "question": "Beethoven was a pianist from what time period?",
+  "answer": "Ludwig van Beethoven was a pianist and composer during the late Classical and early Romantic periods. He was born in December 1770 and died in March 1827.",
+  "options": null,
+  "gt": null,
+  "id": 2
+ },
+ {
+  "bench": "StreamBench",
+  "task": "OS",
+  "video": "streambench/Ego/2aa59fb1-a4a8-4d75-a2f6-88f8a06c0dea.mp4",
+  "time": 127.0,
+  "question": "Where in the room can you find the potted plants that I keep?",
+  "answer": "You can find in the corner of the room.",
+  "options": null,
+  "gt": null,
+  "id": 3
+ },
+ {
+  "bench": "StreamBench",
+  "task": "CI",
+  "video": "streambench/Ego/2aa59fb1-a4a8-4d75-a2f6-88f8a06c0dea.mp4",
+  "time": 153.0,
+  "question": "Is the blanket on the sofa orange?",
+  "answer": "Yes, I see the blanket is orange or brown.",
+  "options": null,
+  "gt": null,
+  "id": 4
+ },
+ {
+  "bench": "StreamBench",
+  "task": "LM",
+  "video": "streambench/Ego/2aa59fb1-a4a8-4d75-a2f6-88f8a06c0dea.mp4",
+  "time": 179.0,
+  "question": "Is the poster with 'we can do it' on it located on the wall above the piano?",
+  "answer": "Yes, it appears that the poster is very close to the piano, just positioned above it.",
+  "options": null,
+  "gt": null,
+  "id": 5
+ },
+ {
+  "bench": "StreamBench",
+  "task": "SF",
+  "video": "streambench/Movie/1YGyKYK1HuY.mp4",
+  "time": 9.0,
+  "question": "What color clothes is the blonde woman wearing in the video?",
+  "answer": "The woman wears in white clothes.",
+  "options": null,
+  "gt": null,
+  "id": 6
+ },
+ {
+  "bench": "StreamBench",
+  "task": "SM",
+  "video": "streambench/Movie/1YGyKYK1HuY.mp4",
+  "time": 38.0,
+  "question": "Where did the woman take out the cylindrical transparent container from?",
+  "answer": "The woman took the cylindrical transparent container out from her clothing pocket.",
+  "options": null,
+  "gt": null,
+  "id": 7
+ },
+ {
+  "bench": "StreamBench",
+  "task": "KG",
+  "video": "streambench/Movie/1YGyKYK1HuY.mp4",
+  "time": 57.0,
+  "question": "In what year was the first photograph taken?",
+  "answer": "The first photograph was taken in 1826.",
+  "options": null,
+  "gt": null,
+  "id": 8
+ },
+ {
+  "bench": "StreamBench",
+  "task": "LM",
+  "video": "streambench/Movie/1YGyKYK1HuY.mp4",
+  "time": 126.0,
+  "question": "Based on what you see, where is the silver pen with a black section at the bottom?",
+  "answer": "The pen is on the table next to a keyboard.",
+  "options": null,
+  "gt": null,
+  "id": 9
+ },
+ {
+  "bench": "StreamBench",
+  "task": "OS",
+  "video": "streambench/Movie/1YGyKYK1HuY.mp4",
+  "time": 156.0,
+  "question": "Where is the brown, round hat?",
+  "answer": "The hat is held in the hand of the woman with yellow, flowing hair.",
+  "options": null,
+  "gt": null,
+  "id": 10
+ },
+ {
+  "bench": "StreamBench",
+  "task": "CI",
+  "video": "streambench/Movie/1YGyKYK1HuY.mp4",
+  "time": 160.0,
+  "question": "Are there any white hats in the video?",
+  "answer": "No, there is a brown hat in the video.",
+  "options": null,
+  "gt": null,
+  "id": 11
+ },
+ {
+  "bench": "StreamBench",
+  "task": "SF",
+  "video": "streambench/WebVideo/j4x4ex2RXmM.mp4",
+  "time": 20.0,
+  "question": "What color is the clothing that the man in the video is wearing?",
+  "answer": "He is wearing black clothes.",
+  "options": null,
+  "gt": null,
+  "id": 12
+ },
+ {
+  "bench": "StreamBench",
+  "task": "OS",
+  "video": "streambench/WebVideo/j4x4ex2RXmM.mp4",
+  "time": 70.0,
+  "question": "Can you help me locate a red pepper in this video?",
+  "answer": "You can see a red pepper on the white table, next to a wooden board.",
+  "options": null,
+  "gt": null,
+  "id": 13
+ },
+ {
+  "bench": "StreamBench",
+  "task": "KG",
+  "video": "streambench/WebVideo/j4x4ex2RXmM.mp4",
+  "time": 100.0,
+  "question": "What dishes can potatoes be used for?",
+  "answer": "Potatoes can be made into fries, mashed, baked, or used in soups and stews. ",
+  "options": null,
+  "gt": null,
+  "id": 14
+ },
+ {
+  "bench": "StreamBench",
+  "task": "CI",
+  "video": "streambench/WebVideo/j4x4ex2RXmM.mp4",
+  "time": 120.0,
+  "question": "What does the man in black do to the chili pepper with a knife?",
+  "answer": "He cuts off a portion.",
+  "options": null,
+  "gt": null,
+  "id": 15
+ },
+ {
+  "bench": "StreamBench",
+  "task": "SM",
+  "video": "streambench/WebVideo/j4x4ex2RXmM.mp4",
+  "time": 150.0,
+  "question": "What could the man in black be cutting with a knife? It's a yellow, somewhat transparent ingredient?",
+  "answer": "He is likely cutting potatoes.",
+  "options": null,
+  "gt": null,
+  "id": 16
+ },
+ {
+  "bench": "StreamBench",
+  "task": "LM",
+  "video": "streambench/WebVideo/j4x4ex2RXmM.mp4",
+  "time": 180.0,
+  "question": "Do you know what the woman in the black clothes and green apron was doing with that orange stick?",
+  "answer": "She was using the orange stick to stir the ingredients that were added to the transparent bowl.",
+  "options": null,
+  "gt": null,
+  "id": 17
+ },
+ {
+  "bench": "StreamBench",
+  "task": "SF",
+  "video": "streambench/Ego/1e0b85a9-7e7d-44cb-857f-81ae2da0a966.mp4",
+  "time": 20.0,
+  "question": "What is stored in the cabinet that I just saw?",
+  "answer": "It's filled with various items, including materials and so on.",
+  "options": null,
+  "gt": null,
+  "id": 18
+ },
+ {
+  "bench": "StreamBench",
+  "task": "SM",
+  "video": "streambench/Ego/1e0b85a9-7e7d-44cb-857f-81ae2da0a966.mp4",
+  "time": 54.0,
+  "question": "What color is the toolbox on the table?",
+  "answer": "If I didn't see wrong, the toolbox is blue.",
+  "options": null,
+  "gt": null,
+  "id": 19
+ },
+ {
+  "bench": "StreamBench",
+  "task": "KG",
+  "video": "streambench/Ego/1e0b85a9-7e7d-44cb-857f-81ae2da0a966.mp4",
+  "time": 88.0,
+  "question": "What are the fundamental particles that make up an atom?",
+  "answer": "Atoms are primarily composed of three fundamental particles: protons, neutrons, and electrons.",
+  "options": null,
+  "gt": null,
+  "id": 20
+ },
+ {
+  "bench": "StreamBench",
+  "task": "OS",
+  "video": "streambench/Ego/1e0b85a9-7e7d-44cb-857f-81ae2da0a966.mp4",
+  "time": 127.0,
+  "question": "Where did I put my toolbox?",
+  "answer": "It looks like you've placed the toolbox on the table.",
+  "options": null,
+  "gt": null,
+  "id": 21
+ },
+ {
+  "bench": "StreamBench",
+  "task": "LM",
+  "video": "streambench/Ego/1e0b85a9-7e7d-44cb-857f-81ae2da0a966.mp4",
+  "time": 153.0,
+  "question": "Is there only one person in the room?",
+  "answer": "No, if I'm not mistaken, there is another person in the room.",
+  "options": null,
+  "gt": null,
+  "id": 22
+ },
+ {
+  "bench": "StreamBench",
+  "task": "CI",
+  "video": "streambench/Ego/1e0b85a9-7e7d-44cb-857f-81ae2da0a966.mp4",
+  "time": 179.0,
+  "question": "What do you think my profession is based on the context information?",
+  "answer": "Based on the context information, I think your profession should be a worker who needs to use various tools.",
+  "options": null,
+  "gt": null,
+  "id": 23
+ },
+ {
+  "bench": "StreamBench",
+  "task": "SF",
+  "video": "streambench/Movie/VsdeqOdkdTY.mp4",
+  "time": 19.0,
+  "question": "What color is the hair of the little girl wearing the blue jacket?",
+  "answer": "The color of the little girl's hair wearing a blue jacket is yellow or gold.",
+  "options": null,
+  "gt": null,
+  "id": 24
+ },
+ {
+  "bench": "StreamBench",
+  "task": "KG",
+  "video": "streambench/Movie/VsdeqOdkdTY.mp4",
+  "time": 45.0,
+  "question": "Who invented the light bulb?",
+  "answer": "Thomas Edison is generally credited with inventing the electric light bulb.",
+  "options": null,
+  "gt": null,
+  "id": 25
+ },
+ {
+  "bench": "StreamBench",
+  "task": "SM",
+  "video": "streambench/Movie/VsdeqOdkdTY.mp4",
+  "time": 55.0,
+  "question": "Where is the man wearing a khaki jacket and a black tie?",
+  "answer": "The man is lying on the ground.",
+  "options": null,
+  "gt": null,
+  "id": 26
+ },
+ {
+  "bench": "StreamBench",
+  "task": "CI",
+  "video": "streambench/Movie/VsdeqOdkdTY.mp4",
+  "time": 100.0,
+  "question": "Are there any people wearing a tie in this video?",
+  "answer": "There is a man wearing a tie in the video.",
+  "options": null,
+  "gt": null,
+  "id": 27
+ },
+ {
+  "bench": "StreamBench",
+  "task": "LM",
+  "video": "streambench/Movie/VsdeqOdkdTY.mp4",
+  "time": 120.0,
+  "question": "Based on what you see, where is the ladder that the little girl with a blue jacket and yellow hair touched?",
+  "answer": "The labber is standing upright next to a haystack.",
+  "options": null,
+  "gt": null,
+  "id": 28
+ },
+ {
+  "bench": "StreamBench",
+  "task": "OS",
+  "video": "streambench/Movie/VsdeqOdkdTY.mp4",
+  "time": 153.0,
+  "question": "Where is the handgun that the man wearing a black monocle held?",
+  "answer": "The handgun is on the ground next to the fire.",
+  "options": null,
+  "gt": null,
+  "id": 29
+ },
+ {
+  "bench": "StreamBench",
+  "task": "SF",
+  "video": "streambench/WebVideo/YxXrLCWFxTg.mp4",
+  "time": 12.0,
+  "question": "What color is the cabinet above the white sink on the wall?",
+  "answer": "It is yellow.",
+  "options": null,
+  "gt": null,
+  "id": 30
+ },
+ {
+  "bench": "StreamBench",
+  "task": "SM",
+  "video": "streambench/WebVideo/YxXrLCWFxTg.mp4",
+  "time": 47.0,
+  "question": "What color are the railings of the balcony next to the green tree?",
+  "answer": "They are red.",
+  "options": null,
+  "gt": null,
+  "id": 31
+ },
+ {
+  "bench": "StreamBench",
+  "task": "KG",
+  "video": "streambench/WebVideo/YxXrLCWFxTg.mp4",
+  "time": 53.0,
+  "question": "What are the main components of concrete?",
+  "answer": "The main components of concrete are cement, water, sand, and gravel or crushed stone.",
+  "options": null,
+  "gt": null,
+  "id": 32
+ },
+ {
+  "bench": "StreamBench",
+  "task": "LM",
+  "video": "streambench/WebVideo/YxXrLCWFxTg.mp4",
+  "time": 78.0,
+  "question": "Based on what you see, what color is the stove next to the yellow cabinet with the sink?",
+  "answer": "The surface of the stove is white, and the grates are black.",
+  "options": null,
+  "gt": null,
+  "id": 33
+ },
+ {
+  "bench": "StreamBench",
+  "task": "OS",
+  "video": "streambench/WebVideo/YxXrLCWFxTg.mp4",
+  "time": 95.0,
+  "question": "Where is the showerhead?",
+  "answer": "Thers is a showerhead on the wall above and next to the toilet.",
+  "options": null,
+  "gt": null,
+  "id": 34
+ },
+ {
+  "bench": "StreamBench",
+  "task": "CI",
+  "video": "streambench/WebVideo/YxXrLCWFxTg.mp4",
+  "time": 120.0,
+  "question": "Does the house shown in the video have a stove?",
+  "answer": "The house has a stove.",
+  "options": null,
+  "gt": null,
+  "id": 35
+ },
+ {
+  "bench": "StreamBench",
+  "task": "SF",
+  "video": "streambench/Ego/075cbc45-b791-42ab-8d39-5058aed3d02a.mp4",
+  "time": 20.0,
+  "question": "I need to use a towel to wipe off the water on my hands. Can you tell me where I can find the towel in the bathroom?",
+  "answer": "It looks like it is on your right, above the toilet.",
+  "options": null,
+  "gt": null,
+  "id": 36
+ },
+ {
+  "bench": "StreamBench",
+  "task": "SM",
+  "video": "streambench/Ego/075cbc45-b791-42ab-8d39-5058aed3d02a.mp4",
+  "time": 56.0,
+  "question": "Is there hand soap in a plastic bottle near the sink?",
+  "answer": "It looks like yes, there is.",
+  "options": null,
+  "gt": null,
+  "id": 37
+ },
+ {
+  "bench": "StreamBench",
+  "task": "OS",
+  "video": "streambench/Ego/075cbc45-b791-42ab-8d39-5058aed3d02a.mp4",
+  "time": 88.0,
+  "question": "Is there an electrical outlet below the mirror in the bathroom?",
+  "answer": "Yes, I can see the electrical outlet below the mirror.",
+  "options": null,
+  "gt": null,
+  "id": 38
+ },
+ {
+  "bench": "StreamBench",
+  "task": "LM",
+  "video": "streambench/Ego/075cbc45-b791-42ab-8d39-5058aed3d02a.mp4",
+  "time": 127.0,
+  "question": "Is there a roll of toilet paper inside the cabinet in the bathroom?",
+  "answer": "Yes, I can see a roll of toilet paper in the cabinet.",
+  "options": null,
+  "gt": null,
+  "id": 39
+ },
+ {
+  "bench": "StreamBench",
+  "task": "SM",
+  "video": "streambench/Ego/075cbc45-b791-42ab-8d39-5058aed3d02a.mp4",
+  "time": 153.0,
+  "question": "Is there a green plant next to the sink in the kitchen?",
+  "answer": "Yes, I can see different green plants there.",
+  "options": null,
+  "gt": null,
+  "id": 40
+ },
+ {
+  "bench": "StreamBench",
+  "task": "CI",
+  "video": "streambench/Ego/075cbc45-b791-42ab-8d39-5058aed3d02a.mp4",
+  "time": 179.0,
+  "question": "Based on the context, does the bathroom in my house have a towel?",
+  "answer": "Based on the context, there is a towel above the toilet.",
+  "options": null,
+  "gt": null,
+  "id": 41
+ },
+ {
+  "bench": "StreamBench",
+  "task": "SF",
+  "video": "streambench/Movie/Pvuv2sn5fDQ.mp4",
+  "time": 10.0,
+  "question": "Where are the people in the video located? Indoors or outdoors?",
+  "answer": "Indoors.",
+  "options": null,
+  "gt": null,
+  "id": 42
+ },
+ {
+  "bench": "StreamBench",
+  "task": "SM",
+  "video": "streambench/Movie/Pvuv2sn5fDQ.mp4",
+  "time": 31.0,
+  "question": "Where is the green or yellow towel? ",
+  "answer": "The towel is in the hand of the man standing next to the refrigerator.",
+  "options": null,
+  "gt": null,
+  "id": 43
+ },
+ {
+  "bench": "StreamBench",
+  "task": "OS",
+  "video": "streambench/Movie/Pvuv2sn5fDQ.mp4",
+  "time": 95.0,
+  "question": "Where are the white candles?",
+  "answer": "The white candles are on the table where people are sitting around.",
+  "options": null,
+  "gt": null,
+  "id": 44
+ },
+ {
+  "bench": "StreamBench",
+  "task": "LM",
+  "video": "streambench/Movie/Pvuv2sn5fDQ.mp4",
+  "time": 106.0,
+  "question": "Based on what you see, Did anyone else stand up besides the person who went to the refrigerator?",
+  "answer": "The man in white shirt stood up.",
+  "options": null,
+  "gt": null,
+  "id": 45
+ },
+ {
+  "bench": "StreamBench",
+  "task": "KG",
+  "video": "streambench/Movie/Pvuv2sn5fDQ.mp4",
+  "time": 130.0,
+  "question": "What factors influence the color of an apple?",
+  "answer": "The color of an apple depends on its genetic makeup (variety), the amount of sunlight it receives, and its stage of maturity.",
+  "options": null,
+  "gt": null,
+  "id": 46
+ },
+ {
+  "bench": "StreamBench",
+  "task": "CI",
+  "video": "streambench/Movie/Pvuv2sn5fDQ.mp4",
+  "time": 156.0,
+  "question": "Are there any towels in the video?",
+  "answer": "Yes, there is a green or yellow towel.",
+  "options": null,
+  "gt": null,
+  "id": 47
+ },
+ {
+  "bench": "StreamBench",
+  "task": "SF",
+  "video": "streambench/WebVideo/FNEqoFR1s5g.mp4",
+  "time": 19.0,
+  "question": "What is the man holding in his hand?",
+  "answer": "It is a green food.",
+  "options": null,
+  "gt": null,
+  "id": 48
+ },
+ {
+  "bench": "StreamBench",
+  "task": "SM",
+  "video": "streambench/WebVideo/FNEqoFR1s5g.mp4",
+  "time": 42.0,
+  "question": "Where is the knife that just touched the pink food?",
+  "answer": "It is on the white table next to the red cutting board.",
+  "options": null,
+  "gt": null,
+  "id": 49
+ },
+ {
+  "bench": "OVO-Bench",
+  "task": "EPM",
+  "video": "ovobench/OpenEQA/014-hm3d-rsggHU7g7dh.mp4",
+  "time": 109.0,
+  "question": "What is the yellow object hanging on the wall?",
+  "answer": "A painting depicting a man",
+  "options": [
+   "A painting depicting a tree",
+   "A painting depicting a man",
+   "A painting depicting a landscape",
+   "A painting depicting a house"
+  ],
+  "gt": 1,
+  "id": 50
+ },
+ {
+  "bench": "OVO-Bench",
+  "task": "EPM",
+  "video": "ovobench/OpenEQA/013-hm3d-svBbv1Pavdk.mp4",
+  "time": 95.0,
+  "question": "What color is the smoke detector?",
+  "answer": "Yellow or off-white",
+  "options": [
+   "White",
+   "Yellow or off-white",
+   "Black",
+   "Blue"
+  ],
+  "gt": 1,
+  "id": 51
+ },
+ {
+  "bench": "OVO-Bench",
+  "task": "EPM",
+  "video": "ovobench/Ego4D/clips/aa2afb03-41d8-42fc-a111-982d9319f1c4.mp4",
+  "time": 264.0,
+  "question": "where did I pick the plate from",
+  "answer": "plate drainer",
+  "options": [
+   "sink",
+   "table",
+   "plate drainer",
+   "cupboard"
+  ],
+  "gt": 2,
+  "id": 52
+ },
+ {
+  "bench": "OVO-Bench",
+  "task": "EPM",
+  "video": "ovobench/Ego4D/clips/7db32b15-9ea6-4a44-a103-cc04471ce4f7.mp4",
+  "time": 75.0,
+  "question": "how many eggs did I pick?",
+  "answer": "two",
+  "options": [
+   "one",
+   "two",
+   "three",
+   "four"
+  ],
+  "gt": 1,
+  "id": 53
+ },
+ {
+  "bench": "OVO-Bench",
+  "task": "ASI",
+  "video": "ovobench/hirest/oDRoXgINJAU_108_288.mp4",
+  "time": 25.0,
+  "question": "What does the person do before add carrot on pan",
+  "answer": "fry vegetables using pan",
+  "options": [
+   "add sous on it",
+   "add tomato and needed herbs",
+   "fry vegetables using pan",
+   "take out meat"
+  ],
+  "gt": 2,
+  "id": 54
+ },
+ {
+  "bench": "OVO-Bench",
+  "task": "ASI",
+  "video": "ovobench/hirest/lpyvvneQImU_81_236.mp4",
+  "time": 21.0,
+  "question": "What does the person do before add garlic",
+  "answer": "sautee the onion",
+  "options": [
+   "sautee the onion",
+   "add apple cider vinegar",
+   "add brown sugar",
+   "drain mustard sauce"
+  ],
+  "gt": 0,
+  "id": 55
+ },
+ {
+  "bench": "OVO-Bench",
+  "task": "ASI",
+  "video": "ovobench/cross_task/U8WsB25zQR0.mp4",
+  "time": 107.84,
+  "question": "What does the person do after flip bread",
+  "answer": "top toast",
+  "options": [
+   "put bread in pan",
+   "whisk mixture",
+   "dip bread in mixture",
+   "top toast"
+  ],
+  "gt": 3,
+  "id": 56
+ },
+ {
+  "bench": "OVO-Bench",
+  "task": "OCR",
+  "video": "ovobench/AutoEvalMetaData/259.mp4",
+  "time": 24.08,
+  "question": "What are the letters on the sign?",
+  "answer": "SC",
+  "options": [
+   "SC",
+   "RD",
+   "SY",
+   "GL"
+  ],
+  "gt": 0,
+  "id": 57
+ },
+ {
+  "bench": "OVO-Bench",
+  "task": "OCR",
+  "video": "ovobench/AutoEvalMetaData/59.mp4",
+  "time": 62.92,
+  "question": "What text appears on the shirts worn by the players?",
+  "answer": "VALLEY",
+  "options": [
+   "17",
+   "3",
+   "VALLEY",
+   "OCEAN"
+  ],
+  "gt": 2,
+  "id": 58
+ },
+ {
+  "bench": "OVO-Bench",
+  "task": "OCR",
+  "video": "ovobench/AutoEvalMetaData/274.mp4",
+  "time": 48.0,
+  "question": "How does the text on the screen describe the extreme weather?",
+  "answer": "Unusual, severe or unseasonal weather that can be dangerous and cause damage.",
+  "options": [
+   "Extreme weather is recognized for its severity, volatility, anomaly, perilousness, and destruction.",
+   "Extreme weather is described as unusual, severe, unseasonal, dangerous, and damaging.",
+   "Extreme weather is noted for its harshness, irregularity, violence, hazards, and consequences.",
+   "Extreme weather is seen as intense, erratic, atypical, compromising, and disruptive."
+  ],
+  "gt": 1,
+  "id": 59
+ },
+ {
+  "bench": "OVO-Bench",
+  "task": "ACR",
+  "video": "ovobench/AutoEvalMetaData/308.mp4",
+  "time": 36.5,
+  "question": "What is he doing with his hands.",
+  "answer": "He is taking off his clothes.",
+  "options": [
+   "He is buttoning his pants.",
+   "He is folding a shirt.",
+   "He is taking a shower.",
+   "He is taking off his clothes."
+  ],
+  "gt": 3,
+  "id": 60
+ },
+ {
+  "bench": "OVO-Bench",
+  "task": "ACR",
+  "video": "ovobench/Ego4D/video/151dbdab-9705-4641-a8f7-9f432cec8c2e.mp4",
+  "time": 107.37,
+  "question": "What is this person doing?",
+  "answer": "He is walking towards the bike.",
+  "options": [
+   "Stepping outside the room.",
+   "Walking towards the bike.",
+   "Checking the tire pressure.",
+   "Organizing electrical wires."
+  ],
+  "gt": 1,
+  "id": 61
+ },
+ {
+  "bench": "OVO-Bench",
+  "task": "ACR",
+  "video": "ovobench/AutoEvalMetaData/129.mp4",
+  "time": 280.85,
+  "question": "What is the person in the white outfit doing?",
+  "answer": "He is sniping the enemy opposite.",
+  "options": [
+   "The individual is walking briskly.",
+   "The person is tiptoeing quietly.",
+   "The person is jogging energetically.",
+   "The person is sniping the enemy opposite."
+  ],
+  "gt": 3,
+  "id": 62
+ },
+ {
+  "bench": "OVO-Bench",
+  "task": "ATR",
+  "video": "ovobench/AutoEvalMetaData/8.mp4",
+  "time": 278.57,
+  "question": "What distinctive color and pattern is present on the small dog walking away?",
+  "answer": "The small dog has a white coat with brown patches, particularly around its back and ears.",
+  "options": [
+   "White coat with brown patches.",
+   "Black coat with white spots.",
+   "Brown coat with black patches.",
+   "White coat with black spots."
+  ],
+  "gt": 0,
+  "id": 63
+ },
+ {
+  "bench": "OVO-Bench",
+  "task": "ATR",
+  "video": "ovobench/AutoEvalMetaData/260.mp4",
+  "time": 183.03,
+  "question": "What expression does the person in the rearview mirror have?",
+  "answer": "He appears calm.",
+  "options": [
+   "Calm.",
+   "Concerned.",
+   "Anxious.",
+   "Neutral."
+  ],
+  "gt": 0,
+  "id": 64
+ },
+ {
+  "bench": "OVO-Bench",
+  "task": "ATR",
+  "video": "ovobench/AutoEvalMetaData/243.mp4",
+  "time": 132.84,
+  "question": "What texture does the mixture appear to have?",
+  "answer": "The mixture appears smooth and liquidy.",
+  "options": [
+   "Thick and creamy.",
+   "Smooth and liquidy.",
+   "Gritty and coarse.",
+   "Lumpy and uneven."
+  ],
+  "gt": 1,
+  "id": 65
+ },
+ {
+  "bench": "OVO-Bench",
+  "task": "STU",
+  "video": "ovobench/Ego4D/video/760a2d62-d580-4422-b32f-2c4fc9a35c7c.mp4",
+  "time": 182.93,
+  "question": "Where is the yellow soap located on the faucet?",
+  "answer": "On the right side of the faucet.",
+  "options": [
+   "On the left side of the faucet.",
+   "On the right side of the faucet.",
+   "On the top of the faucet.",
+   "On the bottom of the faucet."
+  ],
+  "gt": 1,
+  "id": 66
+ },
+ {
+  "bench": "OVO-Bench",
+  "task": "STU",
+  "video": "ovobench/AutoEvalMetaData/171.mp4",
+  "time": 65.08,
+  "question": "What is the orientation of the screwdriver?",
+  "answer": "The screwdriver is positioned perpendicularly, forming a 90-degree angle with the wall socket.",
+  "options": [
+   "The screwdriver forms a 45-degree angle with the wall.",
+   "The screwdriver is aligned at a 15-degree angle with the horizontal.",
+   "The angle of the screwdriver relative to the wall socket is 90 degrees.",
+   "The screwdriver is oriented at a 110-degree angle towards the surface."
+  ],
+  "gt": 2,
+  "id": 67
+ },
+ {
+  "bench": "OVO-Bench",
+  "task": "STU",
+  "video": "ovobench/AutoEvalMetaData/23.mp4",
+  "time": 66.04,
+  "question": "How many players are competing on the field now?",
+  "answer": "There are four competitors competing, wearing red shirts and white shirts.",
+  "options": [
+   "There are five players on the field.",
+   "There are three players on the field.",
+   "There are four players on the field.",
+   "There are two players on the field."
+  ],
+  "gt": 2,
+  "id": 68
+ },
+ {
+  "bench": "OVO-Bench",
+  "task": "FPD",
+  "video": "ovobench/Ego4D/video/f93e485e-9ec3-4856-809d-f050c6439b7b.mp4",
+  "time": 164.03,
+  "question": "What is this person about to do?",
+  "answer": "The person is about to hit the screwdriver to fasten something.",
+  "options": [
+   "The person is about to hammer a nail.",
+   "The person is about to start painting a wall.",
+   "The person is about to plant a tree.",
+   "The person is about to use a screwdriver."
+  ],
+  "gt": 3,
+  "id": 69
+ },
+ {
+  "bench": "OVO-Bench",
+  "task": "FPD",
+  "video": "ovobench/Ego4D/video/62a88600-ba3e-4d10-ab9a-79f6306d630c.mp4",
+  "time": 179.07,
+  "question": "What is the person going to do with the stylus?",
+  "answer": "The person is going to operate the tablet with the stylus.",
+  "options": [
+   "The person is about to interact with the tablet using the stylus.",
+   "The person is aiming to write on a digital platform with the stylus.",
+   "The person is set to operate the touchscreen interface with the stylus.",
+   "The person is preparing to use the stylus for creating art on a tablet."
+  ],
+  "gt": 0,
+  "id": 70
+ },
+ {
+  "bench": "OVO-Bench",
+  "task": "FPD",
+  "video": "ovobench/Ego4D/video/a27fc25f-d008-4e1c-aa22-a1c3f4286481.mp4",
+  "time": 194.0,
+  "question": "What is this person about to do?",
+  "answer": "The person is going to apply the mixture onto a surface.",
+  "options": [
+   "The person is about to stir the mixture.",
+   "The person is about to pour the mixture into a baking dish.",
+   "The person is about to cover the mixture and let it marinate.",
+   "The person is about to taste the mixture for seasoning."
+  ],
+  "gt": 0,
+  "id": 71
+ },
+ {
+  "bench": "OVO-Bench",
+  "task": "OJR",
+  "video": "ovobench/Ego4D/video/bd66979f-2921-420c-98ed-3512e67f79a4.mp4",
+  "time": 102.0,
+  "question": "What is the person holding in their hand?",
+  "answer": "A screwdriver.",
+  "options": [
+   "A screwdriver.",
+   "A paintbrush.",
+   "A hammer.",
+   "A pencil."
+  ],
+  "gt": 0,
+  "id": 72
+ },
+ {
+  "bench": "OVO-Bench",
+  "task": "OJR",
+  "video": "ovobench/Ego4D/video/ec2d6927-d5d4-4c8a-9da7-3e40345cf78f.mp4",
+  "time": 4.13,
+  "question": "What tool is on the ground next to the person's knee?",
+  "answer": "A sledgehammer",
+  "options": [
+   "A pair of pliers",
+   "A screwdriver",
+   "A sledgehammer",
+   "A wrench"
+  ],
+  "gt": 2,
+  "id": 73
+ },
+ {
+  "bench": "OVO-Bench",
+  "task": "OJR",
+  "video": "ovobench/AutoEvalMetaData/250.mp4",
+  "time": 213.95,
+  "question": "What device is being interacted with?",
+  "answer": "A tablet is being interacted with.",
+  "options": [
+   "Smartphone.",
+   "Laptop.",
+   "Tablet.",
+   "Desktop computer."
+  ],
+  "gt": 2,
+  "id": 74
+ },
+ {
+  "bench": "StreamingBench",
+  "task": "Action Perception",
+  "video": "streamingbench/sample_155_real.mp4",
+  "time": 10.0,
+  "question": "What is the elderly person with a white beard doing in the video?",
+  "answer": "Writing with a quill pen.",
+  "options": [
+   "Reading a book.",
+   "Painting on a canvas.",
+   "Cooking with a pot.",
+   "Writing with a quill pen."
+  ],
+  "gt": 3,
+  "id": 75
+ },
+ {
+  "bench": "StreamingBench",
+  "task": "Attribute Perception",
+  "video": "streamingbench/sample_202_real.mp4",
+  "time": 12.0,
+  "question": "What colors are the wheels of the race car?",
+  "answer": "Yellow and Red.",
+  "options": [
+   "Green and blue.",
+   "Red and blue.",
+   "Yellow and Red.",
+   "Brown."
+  ],
+  "gt": 2,
+  "id": 76
+ },
+ {
+  "bench": "StreamingBench",
+  "task": "Causal Reasoning",
+  "video": "streamingbench/sample_124_real.mp4",
+  "time": 297.0,
+  "question": "Why does the artist add layers of white paint to the portrait?",
+  "answer": "To create highlights and enhance dimensionality.",
+  "options": [
+   "To create highlights and enhance dimensionality.",
+   "To cover mistakes made earlier.",
+   "To change the color of the background.",
+   "To outline the figure in the portrait."
+  ],
+  "gt": 0,
+  "id": 77
+ },
+ {
+  "bench": "StreamingBench",
+  "task": "Clips Summarize",
+  "video": "streamingbench/sample_130_real.mp4",
+  "time": 19.0,
+  "question": "What is the main activity depicted in the video so far?",
+  "answer": "Sketching a helmeted figure.",
+  "options": [
+   "Sketching a helmeted figure.",
+   "Painting a landscape.",
+   "Arranging art supplies.",
+   "Painting a portrait."
+  ],
+  "gt": 0,
+  "id": 78
+ },
+ {
+  "bench": "StreamingBench",
+  "task": "Counting",
+  "video": "streamingbench/sample_88_real.mp4",
+  "time": 188.0,
+  "question": "How many times in total have movie clips been inserted during this person's explanation so far?",
+  "answer": "4.",
+  "options": [
+   "4.",
+   "5.",
+   "6.",
+   "0."
+  ],
+  "gt": 0,
+  "id": 79
+ },
+ {
+  "bench": "StreamingBench",
+  "task": "Event Understanding",
+  "video": "streamingbench/sample_207_real.mp4",
+  "time": 19.0,
+  "question": "How many yellow blocks are connected in a line?",
+  "answer": "Four.",
+  "options": [
+   "Two.",
+   "Three.",
+   "Four.",
+   "Five."
+  ],
+  "gt": 2,
+  "id": 80
+ },
+ {
+  "bench": "StreamingBench",
+  "task": "Object Perception",
+  "video": "streamingbench/sample_207_real.mp4",
+  "time": 3.0,
+  "question": "What is positioned underneath the archway made of colorful interlocking blocks?",
+  "answer": "A toy car.",
+  "options": [
+   "A small tree.",
+   "A toy truck.",
+   "A small building.",
+   "A toy car."
+  ],
+  "gt": 3,
+  "id": 81
+ },
+ {
+  "bench": "StreamingBench",
+  "task": "Prospective Reasoning",
+  "video": "streamingbench/sample_219_real.mp4",
+  "time": 149.0,
+  "question": "What might the speaker do next?",
+  "answer": "Show the steps to multiply the fractions.",
+  "options": [
+   "Add the fractions together.",
+   "Subtract the fractions.",
+   "Show the steps to multiply the fractions.",
+   "Divide the fractions."
+  ],
+  "gt": 2,
+  "id": 82
+ },
+ {
+  "bench": "StreamingBench",
+  "task": "Spatial Understanding",
+  "video": "streamingbench/sample_3_real.mp4",
+  "time": 20.0,
+  "question": "What is the position relationship between the woman in a black dress and the woman in a white outfit?",
+  "answer": "They are standing side by side.",
+  "options": [
+   "They are standing side by side.",
+   "They are standing back to back.",
+   "The woman in black is in front of the woman in white.",
+   "The woman in white is holding the trophy."
+  ],
+  "gt": 0,
+  "id": 83
+ },
+ {
+  "bench": "StreamingBench",
+  "task": "Text-Rich Understanding",
+  "video": "streamingbench/sample_147_real.mp4",
+  "time": 13.0,
+  "question": "What text appears on the screen when the man is shown exercising on the treadmill?",
+  "answer": "\"WARM-UP\".",
+  "options": [
+   "\"WARM-UP\".",
+   "\"HOW TO TRAIN\".",
+   "\"BACK & BICEPS\".",
+   "\"WORKOUT PLAN\"."
+  ],
+  "gt": 0,
+  "id": 84
+ },
+ {
+  "bench": "StreamingBench",
+  "task": "Action Perception",
+  "video": "streamingbench/sample_53_real.mp4",
+  "time": 184.0,
+  "question": "What did the hands do just now?",
+  "answer": "Put the pen and keychain into the pink box.",
+  "options": [
+   "Folded the pink paper object and pressed the glue.",
+   "Applied glue along the edges of the pink paper object.",
+   "Decorated the pink paper object with the beaded pen.",
+   "Put the pen and keychain into the pink box."
+  ],
+  "gt": 3,
+  "id": 85
+ },
+ {
+  "bench": "StreamingBench",
+  "task": "Attribute Perception",
+  "video": "streamingbench/sample_1_real.mp4",
+  "time": 128.0,
+  "question": "What is the color of the cooler labeled \"PRIME\" near the team bench?",
+  "answer": "Red.",
+  "options": [
+   "Blue.",
+   "Yellow.",
+   "Green.",
+   "Red."
+  ],
+  "gt": 3,
+  "id": 86
+ },
+ {
+  "bench": "StreamingBench",
+  "task": "Causal Reasoning",
+  "video": "streamingbench/sample_240_real.mp4",
+  "time": 39.0,
+  "question": "Where does this letter on the ground come from?",
+  "answer": "Mr. Bean just stuffed it in.",
+  "options": [
+   "It was delivered by the postman earlier.",
+   "It fell out of someone's pocket as they walked by.",
+   "It was dropped by a courier who was in a hurry.",
+   "Mr. Bean just stuffed it in."
+  ],
+  "gt": 3,
+  "id": 87
+ },
+ {
+  "bench": "StreamingBench",
+  "task": "Clips Summarize",
+  "video": "streamingbench/sample_342_real.mp4",
+  "time": 96.0,
+  "question": "What is the best summary of the actions performed just now?",
+  "answer": "The individual cooked bacon, meat pie, and scrambled eggs, then placed them in a container.",
+  "options": [
+   "The individual cleaned the counter, organized ingredients, and prepared a salad.",
+   "The individual prepared a sandwich, added condiments, and wrapped it for delivery.",
+   "The individual cooked bacon, meat pie, and scrambled eggs, then placed them in a container.",
+   "The individual prepared a fruit platter, arranged it neatly, and handed it to a customer."
+  ],
+  "gt": 2,
+  "id": 88
+ },
+ {
+  "bench": "StreamingBench",
+  "task": "Counting",
+  "video": "streamingbench/sample_86_real.mp4",
+  "time": 242.0,
+  "question": "How many times in total have movie clips been inserted during this person's explanation so far?",
+  "answer": "3.",
+  "options": [
+   "2.",
+   "4.",
+   "3.",
+   "6."
+  ],
+  "gt": 2,
+  "id": 89
+ },
+ {
+  "bench": "StreamingBench",
+  "task": "Event Understanding",
+  "video": "streamingbench/sample_203_real.mp4",
+  "time": 141.0,
+  "question": "What is the sequence of bricks added to the structure after the blue bricks?",
+  "answer": "Green, yellow, orange.",
+  "options": [
+   "Green, yellow, orange.",
+   "Yellow, green, orange.",
+   "Orange, yellow, green.",
+   "Green, orange, yellow."
+  ],
+  "gt": 0,
+  "id": 90
+ },
+ {
+  "bench": "StreamingBench",
+  "task": "Object Perception",
+  "video": "streamingbench/sample_14_real.mp4",
+  "time": 74.0,
+  "question": "What item is the man holding while adding seasoning to the bowl?",
+  "answer": "A thin, red, rectangular can.",
+  "options": [
+   "A small jar.",
+   "A wooden spoon.",
+   "A bottle of oil.",
+   "A thin, red, rectangular can."
+  ],
+  "gt": 3,
+  "id": 91
+ },
+ {
+  "bench": "StreamingBench",
+  "task": "Prospective Reasoning",
+  "video": "streamingbench/sample_218_real.mp4",
+  "time": 190.0,
+  "question": "What might the teacher explain next?",
+  "answer": "Explain how improper fractions is connected to proper fractions and whole fractions.",
+  "options": [
+   "Compare the fractions using decimal values.",
+   "Explain how improper fractions is connected to proper fractions and whole fractions.",
+   "Demonstrate how to multiply two fractions.",
+   "Discuss the concept of mixed numbers."
+  ],
+  "gt": 1,
+  "id": 92
+ },
+ {
+  "bench": "StreamingBench",
+  "task": "Spatial Understanding",
+  "video": "streamingbench/sample_132_real.mp4",
+  "time": 260.0,
+  "question": "Where is the potted plant located in relation to the portrait?",
+  "answer": "On the left side.",
+  "options": [
+   "On the right side.",
+   "Behind the canvas.",
+   "On the left side.",
+   "Under the table."
+  ],
+  "gt": 2,
+  "id": 93
+ },
+ {
+  "bench": "StreamingBench",
+  "task": "Text-Rich Understanding",
+  "video": "streamingbench/sample_119_real.mp4",
+  "time": 112.0,
+  "question": "What component is being detached from the GPU just now?",
+  "answer": "A copper heat sink.",
+  "options": [
+   "A fan module.",
+   "A copper heat sink.",
+   "A plastic cover.",
+   "A backplate."
+  ],
+  "gt": 1,
+  "id": 94
+ },
+ {
+  "bench": "StreamingBench",
+  "task": "Action Perception",
+  "video": "streamingbench/sample_206_real.mp4",
+  "time": 71.0,
+  "question": "What is the hand doing after placing three yellow blocks onto the top of the structure?",
+  "answer": "Adjusts the yellow block.",
+  "options": [
+   "Adds another block on top.",
+   "Removes the yellow block.",
+   "Leaves the block structure.",
+   "Adjusts the yellow block."
+  ],
+  "gt": 3,
+  "id": 95
+ },
+ {
+  "bench": "StreamingBench",
+  "task": "Attribute Perception",
+  "video": "streamingbench/sample_204_real.mp4",
+  "time": 62.0,
+  "question": "What are the primary colors of the plastic building blocks shown right now?",
+  "answer": "Red, green, and yellow.",
+  "options": [
+   "Blue, green, and yellow.",
+   "Red, green, and yellow.",
+   "Red, blue, and yellow.",
+   "Green, blue, and orange."
+  ],
+  "gt": 1,
+  "id": 96
+ },
+ {
+  "bench": "StreamingBench",
+  "task": "Causal Reasoning",
+  "video": "streamingbench/sample_23_real.mp4",
+  "time": 258.0,
+  "question": "Why does the woman lift the frying pan at a slight angle and shake it?",
+  "answer": "To ensure the ingredients are moved around for even cooking.",
+  "options": [
+   "To add more oil to the pan.",
+   "To check if the contents are cooked.",
+   "To ensure the ingredients are moved around for even cooking.",
+   "To cool down the pan."
+  ],
+  "gt": 2,
+  "id": 97
+ },
+ {
+  "bench": "StreamingBench",
+  "task": "Clips Summarize",
+  "video": "streamingbench/sample_377_real.mp4",
+  "time": 174.0,
+  "question": "What action best summarizes the individual's task just now?",
+  "answer": "The individual assembled a sandwich by adding various ingredients and condiments.",
+  "options": [
+   "The individual prepared a salad using fresh vegetables and topped it with dressing.",
+   "The individual assembled a sandwich by adding various ingredients and condiments.",
+   "The individual grilled a hamburger patty and added cheese before serving it.",
+   "The individual deep-fried snacks and served them with dipping sauces."
+  ],
+  "gt": 1,
+  "id": 98
+ },
+ {
+  "bench": "StreamingBench",
+  "task": "Counting",
+  "video": "streamingbench/sample_78_real.mp4",
+  "time": 18.0,
+  "question": "How many times in total have movie clips been inserted during this person's explanation so far?",
+  "answer": "0.",
+  "options": [
+   "2.",
+   "3.",
+   "0.",
+   "4."
+  ],
+  "gt": 2,
+  "id": 99
+ }
+]

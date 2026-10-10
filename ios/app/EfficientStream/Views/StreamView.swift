@@ -85,6 +85,8 @@ struct StreamView: View {
                 Text(formatTime(controller.now)).monospacedDigit()
             }
             Text("\(controller.storedCount)/\(controller.session.config.storeBudget) stored").monospacedDigit()
+            Text("every \(Int(controller.indexInterval)) s").monospacedDigit()
+            if controller.memoryMB > 0 { Text(String(format: "%.1f GB", controller.memoryMB / 1024)).monospacedDigit() }
         }
         .font(.caption.weight(.semibold))
         .foregroundStyle(.white)
@@ -118,7 +120,7 @@ struct StreamView: View {
                     VStack(spacing: 6) {
                         Image(systemName: "text.bubble").font(.largeTitle).foregroundStyle(.secondary)
                         Text("Ask about the stream at any moment.").font(.headline)
-                        Text("Frames are indexed every 2 s while the feed runs; a question looks at the current frame and the 16 most relevant past moments.")
+                        Text("Frames are indexed every \(Int(controller.indexInterval)) s while the feed runs; a question looks at the current frame and the 16 most relevant past moments.")
                             .font(.footnote).foregroundStyle(.secondary).multilineTextAlignment(.center)
                     }
                     .padding(.top, 30).padding(.horizontal, 24)
@@ -147,6 +149,11 @@ struct StreamView: View {
                 }
             }
             Menu {
+                Picker("Index a frame", selection: Binding(
+                    get: { controller.indexInterval }, set: { controller.indexInterval = $0 })) {
+                    Text("Every 2 s (evaluated)").tag(2.0)
+                    Text("Every 1 s").tag(1.0)
+                }
                 Button("Restart stream", systemImage: "arrow.counterclockwise") { controller.resetStream() }
                 Button("Clear answers", systemImage: "trash") { controller.clearHistory() }
                 Button("About", systemImage: "info.circle") { showInfo = true }

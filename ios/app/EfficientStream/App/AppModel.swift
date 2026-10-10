@@ -15,6 +15,7 @@ final class AppModel {
 
     private(set) var state: State = .needsModels
     private(set) var controller: StreamController?
+    private(set) var es: EfficientStream?
     private(set) var loadSeconds: Double = 0
 
     static var documents: URL { FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0] }
@@ -45,7 +46,8 @@ final class AppModel {
         let start = Date()
         do {
             let es = try await EfficientStream(directory: directory, cacheDirectory: Self.cacheDirectory)
-            controller = StreamController(es: es)
+            self.es = es
+            if BenchModel.requestedRuns == nil { controller = StreamController(es: es) }
             loadSeconds = Date().timeIntervalSince(start)
             state = .ready
         } catch {

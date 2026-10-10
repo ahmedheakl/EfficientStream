@@ -42,14 +42,31 @@ final class StreamController {
     private(set) var storedCount = 0
     private(set) var isAnswering = false
     private(set) var lastStoreSeconds: Double = 0
+    private(set) var lastStore = StoreTimings()
+    private(set) var memoryMB: Double = 0
+    /// Frames not stored on time because the previous one was still being indexed.
+    private(set) var lateStores = 0
+    /// Seconds between stored frames (2 = the evaluated 0.5 fps).
+    var indexInterval: Double = 2 {
+        didSet {
+            var c = session.config
+            c.gridFps = 1 / indexInterval
+            session.config = c
+            UserDefaults.standard.set(indexInterval, forKey: "indexInterval")
+        }
+    }
 
     /// The newest frame (not yet converted): converted only when a question is asked.
     @ObservationIgnored private let latest = LatestFrame()
     /// Store frames are embedded one at a time, in time order.
     @ObservationIgnored private var storeChain: Task<Void, Never>?
+    /// Store frames converted and waiting (at most one waits; a later one is skipped and stored late).
+    @ObservationIgnored private let pending = PendingCount()
 
     init(es: EfficientStream) {
         session = es.session()
+        let saved = UserDefaults.standard.double(forKey: "indexInterval")
+        if saved > 0 { indexInterval = saved }
         camera.onFrame = { [weak self] t, pb in self?.frame(t: t, pb: pb, rotation: 0) }
         video.onFrame = { [weak self] t, pb, rot in self?.frame(t: t, pb: pb, rotation: rot) }
         video.onRestart = { [weak self] in Task { @MainActor in self?.resetStream() } }
@@ -83,6 +100,7 @@ final class StreamController {
         storeChain = nil
         now = 0
         storedCount = 0
+        lateStores = 0
     }
 
     func clearHistory() { history.removeAll() }
@@ -94,7 +112,13 @@ final class StreamController {
             Task { @MainActor in self.now = t }
             return
         }
+        // indexing slower than the interval: keep one frame waiting, skip the rest (the next one is stored late)
+        guard pending.tryAcquire() else {
+            Task { @MainActor in self.now = t; self.lateStores += 1 }
+            return
+        }
         let image = RGBImage(pixelBuffer: pb, rotation: rotation)
+        let pending = self.pending
         Task { @MainActor in
             self.now = t
             let previous = self.storeChain
@@ -106,8 +130,11 @@ final class StreamController {
                 } catch {
                     print("store frame \(t): \(error)")
                 }
+                pending.release()
                 self.lastStoreSeconds = Date().timeIntervalSince(start)
+                self.lastStore = self.session.lastStoreTimings
                 self.storedCount = self.session.storedCount
+                self.memoryMB = DeviceStats.memoryMB().current
             }
         }
     }
@@ -139,12 +166,24 @@ final class StreamController {
                 qa.probs = r.probs
                 qa.thumbnails = thumbs
                 qa.result = r
+                memoryMB = DeviceStats.memoryMB().current
+                print(String(format: "question: ttft %.3f s, total %.3f s, %d tokens, %.1f tok/s",
+                             r.timings.timeToFirstToken, r.timings.total, r.timings.generatedTokens,
+                             r.timings.decodeTokensPerSecond))
             } catch {
                 qa.error = error.localizedDescription
             }
             isAnswering = false
         }
     }
+}
+
+/// How many store frames are waiting to be indexed (at most 2: one indexing, one waiting).
+final class PendingCount: @unchecked Sendable {
+    private let lock = NSLock()
+    private var n = 0
+    func tryAcquire() -> Bool { lock.withLock { if n >= 2 { return false }; n += 1; return true } }
+    func release() { lock.withLock { n -= 1 } }
 }
 
 /// A pixel buffer handed to a background task for conversion.
