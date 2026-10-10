@@ -77,12 +77,31 @@ Notes for reading these numbers:
 | `scripts/run_video.py` | command-line demo |
 | `tests/test_cpu.py` | unit tests that need no weights: `python -m pytest tests/` |
 | `docs/MOBILE.md` | what it takes to run this on an iPhone |
+| `proactive/stream_qwen.py` | the proactive streaming model (below), self-contained |
 
 The package was checked against the evaluated benchmark rows (fed the evaluated stored frames): the same answer on
 60 of 60 multiple-choice and 29 of 30 open-ended questions, the same prompt length on all 90; see "Verification" in
 `docs/MOBILE.md`.
 
+## Proactive streaming model (Qwen3.5-0.8B)
+
+`proactive/stream_qwen.py` runs our streaming Qwen3.5-0.8B (weights: `stream-qwen3.5-0.8b/` in
+[ahmedheakl/efficientstream](https://huggingface.co/ahmedheakl/efficientstream)). It is Qwen3.5-0.8B fine-tuned with
+OneStreamer's recipe (state tokens `</Silence>`, `</Standby>`, `</Response>`; OneStreamer-1M records plus LLaVA-Video
+QA; 1,136 steps over 200,000 windows, vision tower frozen). It decides by itself when to speak:
+
+```bash
+pip install "transformers>=5.0" opencv-python   # flash-linear-attention recommended on GPU
+python proactive/stream_qwen.py video.mp4 --prompt "Tell me when the person picks something up."
+```
+
+- `stream(video, prompt)`: one update per second (4 frames per second, last 32 seconds in context), each answered
+  `</Silence>`, `</Standby>` or `</Response>` + text, the layout it was trained on.
+- `ask(frames, question, options)`: a question on the 16 most recent frames.
+
+Checked on one GPU from the uploaded weights (both calls give well-formed answers). Benchmark scores are not in yet.
+
 ## Licenses
 
-Code: see the repository's license. MiniCPM-V-4.6 (backbone): Apache-2.0 (OpenBMB). MobileCLIP2-S0 (encoder): Apple Machine Learning Research
+Code: see the repository's license. MiniCPM-V-4.6 (backbone): Apache-2.0 (OpenBMB). Qwen3.5-0.8B (proactive model): Apache-2.0 (Qwen). MobileCLIP2-S0 (encoder): Apple Machine Learning Research
 Model License, **research use only**; its license is in `encoder/LICENSE` of the weights repository.
