@@ -115,7 +115,7 @@ our AMD GPUs (every video got the same description).
 
 Checked on one GPU from the uploaded weights (both calls give well-formed answers). Scores with the OneStreamer
 release's evaluation ("16 recent frames" setting, every question): OVO-Bench Overall 62.53, StreamingBench Real-Time
-78.40, StreamBench 53.61 (our Qwen3-VL-4B with the same recipe: 68.95 / 84.09 / 52.11); ODV-Bench is running. Details
+78.40, StreamBench 53.61, ODV-Bench 46.75 (our Qwen3-VL-4B with the same recipe: 68.95 / 84.09 / 52.11 / 58.79). Details
 on the model card (`stream-qwen3.5-0.8b/README.md` in the weights repository).
 
 ## Licenses
