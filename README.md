@@ -96,8 +96,22 @@ python proactive/stream_qwen.py video.mp4 --prompt "Tell me when the person pick
 ```
 
 - `stream(video, prompt)`: one update per second (4 frames per second, last 32 seconds in context), each answered
-  `</Silence>`, `</Standby>` or `</Response>` + text, the layout it was trained on.
+  `</Silence>`, `</Standby>` or `</Response>` + text, the layout it was trained on. Each second's frames go through the
+  vision encoder once (cached while they stay in the window): same answers, about 11x faster than re-encoding.
 - `ask(frames, question, options)`: a question on the 16 most recent frames.
+- `caption(video)` / `--caption`: live captions, every 4 seconds one sentence about the last 8 seconds. By default it
+  uses the captioning weights `stream-qwen3.5-0.8b-caption/` (the same model trained further on 12,000 one-sentence
+  captions of 8-second clips written by Qwen3-VL-4B, mixed with 6,000 of its original training records):
+
+```bash
+python proactive/stream_qwen.py video.mp4 --caption
+#    4s  The video opens with the logo for "The Life Center Chiropractic" and introduces Dr. Jeremy Brook as the host.
+#   16s  A shirtless man in blue pants performs a series of slackingline movements in front of a house, with the text
+#        "Slacklining for Optimal Balance" displayed on screen.
+```
+
+The runner uses flash attention when it is installed: with `sdpa`, Qwen3.5's vision encoder returned wrong features on
+our AMD GPUs (every video got the same description).
 
 Checked on one GPU from the uploaded weights (both calls give well-formed answers). Scores with the OneStreamer
 release's evaluation ("16 recent frames" setting, every question): OVO-Bench Overall 62.53, StreamingBench Real-Time
