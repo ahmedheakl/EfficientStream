@@ -118,6 +118,28 @@ release's evaluation ("16 recent frames" setting, every question): OVO-Bench Ove
 78.40, StreamBench 53.61, ODV-Bench 47.39 (our Qwen3-VL-4B with the same recipe: 68.95 / 84.09 / 52.11 / 58.79). Details
 on the model card (`stream-qwen3.5-0.8b/README.md` in the weights repository).
 
+### Streaming MiniCPM-V-4.6, for comparison
+
+`proactive/stream_minicpm.py` runs MiniCPM-V-4.6 trained with the same data and schedule (weights:
+`stream-minicpm-v4.6/` in the same repository). Same calls as the Qwen runner (`stream()`, `ask()`, `caption()`), same
+prompts and frame sampling; each frame is one 448-pixel image (66 tokens for a 16:9 frame) after a time label:
+
+```bash
+pip install "transformers>=5.17" opencv-python
+python proactive/stream_minicpm.py video.mp4 --prompt "Tell me when the man starts walking on the line."
+python proactive/stream_minicpm.py video.mp4 --caption
+```
+
+| Model (OneStreamer recipe, same data) | Parameters | OVO-Bench | StreamingBench RT | StreamBench |
+|---|---|---|---|---|
+| Qwen3.5-0.8B (`stream_qwen.py`) | 1.11B | 62.53 | 78.40 | 53.61 |
+| MiniCPM-V-4.6 (`stream_minicpm.py`) | 1.55B | 60.77 | 74.35 | 42.10 |
+
+Checked on one GPU from the uploaded weights: all three calls give well-formed answers. Each frame goes through the
+vision encoder once while it stays in the window (3.7x faster); in bfloat16 this shifts the features by a few percent,
+as any change in how many frames are encoded together does, so an answer near a tie can differ (`cache=False` turns it
+off).
+
 ## Licenses
 
 Code: see the repository's license. MiniCPM-V-4.6 (backbone): Apache-2.0 (OpenBMB). Qwen3.5-0.8B (proactive model): Apache-2.0 (Qwen). MobileCLIP2-S0 (encoder): Apple Machine Learning Research
