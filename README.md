@@ -140,12 +140,13 @@ evaluation, every question:
 | Weights | Setting | OVO-Bench | StreamingBench RT | StreamBench | ODV-Bench |
 |---|---|---|---|---|---|
 | run 4 (`stream-qwen3.5-0.8b-r4/`) | 16 recent frames | 63.68 | 80.68 | 48.97 | 55.32 |
-| run 4 | PHCM, release's caption stream | 63.23 | 79.80 | 49.35 | - |
+| run 4 | PHCM, release's caption stream | 63.30 | 80.08 | 49.73 | - |
 | run 2 (`stream-qwen3.5-0.8b/`) | 16 recent frames | 62.53 | 78.40 | 53.61 | 47.39 |
 
-The PHCM row comes from the release's caption stream, without `mm_token_type_ids`; scores with the corrected stream
-will follow. Our Qwen3-VL-4B trained the same way (run 4): 70.77 / 85.97 / 54.88 with 16 recent frames, 71.27 / 86.17 /
-56.32 with PHCM. The caption memory often repeats itself, as in the example. Details on the model cards
+The PHCM row is the release's caption stream with `mm_token_type_ids` passed to `generate()` (as `ask_phcm` does):
+without them, transformers 5 gives the video tokens text positions. Measured 2026-10-20; against 16 recent frames the
+caption memory changes the scores by -0.38 / -0.60 / +0.76. Our Qwen3-VL-4B
+trained the same way (run 4): 70.77 / 85.97 / 54.88 with 16 recent frames, 71.27 / 86.17 / 56.32 with PHCM. The caption memory often repeats itself, as in the example. Details on the model cards
 (`stream-qwen3.5-0.8b-r4/README.md` and `stream-qwen3.5-0.8b/README.md` in the weights repository).
 
 ### Streaming MiniCPM-V-4.6, for comparison
