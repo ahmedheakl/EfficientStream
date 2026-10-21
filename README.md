@@ -149,6 +149,24 @@ caption memory changes the scores by -0.38 / -0.60 / +0.76. Our Qwen3-VL-4B
 trained the same way (run 4): 70.77 / 85.97 / 54.88 with 16 recent frames, 71.27 / 86.17 / 56.32 with PHCM. The caption memory often repeats itself, as in the example. Details on the model cards
 (`stream-qwen3.5-0.8b-r4/README.md` and `stream-qwen3.5-0.8b/README.md` in the weights repository).
 
+### Extra options for `ask()`
+
+All are off by default; without them `ask()` behaves exactly as before.
+
+```python
+mem = FrameMemory(index=FrameIndex("encoder/"), budget=128)   # while the video plays: mem.add(t, frame) once per second
+recent = StreamQwen.recent_frames(video, t)
+m.ask(recent, question, options, memory=events, compact=True)                                  # shorter caption memory
+m.ask(recent, question, options, retrieved=mem.retrieve(question, before=recent[0][0]))          # + 8 matching earlier frames
+m.ask(recent, question, options, past=mem.past_video(before=recent[0][0]))                       # + the past as a small video
+```
+
+| Option | What it does | Measured (OneStreamer-4B, 16 recent frames, full benchmark sets) |
+|---|---|---|
+| `compact=True` | A summary replaces the captions it covers (except the last 60 s); identical captions merge into one | Memory tokens -69% on average; accuracy unchanged (-0.33 points on average over OVO, StreamingBench RT, StreamBench, ODV, OVBench) |
+| `retrieved=` | The 8 earlier frames that best match the question, sharp and at least 3 s apart, shown before the recent frames | OVO +1.73, StreamingBench RT +0.84, StreamBench +7.73 (StreamBench +4.41 on the run-4 0.8B); measured with a CLIP ViT-H/14 index |
+| `past=` (experimental) | Up to 128 earlier frames, spread over the whole video, shown as one small video | OVO +2.63, StreamingBench RT +0.84, StreamBench +5.93, ODV +0.32; the frame-rate and length study is running |
+
 ### Streaming MiniCPM-V-4.6, for comparison
 
 `proactive/stream_minicpm.py` runs MiniCPM-V-4.6 trained with the same data and schedule (weights:

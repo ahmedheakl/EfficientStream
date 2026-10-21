@@ -32,6 +32,101 @@ MEMORY_POSTAMBLE = '</LONG_TERM_VIDEO_MEMORY>'
 MEMORY_MAX_TOKENS = 12000
 
 
+def _caption_body(text):
+    """A caption without its leading time stamps, e.g. "[12s] [0s-20s] text" -> "text"."""
+    import re
+    return re.sub(r"^(\[[^\]]*\]\s*)+", "", text).strip()
+
+
+def compact_memory(events, qtime, keep_recent=60.0):
+    """Shorter caption memory: a summary replaces the captions it covers, except captions from the last `keep_recent` seconds,
+    and identical captions are merged into one entry that spans their times."""
+    sums = [e for e in events if e["kind"] == "summary" and e["text"]]
+    inside = lambda e: any(float(x["start"]) <= float(e["start"]) and float(e["end"]) <= float(x["end"]) for x in sums)
+    kept = [e for e in events if not (e["kind"] == "observe" and inside(e) and float(e["end"]) < qtime - keep_recent)]
+    out, seen = [], {}
+    for e in kept:
+        if e["kind"] != "observe":
+            out.append(e); continue
+        b = _caption_body(e["text"])
+        if b in seen:
+            m = seen[b]
+            m["start"], m["end"], m["text"] = min(float(m["start"]), float(e["start"])), max(float(m["end"]), float(e["end"])), b
+        else:
+            seen[b] = dict(e); out.append(seen[b])
+    return sorted(out, key=lambda e: (float(e["end"]), e["kind"]))
+
+
+def resize_long(im, side):
+    """Shrink so the long side is at most `side`, keeping the aspect ratio; sides are multiples of 32."""
+    from PIL import Image
+    w, h = im.size
+    k = min(1.0, side / max(w, h))
+    return im.convert("RGB").resize((max(32, round(w * k / 32) * 32), max(32, round(h * k / 32) * 32)), Image.BICUBIC)
+
+
+def sharpness(im):
+    """How sharp a frame is (variance of the Laplacian at 320 px wide); blurry frames score low."""
+    import cv2
+    g = cv2.cvtColor(np.array(im.convert("RGB")), cv2.COLOR_RGB2GRAY)
+    h, w = g.shape
+    return float(cv2.Laplacian(cv2.resize(g, (320, max(1, round(h * 320 / w)))), cv2.CV_64F).var())
+
+
+def select_frames(times, sims, sharp, k=8, pool=32, beta=0.3, gap=3.0):
+    """Pick k frames for a question: take the `pool` most similar ones, prefer sharp ones among them, and keep picks at least `gap`
+    seconds apart. Returns indices in time order."""
+    times, sims, sh = np.asarray(times, float), np.asarray(sims, float), np.log1p(np.asarray(sharp, float))
+    top = np.argsort(-sims, kind="stable")[:pool]
+    z = lambda x: (x - x.mean()) / (x.std() + 1e-6)
+    score = z(sims[top]) + beta * z(sh[top]) if len(top) > 1 else sims[top]
+    chosen = []
+    for i in np.argsort(-score, kind="stable"):
+        if all(abs(times[top[i]] - times[top[j]]) >= gap for j in chosen):
+            chosen.append(i)
+        if len(chosen) == k:
+            break
+    return sorted((int(top[i]) for i in chosen), key=lambda j: times[j])
+
+
+class FrameMemory:
+    """Past frames kept while the video plays (add one per second).
+    - retrieve(): the frames that best match a question, to show before the recent frames (needs `index`, e.g.
+      efficientstream.index.FrameIndex).
+    - past_video(): all kept frames, small, to show as one video of the past (experimental).
+    With a `budget`, the store keeps at most that many frames, spread over the whole video: when full, it drops the frame
+    whose neighbours are closest in time (never the first or the newest)."""
+
+    def __init__(self, index=None, budget=None):
+        self.index, self.budget, self.frames = index, budget, []        # (time, image, embedding, sharpness)
+
+    def add(self, t, im):
+        emb = self.index.embed_images([im])[0] if self.index is not None else None
+        self.frames.append((float(t), im, emb, sharpness(im)))
+        if self.budget is not None and len(self.frames) > self.budget:
+            hi = len(self.frames) - 1
+            if hi <= 1:
+                self.frames.pop(1)
+            else:
+                ts = [f[0] for f in self.frames]
+                self.frames.pop(1 + int(np.argmin([ts[j + 1] - ts[j - 1] for j in range(1, hi)])))
+
+    def before(self, t):
+        return [f for f in self.frames if f[0] < t - 1e-6]
+
+    def retrieve(self, question, before, k=8, side=384):
+        cand = self.before(before)
+        if not cand or self.index is None:
+            return []
+        q = self.index.embed_text([question])[0]
+        idx = select_frames([f[0] for f in cand], np.stack([f[2] for f in cand]).astype(np.float32) @ q.astype(np.float32),
+                            [f[3] for f in cand], k=k)
+        return [(cand[i][0], resize_long(cand[i][1], side)) for i in idx]
+
+    def past_video(self, before, side=320):
+        return [(f[0], resize_long(f[1], side)) for f in self.before(before)]
+
+
 class StreamQwen:
     def __init__(self, path, device="cuda", dtype=torch.bfloat16, attn=None):
         from transformers import AutoProcessor, AutoModelForImageTextToText
@@ -70,10 +165,21 @@ class StreamQwen:
             text = text.split(end)[0]
         return text.strip()
 
-    def ask(self, frames, question, options=None, max_new_tokens=16, memory=None):
+    def ask(self, frames, question, options=None, max_new_tokens=16, memory=None, compact=False, retrieved=None, past=None):
         """frames: [(seconds, PIL image)] oldest to newest (16 recent frames, 1 per second); options: ["A. ...", ...] or None.
-        memory: caption-memory events from memorize() (PHCM); None answers from the frames alone ("16 recent frames")."""
+        memory: caption-memory events from memorize() (PHCM); None answers from the frames alone ("16 recent frames").
+        compact: shorten `memory` with compact_memory first.
+        retrieved: earlier frames to show before the recent ones (FrameMemory.retrieve).
+        past: frames of the past to show as one small video instead of the memory text (FrameMemory.past_video; experimental)."""
         from PIL import ImageOps
+        if compact and memory:
+            memory = compact_memory(memory, float(frames[-1][0]))
+        if retrieved:
+            frames = list(retrieved) + list(frames)
+        if past:
+            if memory:
+                raise ValueError("past (visual memory) and memory (captions) are not combined")
+            return self._ask_with_past(frames, question, options, max_new_tokens, past)
         f = self.proc.image_processor.patch_size * self.proc.image_processor.merge_size
         mem = "<LONG_TERM_VIDEO_MEMORY>None for this ablation.</LONG_TERM_VIDEO_MEMORY>" if memory is None else self.render_memory(memory, question)
         content = [{"type": "text", "text": mem},
@@ -89,6 +195,44 @@ class StreamQwen:
         chat = [{"role": "system", "content": [{"type": "text", "text": QA_SYSTEM if options else QA_DIRECT_SYSTEM}]}, {"role": "user", "content": content}]
         prompt = self.proc.apply_chat_template(chat, add_generation_prompt=True, tokenize=False)
         return self._generate(self.proc(text=[prompt], images=images, do_resize=False, return_tensors="pt"), max_new_tokens)
+
+    def _ask_with_past(self, frames, question, options, max_new_tokens, past):
+        """Like ask(), with the past shown as one video where the memory text would go."""
+        from PIL import ImageOps
+        tok, video_proc, image_proc = self.proc.tokenizer, self.proc.video_processor, self.proc.image_processor
+        pair, merge = int(video_proc.temporal_patch_size), int(video_proc.merge_size) ** 2
+
+        # the past: frames go in pairs, each pair labelled with its mean time
+        times, imgs = [t for t, _ in past], [im.convert("RGB") for _, im in past]
+        while len(imgs) % pair:
+            imgs.append(imgs[-1]); times.append(times[-1])
+        video = video_proc(videos=[torch.stack([torch.from_numpy(np.array(x)).permute(2, 0, 1) for x in imgs])],
+                           do_sample_frames=False, do_resize=False, return_tensors="pt")
+        grid = video["video_grid_thw"][0]
+        pads = "<|video_pad|>" * (int(grid[1] * grid[2]) // merge)
+        blocks = "".join(f"<{sum(times[i:i + pair]) / pair:.1f} seconds><|vision_start|>{pads}<|vision_end|>" for i in range(0, len(times), pair))
+        step = (past[-1][0] - past[0][0]) / max(1, len(past) - 1)
+        memory = (f"<LONG_TERM_VIDEO_MEMORY>\nA low-resolution video of the stream before the recent frames, from {past[0][0]:.0f} s "
+                  f"to {past[-1][0]:.0f} s, one frame every {step:.1f} s, ordered from oldest to newest.\n{blocks}</LONG_TERM_VIDEO_MEMORY>")
+
+        # the recent frames, exactly as ask() shows them
+        f = image_proc.patch_size * image_proc.merge_size
+        padded = [ImageOps.expand(im, border=(0, 0, -im.size[0] % f, -im.size[1] % f), fill=0) for _, im in frames]
+        images = image_proc(images=padded, do_resize=False, return_tensors="pt")
+        stills = "".join(f"<{t:.3f}s><|vision_start|>" + "<|image_pad|>" * (int(g.prod()) // merge) + "<|vision_end|>"
+                         for (t, _), g in zip(frames, images["image_grid_thw"]))
+
+        q = question if options is None else "\n".join([f"Question:\n{question}", "Options:", *options, POST_PROMPT, "Best option:("])
+        user = (memory + "<RECENT_VISUAL_CONTEXT>\nThe following frames are ordered from oldest to newest. They retain their decoded source "
+                "pixels; only minimal border padding may be added to align them to the model patch grid." + stills
+                + "</RECENT_VISUAL_CONTEXT>\n" + q)
+        chat = [{"role": "system", "content": QA_SYSTEM if options else QA_DIRECT_SYSTEM}, {"role": "user", "content": user}]
+        x = tok(tok.apply_chat_template(chat, tokenize=False, add_generation_prompt=True), return_tensors="pt", add_special_tokens=False)
+        x["pixel_values"], x["image_grid_thw"] = images["pixel_values"], images["image_grid_thw"]
+        x["pixel_values_videos"], x["video_grid_thw"] = video["pixel_values_videos"], video["video_grid_thw"]
+        ids = x["input_ids"]   # Qwen3.5 needs each vision token's type (1 = image, 2 = video) for its positions
+        x["mm_token_type_ids"] = (ids == tok.convert_tokens_to_ids("<|image_pad|>")).int() + 2 * (ids == tok.convert_tokens_to_ids("<|video_pad|>")).int()
+        return self._generate(x, max_new_tokens)
 
     def _second(self, frames, times, a, b):
         """One second of video (4 frames) as the model was trained on it: two temporal blocks with time labels."""
