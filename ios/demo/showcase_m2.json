@@ -1,0 +1,3 @@
+{"rate": 4, "interval": 2, "segments": [
+ {"video": "demo/yt/zudt0WmyvFI.mp4", "start": 0, "rate": 4, "questions": [{"at": 136, "text": "What did I take out of the fridge?"}, {"at": 149, "text": "What machine did the hot water come from?"}], "hold": 3}
+]}

@@ -1,0 +1,4 @@
+{"segments": [
+ {"video": "demo/yt/wfHADzgF_P4.mp4", "start": 0, "seconds": 67, "questions": [{"at": 64, "text": "Which ingredients went into the blender?"}], "hold": 4},
+ {"video": "demo/yt/pvuoMLZjoTU.mp4", "start": 0, "seconds": 110, "prompt": "Tell me when the eggs are added.", "questions": [{"at": 65, "text": "What is she adding to the bowl right now?"}, {"at": 106, "text": "How many cake pans went into the oven?"}], "hold": 4}
+]}

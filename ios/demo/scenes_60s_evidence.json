@@ -1,0 +1,205 @@
+{
+ "timing": {
+  "ff_out": 1.2,
+  "rt_lead": -0.8,
+  "rt_tail": 2.6,
+  "intro": 2.2,
+  "outro": 3.0
+ },
+ "takes": {
+  "take3": {
+   "video": "take3.mov",
+   "rec_log": "rec3.log",
+   "console_log": "console3.log",
+   "offset": 0.226
+  }
+ },
+ "footer": "Screen recording of the app: the waiting is sped up; questions and answers play in real time. iPhone 17 Pro · MiniCPM-V-4.6 + MobileCLIP2-S0 · fully offline, nothing leaves the phone.",
+ "title_footer": "iPhone 17 Pro  ·  MiniCPM-V-4.6 + MobileCLIP2-S0  ·  fully offline, nothing leaves the phone",
+ "intro": [
+  [
+   "EfficientStream",
+   96,
+   "Bold",
+   [
+    245,
+    247,
+    250
+   ]
+  ],
+  [
+   "Ask anything about a live video, at any moment.",
+   42,
+   "Regular",
+   [
+    200,
+    208,
+    224
+   ]
+  ],
+  [
+   "Answered on the phone, from memory of everything it has seen.",
+   42,
+   "Regular",
+   [
+    148,
+    160,
+    184
+   ]
+  ]
+ ],
+ "scenes": [
+  {
+   "take": "take3",
+   "segment": 7,
+   "title": "Personal memory",
+   "subtitle": "Smart glasses that remember: ask about something you did minutes ago.",
+   "evidence": {
+    "video": "../videos/379fc8fe52.mp4",
+    "t": 249.6,
+    "box": [
+     0.27,
+     0.33,
+     0.75,
+     0.86
+    ],
+    "label": "Plate lifted out of the blue drainer"
+   }
+  },
+  {
+   "take": "take3",
+   "segment": 6,
+   "title": "Sports companion",
+   "subtitle": "Follows a live game and reads what is on screen.",
+   "evidence": {
+    "video": "../videos/b854fd477f.mp4",
+    "t": 61.8,
+    "box": [
+     0.55,
+     0.25,
+     0.85,
+     0.55
+    ],
+    "label": "“VALLEY” on the jersey"
+   }
+  },
+  {
+   "take": "take3",
+   "segment": 1,
+   "title": "Repair assistant",
+   "subtitle": "Tracks a hardware teardown and names the parts as they come off.",
+   "evidence": {
+    "video": "../videos/ca35d31f5f.mp4",
+    "t": 109.0,
+    "box": [
+     0.16,
+     0.0,
+     0.7,
+     0.42
+    ],
+    "label": "Copper heat sink lifted off"
+   }
+  },
+  {
+   "take": "take3",
+   "segment": 8,
+   "title": "Task verification",
+   "subtitle": "Follows a step-by-step assembly and confirms what was just done.",
+   "evidence": {
+    "video": "../videos/7359d4784c.mp4",
+    "t": 178.6,
+    "box": [
+     0.2,
+     0.15,
+     0.95,
+     0.8
+    ],
+    "label": "Pen + keychain go into the box"
+   }
+  },
+  {
+   "take": "take3",
+   "segment": 9,
+   "title": "Cooking coach",
+   "subtitle": "Follows along in the kitchen and keeps track of every step.",
+   "evidence": {
+    "video": "../videos/ce8d705527.mp4",
+    "t": 119.5,
+    "box": [
+     0.0,
+     0.15,
+     0.26,
+     0.6
+    ],
+    "label": "Knife cutting the red pepper"
+   }
+  },
+  {
+   "take": "take3",
+   "segment": 3,
+   "title": "Education",
+   "subtitle": "Follows a lesson and anticipates what the teacher covers next.",
+   "evidence": {
+    "video": "../videos/ffbf0cc03d.mp4",
+    "t": 190.0,
+    "box": [
+     0.17,
+     0.74,
+     0.88,
+     0.97
+    ],
+    "label": "Whole · Proper · Improper fractions"
+   }
+  },
+  {
+   "take": "take3",
+   "segment": 0,
+   "title": "Reading the world",
+   "subtitle": "Reads signs and printed text, for low-vision users.",
+   "evidence": {
+    "video": "../videos/ad51ba17d2.mp4",
+    "t": 10.0,
+    "box": [
+     0.19,
+     0.22,
+     0.68,
+     1.0
+    ],
+    "label": "“We Can Do It!”"
+   }
+  }
+ ],
+ "outro": [
+  [
+   "1.0–1.3 s to the first words  ·  37 tokens/s  ·  3.3 GB",
+   54,
+   "Bold",
+   [
+    245,
+    247,
+    250
+   ]
+  ],
+  [
+   "Every frame indexed in 0.18 s as the video streams. Each answer looks at the current frame and the 16 most relevant past moments.",
+   32,
+   "Regular",
+   [
+    148,
+    160,
+    184
+   ]
+  ],
+  [
+   "Measured on the phone over 100 streaming benchmark questions (StreamBench, OVO-Bench, StreamingBench)",
+   26,
+   "Regular",
+   [
+    96,
+    165,
+    250
+   ]
+  ]
+ ],
+ "rate": 4
+}

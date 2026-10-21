@@ -1,0 +1,150 @@
+{
+ "takes": {
+  "a": {
+   "video": "take_v5a.mov",
+   "rec_log": "rec_v5a.log",
+   "console_log": "console_v5a.log",
+   "kind": "qwen",
+   "offset": 0.371
+  },
+  "b": {
+   "video": "take_v5b.mov",
+   "rec_log": "rec_v5b.log",
+   "console_log": "console_v5b.log",
+   "kind": "qwen",
+   "offset": 0.375
+  },
+  "i": {
+   "video": "take_v5i.mov",
+   "rec_log": "rec_v5i.log",
+   "console_log": "console_v5i.log",
+   "kind": "qwen",
+   "offset": -0.316
+  }
+ },
+ "top_right": "Live on iPhone 17 Pro  ·  fully offline",
+ "title": "EfficientStream",
+ "paper_title": "EfficientStream: Efficient Real-Time Perception, Proactive Response, and Long-Term Memory for Streaming Video Understanding",
+ "title_lines": [
+  [
+   "One 0.8B model  ·  8 frames per second  ·  live on an iPhone",
+   30,
+   [
+    100,
+    116,
+    139
+   ]
+  ]
+ ],
+ "title_footer": "Screen recordings of the app on an iPhone 17 Pro  ·  nothing leaves the phone",
+ "overview_title": "A question can be about any moment of the stream",
+ "outro_title": "Measured on the phone in these examples",
+ "sections": [
+  {
+   "key": "proactive",
+   "name": "Proactive Response",
+   "when": "Asked before it happens",
+   "blurb": "Tell it what to watch for, or what to count. It stays silent while nothing happens and speaks up the moment it does.",
+   "model": "",
+   "examples": [
+    {
+     "take": "a",
+     "segment": 0,
+     "title": "Tell me when the toast pops",
+     "source": "../yt/rAdL2qYHg-A.mp4",
+     "model": "Watches 8 frames per second and decides every second: stay silent or speak up",
+     "ff": [
+      [
+       3,
+       26,
+       6
+      ]
+     ],
+     "tail": 2.0
+    },
+    {
+     "take": "a",
+     "segment": 1,
+     "title": "Alert the driver to a pedestrian",
+     "source": "../yt/B3-RcyfsDxE.mp4",
+     "model": "Watches 8 frames per second and decides every second: stay silent or speak up",
+     "tail": 2.0
+    },
+    {
+     "take": "a",
+     "segment": 2,
+     "title": "Count as it happens",
+     "source": "../yt2/nTm-_KujooY.mp4",
+     "model": "Speaks up with the running count each time a new fruit goes in",
+     "tail": 2.0
+    }
+   ]
+  },
+  {
+   "key": "perception",
+   "name": "Perception",
+   "when": "Asked about right now",
+   "blurb": "Ask about what is happening right now. It has already seen everything up to this moment, so it answers right away.",
+   "model": "",
+   "examples": [
+    {
+     "take": "a",
+     "segment": 3,
+     "title": "Follow the action as it happens",
+     "source": "../yt/rZPAJADW6tQ.mp4",
+     "model": "Asked while the video plays: it has already seen everything up to now",
+     "hold": 2.5
+    },
+    {
+     "take": "a",
+     "segment": 4,
+     "title": "Check on a pet",
+     "source": "../yt/IWP5apRncAI.mp4",
+     "model": "Asked while the video plays: it has already seen everything up to now",
+     "hold": 2.5
+    }
+   ]
+  },
+  {
+   "key": "memory",
+   "name": "Memory",
+   "when": "Asked about earlier moments",
+   "blurb": "Ask about something that happened earlier. It answers from the captions it wrote while watching and the recent frames it still holds.",
+   "model": "",
+   "examples": [
+    {
+     "take": "b",
+     "segment": 0,
+     "title": "Remember every ingredient",
+     "source": "../yt/wfHADzgF_P4.mp4",
+     "model": "Writes captions as it watches, then answers a question about earlier moments",
+     "ff": [
+      [
+       3,
+       58,
+       2
+      ]
+     ],
+     "hold": 3.0
+    }
+   ]
+  },
+  {
+   "key": "all",
+   "name": "All at once",
+   "when": "Watching, remembering and answering in one stream",
+   "blurb": "One video: something to watch for from the start, a question in the middle, and a question about earlier at the end, while it keeps writing its memory.",
+   "model": "",
+   "examples": [
+    {
+     "take": "i",
+     "segment": 0,
+     "title": "Bake a chocolate cake",
+     "source": "../yt2/pvuoMLZjoTU.mp4",
+     "model": "Watching, captions and questions together, live on the phone",
+     "hold": 3.0
+    }
+   ]
+  }
+ ]
+}

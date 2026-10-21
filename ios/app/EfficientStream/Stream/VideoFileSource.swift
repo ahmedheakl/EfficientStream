@@ -10,6 +10,8 @@ final class VideoFileSource: @unchecked Sendable {
     private(set) var duration: Double = 0
     private(set) var position: Double = 0
     private(set) var isPlaying = false
+    /// Playback speed (1 = real time; the demo fast-forwards between questions).
+    private(set) var rate: Float = 1
 
     /// (playback time, pixel buffer, rotation in degrees to make the frame upright)
     @ObservationIgnored var onFrame: (@Sendable (Double, CVPixelBuffer, Int) -> Void)?
@@ -25,6 +27,7 @@ final class VideoFileSource: @unchecked Sendable {
     func load(_ url: URL) async {
         stop()
         self.url = url
+        position = 0
         let asset = AVURLAsset(url: url)
         duration = (try? await asset.load(.duration).seconds) ?? 0
         if let track = try? await asset.loadTracks(withMediaType: .video).first,
@@ -51,8 +54,19 @@ final class VideoFileSource: @unchecked Sendable {
     }
 
     func play() {
-        player.play()
+        player.playImmediately(atRate: rate)
         isPlaying = true
+    }
+
+    func setRate(_ r: Float) {
+        rate = r
+        if isPlaying { player.rate = r }
+    }
+
+    func seek(to t: Double) async {
+        await player.seek(to: CMTime(seconds: t, preferredTimescale: 600), toleranceBefore: .zero, toleranceAfter: .zero)
+        lastTime = t
+        position = t
     }
 
     func pause() {

@@ -1,0 +1,1702 @@
+[
+ {
+  "source": "streambench/WebVideo/8Q3RtilRhBE.mp4",
+  "category": "WebVideo",
+  "questions": [
+   {
+    "id": 0,
+    "time": 44.0,
+    "question": "Can you tell me what the hand in the current video is holding?",
+    "answer": "Yes, it is a glass cup containing a white liquid.",
+    "class": "SF"
+   },
+   {
+    "id": 1,
+    "time": 94.0,
+    "question": "What are the benefits of drink milk for human body?",
+    "answer": "Drinking milk is beneficial for calcium supplementation.",
+    "class": "KG"
+   },
+   {
+    "id": 2,
+    "time": 160.0,
+    "question": "What color is the staircase shown in the video?",
+    "answer": "The staircase may be wooden and yellow.",
+    "class": "LM"
+   },
+   {
+    "id": 3,
+    "time": 251.0,
+    "question": "Can you find out where socket is?",
+    "answer": "Yes, the socket is on the wall next to waffle iron.",
+    "class": "SM"
+   }
+  ]
+ },
+ {
+  "source": "streambench/WebVideo/3XQaaxD-PPM.mp4",
+  "category": "WebVideo",
+  "questions": [
+   {
+    "id": 4,
+    "time": 30.0,
+    "question": "What material is the rocking chair that appeared in the video made of?",
+    "answer": "The rocking chair is made of wood.",
+    "class": "SF"
+   },
+   {
+    "id": 5,
+    "time": 60.0,
+    "question": "What is the black object placed next to the wooden chair and carpet?",
+    "answer": "That is a suitcase.",
+    "class": "SM"
+   },
+   {
+    "id": 6,
+    "time": 150.0,
+    "question": "Were there any pony dolls appearing anywhere?",
+    "answer": "There is a pony doll on the wooden floor next to the crib.",
+    "class": "OS"
+   },
+   {
+    "id": 7,
+    "time": 225.0,
+    "question": "Where was the pony doll just now?",
+    "answer": "It was on the wooden floor, in the middle between the television and the brown wooden cabinet.",
+    "class": "CI"
+   }
+  ]
+ },
+ {
+  "source": "streambench/WebVideo/Or3ft49fiAs.mp4",
+  "category": "WebVideo",
+  "questions": [
+   {
+    "id": 8,
+    "time": 70.0,
+    "question": "Can you find some colored pencils?",
+    "answer": "You can find them on the table in the foreground of the girl in black clothes with a pink headband.",
+    "class": "OS"
+   },
+   {
+    "id": 9,
+    "time": 120.0,
+    "question": "What can a globe be used for in the teaching process?",
+    "answer": "It helps illustrate the Earth's geography and enhances understanding of global locations and movements.",
+    "class": "KG"
+   },
+   {
+    "id": 10,
+    "time": 150.0,
+    "question": "Do you remember the color of the handle of the school bag of the girl in black clothes with a pink headband?",
+    "answer": "The handle is pink.",
+    "class": "LM"
+   },
+   {
+    "id": 11,
+    "time": 220.0,
+    "question": "Can you find a globe in the video?",
+    "answer": "You can see a globe on the shelf in the background of the woman with blonde hair and wearing a blue dress.",
+    "class": "CI"
+   }
+  ]
+ },
+ {
+  "source": "streambench/WebVideo/9FAq7V92bZc.mp4",
+  "category": "WebVideo",
+  "questions": [
+   {
+    "id": 12,
+    "time": 40.0,
+    "question": "What is the color of the grapes in the video?",
+    "answer": "They are purple.",
+    "class": "SF"
+   },
+   {
+    "id": 13,
+    "time": 65.0,
+    "question": "Can you tell me where the ID card that might belong to the man in blue could be?",
+    "answer": "That item might be hanging around the neck of the man in blue.",
+    "class": "OS"
+   },
+   {
+    "id": 14,
+    "time": 90.0,
+    "question": "What do green grapes taste like?",
+    "answer": "Green grapes taste sweet and slightly tart. ",
+    "class": "KG"
+   },
+   {
+    "id": 15,
+    "time": 120.0,
+    "question": "What color are the grapes hanging on the rack?",
+    "answer": "Those grapes are green.",
+    "class": "SM"
+   }
+  ]
+ },
+ {
+  "source": "streambench/WebVideo/dUgykN5b_HM.mp4",
+  "category": "WebVideo",
+  "questions": [
+   {
+    "id": 16,
+    "time": 35.0,
+    "question": "What are the ingredients in the video?",
+    "answer": "The ingredient in the video is shrimp.",
+    "class": "SF"
+   },
+   {
+    "id": 17,
+    "time": 180.0,
+    "question": "I remember there is something that looks a lot like a lighthouse in the video. Can you tell me where it is placed?",
+    "answer": "It is placed next to the man in black clothing.",
+    "class": "LM"
+   },
+   {
+    "id": 18,
+    "time": 210.0,
+    "question": "What does the person wearing a watch on their hand do with the knife to the ingredients?",
+    "answer": "He cuts the ingredients with a knife.",
+    "class": "SM"
+   },
+   {
+    "id": 19,
+    "time": 310.0,
+    "question": "Where are the shrimp coated with black sauce placed?",
+    "answer": "Those shrimp are placed in a white plate.",
+    "class": "CI"
+   }
+  ]
+ },
+ {
+  "source": "streambench/WebVideo/sOPl4BkYO5w.mp4",
+  "category": "WebVideo",
+  "questions": [
+   {
+    "id": 20,
+    "time": 40.0,
+    "question": "What is a furnace used for in metalworking?",
+    "answer": "It's used for generating heat to melt and temper metals. ",
+    "class": "KG"
+   },
+   {
+    "id": 21,
+    "time": 70.0,
+    "question": "What does the man wearing a yellow shirt and a brown apron do with the furnace?",
+    "answer": "He uses the furnace to heat the iron rod.",
+    "class": "CI"
+   },
+   {
+    "id": 22,
+    "time": 130.0,
+    "question": "What did the man wearing a yellow shirt and a brown apron do to the iron rod to make the fire in the furnace brighter?",
+    "answer": "He rotated the iron rod.",
+    "class": "LM"
+   },
+   {
+    "id": 23,
+    "time": 180.0,
+    "question": "Can you help me find a bucket made of iron?",
+    "answer": "There is an iron bucket located under the furnace.",
+    "class": "OS"
+   }
+  ]
+ },
+ {
+  "source": "streambench/WebVideo/C6cmdtwBy0k.mp4",
+  "category": "WebVideo",
+  "questions": [
+   {
+    "id": 24,
+    "time": 16.0,
+    "question": "What is the woman holding in her hand in this video?",
+    "answer": "It is a black pot lid.",
+    "class": "SF"
+   },
+   {
+    "id": 25,
+    "time": 70.0,
+    "question": "Where are the two adjacent white small bowls?",
+    "answer": "They are on the wooden board next to the stove.",
+    "class": "OS"
+   },
+   {
+    "id": 26,
+    "time": 120.0,
+    "question": "Where is the white large bowl with green food?",
+    "answer": "The bowl is to the left of the woman, close to the wooden cutting board.",
+    "class": "SM"
+   },
+   {
+    "id": 27,
+    "time": 140.0,
+    "question": "What is the main ingredient in the dye used to make blue fabric?",
+    "answer": "The main ingredient in the dye used to make blue fabric is typically indigo.",
+    "class": "KG"
+   }
+  ]
+ },
+ {
+  "source": "streambench/WebVideo/G46prGwfPrc.mp4",
+  "category": "WebVideo",
+  "questions": [
+   {
+    "id": 28,
+    "time": 20.0,
+    "question": "What color is the clothing that the man with glasses in the video is wearing?",
+    "answer": "He is wearing yellow.",
+    "class": "SF"
+   },
+   {
+    "id": 29,
+    "time": 40.0,
+    "question": "Can you tell me where the gold ring is?",
+    "answer": "It's on a wooden table, placed on top of a silver ring.",
+    "class": "SM"
+   },
+   {
+    "id": 30,
+    "time": 110.0,
+    "question": "What is the man with glasses doing with the cutting machine to the silver ring?",
+    "answer": "He is using the cutting machine to shape the ring.",
+    "class": "CI"
+   },
+   {
+    "id": 31,
+    "time": 130.0,
+    "question": "I can't quite remember, can you tell me where the gold ring with a black circular crystal is?",
+    "answer": "It's on a wooden table",
+    "class": "LM"
+   }
+  ]
+ },
+ {
+  "source": "streambench/Ego/0b051de8-d1fe-4122-8b2f-5d11d4adb8a3.mp4",
+  "category": "Ego",
+  "questions": [
+   {
+    "id": 32,
+    "time": 30.0,
+    "question": "Based on the information you see, what do you think I am doing right now?",
+    "answer": "You are holding a long-handled garden shears, and it looks like you are trimming the branches and leaves of the plants.",
+    "class": "SF"
+   },
+   {
+    "id": 33,
+    "time": 74.0,
+    "question": "Do you know why plants need regular pruning of branches and leaves?",
+    "answer": "Regular pruning can prevent legginess and ensure that the plant looks fuller and healthier.",
+    "class": "KG"
+   },
+   {
+    "id": 34,
+    "time": 102.0,
+    "question": "Did I walk up any steps on the path I just walked?",
+    "answer": "Yes, you walk over different steps on the way here.",
+    "class": "LM"
+   },
+   {
+    "id": 35,
+    "time": 142.0,
+    "question": "I am a bit tired. Are there any chairs nearby where I can rest for a while?",
+    "answer": "Yes, I see chairs in the place you just passed by; it seems to be the backyard of the house.",
+    "class": "OS"
+   }
+  ]
+ },
+ {
+  "source": "streambench/WebVideo/Td7xp__RpI8.mp4",
+  "category": "WebVideo",
+  "questions": [
+   {
+    "id": 36,
+    "time": 60.0,
+    "question": "Can you find where the knife the woman was holding in her right hand is now located?",
+    "answer": "The knife is on the cutting board, near the plate containing pink meat.",
+    "class": "OS"
+   },
+   {
+    "id": 37,
+    "time": 120.0,
+    "question": "Which country exports the most lemons?",
+    "answer": "Mexico is the largest exporter of lemons in the world.",
+    "class": "KG"
+   },
+   {
+    "id": 38,
+    "time": 187.0,
+    "question": "Can you tell me if you saw a roll of plastic wrap earlier, and if so, where it is located?",
+    "answer": "Yes, The roll of plastic wrap is on the cutting board, next to a transparent bowl containing a white creamy substance.",
+    "class": "SM"
+   },
+   {
+    "id": 39,
+    "time": 360.0,
+    "question": "Based on the context, where is the most likely location of the video: a kitchen, a study, or a bedroom?",
+    "answer": "I think the most likely location of the video is kitchen.",
+    "class": "CI"
+   }
+  ]
+ },
+ {
+  "source": "streambench/Ego/1e999f9a-9d98-4f34-944a-fa2bb72d3000.mp4",
+  "category": "Ego",
+  "questions": [
+   {
+    "id": 40,
+    "time": 20.0,
+    "question": "Where did I put the bowl after I just cleaned it?",
+    "answer": "You put it in the cabinet under the countertop.",
+    "class": "SF"
+   },
+   {
+    "id": 41,
+    "time": 54.0,
+    "question": "Is there a blue plastic lid next to the sink now?",
+    "answer": "No, I didn't see a blue plastic lid next to the sink.",
+    "class": "SM"
+   },
+   {
+    "id": 42,
+    "time": 88.0,
+    "question": "Where did I put the knives, forks, and spoons that I just wiped with a towel?",
+    "answer": "If I remember correctly, you put them in the cabinet above the sink.",
+    "class": "LM"
+   },
+   {
+    "id": 43,
+    "time": 179.0,
+    "question": "Did I just wipe the tableware with a towel?",
+    "answer": "Yes, according to the context, you wiped the cutlery, including knives and forks, with a towel.",
+    "class": "CI"
+   }
+  ]
+ },
+ {
+  "source": "streambench/Ego/1a1423c6-c3aa-4b45-acf7-d153f351611e.mp4",
+  "category": "Ego",
+  "questions": [
+   {
+    "id": 44,
+    "time": 88.0,
+    "question": "What color is the spatula held by the person wearing a blue shirt?",
+    "answer": "It looks like it's purple.",
+    "class": "OS"
+   },
+   {
+    "id": 45,
+    "time": 127.0,
+    "question": "What are the benefits of garlic for the human body?",
+    "answer": "Garlic has several benefits, including:1. **Boosts Immunity**: Helps your body fight infections.2. **Supports Heart Health**: Can lower blood pressure and cholesterol.3. **Reduces Inflammation**: Helps reduce inflammation in your body.4. **Protects Cells**: Contains antioxidants that protect your cells.5. **Aids Digestion**: Supports healthy digestion.6. **Fights Germs**: Has natural properties that fight off germs.",
+    "class": "KG"
+   },
+   {
+    "id": 46,
+    "time": 153.0,
+    "question": "Is the pan I use for cooking food a flat-bottomed pan?",
+    "answer": "No, it's not a flat-bottomed pan.",
+    "class": "LM"
+   },
+   {
+    "id": 47,
+    "time": 179.0,
+    "question": "Based on the context, What color is the shirt of the person holding the spatula in the kitchen?",
+    "answer": "It looks like they are wearing a blue shirt.",
+    "class": "CI"
+   }
+  ]
+ },
+ {
+  "source": "streambench/WebVideo/-aCh7RNIGV8.mp4",
+  "category": "WebVideo",
+  "questions": [
+   {
+    "id": 48,
+    "time": 20.0,
+    "question": "What are the ingredients that this person is handling?",
+    "answer": "This person is rolling out a dough.",
+    "class": "SF"
+   },
+   {
+    "id": 49,
+    "time": 90.0,
+    "question": "What is this person doing?",
+    "answer": "This person is spreading the sauce from the bowl evenly over the dough.",
+    "class": "SM"
+   },
+   {
+    "id": 50,
+    "time": 110.0,
+    "question": "What did she do with the dough then?",
+    "answer": "She folded the dough together and then placed it on the stove.",
+    "class": "CI"
+   },
+   {
+    "id": 51,
+    "time": 130.0,
+    "question": "What is the purpose of the stove where that person put the dough?",
+    "answer": "It can be used to heat the dough.",
+    "class": "KG"
+   }
+  ]
+ },
+ {
+  "source": "streambench/WebVideo/AixVHfPBcsY.mp4",
+  "category": "WebVideo",
+  "questions": [
+   {
+    "id": 52,
+    "time": 10.0,
+    "question": "What color are the leaves of the plant in the video?",
+    "answer": "The leaves of the plant are green.",
+    "class": "SF"
+   },
+   {
+    "id": 53,
+    "time": 60.0,
+    "question": "What is the man with a brown hat and a watch in the video using to dig up the plant's roots?",
+    "answer": "The man is using a large fork to dig up the plant's roots.",
+    "class": "SM"
+   },
+   {
+    "id": 54,
+    "time": 210.0,
+    "question": "Is there anything in the video to check the time?",
+    "answer": "There is a watch on the man's hand to check the time.",
+    "class": "OS"
+   },
+   {
+    "id": 55,
+    "time": 240.0,
+    "question": "Aside from the white roots of the plant that are being dug up now, what other color of roots has he dug up?",
+    "answer": "He has also dug up red plant roots.",
+    "class": "LM"
+   }
+  ]
+ },
+ {
+  "source": "streambench/Ego/0c68253d-1d11-45e2-a5c7-83b984817e4e.mp4",
+  "category": "Ego",
+  "questions": [
+   {
+    "id": 56,
+    "time": 74.0,
+    "question": "What should you pay attention to when storing paint?",
+    "answer": "When storing paint, you should pay attention to the following: Seal the Container Tightly, Store Upright, Keep Away from Heat Sources and so on.",
+    "class": "KG"
+   },
+   {
+    "id": 57,
+    "time": 108.0,
+    "question": "Based on the context, what tools do I have available for painting the wall?",
+    "answer": "You have the following tools available for painting the wall: a brush and a roller.",
+    "class": "CI"
+   },
+   {
+    "id": 58,
+    "time": 142.0,
+    "question": "Where can I find the necessary lighting equipment?",
+    "answer": "You can find the lighting equipment, like a flashlight, on the white table or the bench not far from you.",
+    "class": "LM"
+   },
+   {
+    "id": 59,
+    "time": 179.0,
+    "question": "Where are the painting tools I just used and the paint container ?",
+    "answer": "On a bench not far from you, there seem to be the tools you are looking for.",
+    "class": "OS"
+   }
+  ]
+ },
+ {
+  "source": "streambench/WebVideo/N5hxOEjvmGU.mp4",
+  "category": "WebVideo",
+  "questions": [
+   {
+    "id": 60,
+    "time": 10.0,
+    "question": "The woman in the video is wearing pants of what color?",
+    "answer": "She is wearing black pants.",
+    "class": "SF"
+   },
+   {
+    "id": 61,
+    "time": 50.0,
+    "question": "What is the woman with gloves, a yellow top, and black pants holding in her hand?",
+    "answer": "She is holding a shovel.",
+    "class": "OS"
+   },
+   {
+    "id": 62,
+    "time": 70.0,
+    "question": "What color is the bag that contains the wooden blocks?",
+    "answer": "That bag is orange.",
+    "class": "SM"
+   },
+   {
+    "id": 63,
+    "time": 90.0,
+    "question": "What is the woman wearing an orange top and black pants doing with the shovel?",
+    "answer": "She is using the shovel to turn the soil.",
+    "class": "CI"
+   }
+  ]
+ },
+ {
+  "source": "streambench/WebVideo/wyikyxYOF6g.mp4",
+  "category": "WebVideo",
+  "questions": [
+   {
+    "id": 64,
+    "time": 11.0,
+    "question": "What is the man wearing a bow tie holding in his hand?",
+    "answer": "The man holds a parrot.",
+    "class": "SF"
+   },
+   {
+    "id": 65,
+    "time": 44.0,
+    "question": "Where is the black-covered notebook?",
+    "answer": "The notebook is on the table next to a wodden box.",
+    "class": "SM"
+   },
+   {
+    "id": 66,
+    "time": 70.0,
+    "question": "In which year was the first wireless phone invented?",
+    "answer": "The first wireless mobile phone was invented in 1973.",
+    "class": "KG"
+   },
+   {
+    "id": 67,
+    "time": 123.0,
+    "question": "Based on what you see, did the person wearing an orange shirt touch the door handle?",
+    "answer": "No, the person wearing an orange shirt didn't touch the door handle.",
+    "class": "LM"
+   }
+  ]
+ },
+ {
+  "source": "streambench/Ego/026a2f15-c454-4c28-80e0-24c85d7f4ecf.mp4",
+  "category": "Ego",
+  "questions": [
+   {
+    "id": 68,
+    "time": 88.0,
+    "question": "I need to get some more wood now. Can you tell me where I can find it in the room?",
+    "answer": "There is some wood under the nearby cabinet. You can go check there.",
+    "class": "LM"
+   },
+   {
+    "id": 69,
+    "time": 127.0,
+    "question": "Based on the video information you see, what do you think my job is?",
+    "answer": "I think you might be a laborer or a repair worker, as you seem to use a lot of tools.",
+    "class": "KG"
+   },
+   {
+    "id": 70,
+    "time": 153.0,
+    "question": "Where did I put the leftover wood scraps after cutting?",
+    "answer": "You put them in a box with lots of leftover wood sticks.",
+    "class": "OS"
+   },
+   {
+    "id": 71,
+    "time": 179.0,
+    "question": "Do you still remember the red box I mentioned earlier? Where is it?",
+    "answer": "Yes, it should still be on the table next to where you placed the wood.",
+    "class": "CI"
+   }
+  ]
+ },
+ {
+  "source": "streambench/Ego/0a466d56-a765-4d6e-b7bc-79f01b1a3a40.mp4",
+  "category": "Ego",
+  "questions": [
+   {
+    "id": 72,
+    "time": 20.0,
+    "question": "What is the tool I am holding in my hand used for painting the ceiling?",
+    "answer": "It looks like a roller with a wooden handle.",
+    "class": "SF"
+   },
+   {
+    "id": 73,
+    "time": 53.0,
+    "question": "What does the room I am in now look like?",
+    "answer": "I see a refrigerator, a sink, plates, and a rice cooker; this should be the kitchen.",
+    "class": "SM"
+   },
+   {
+    "id": 74,
+    "time": 74.0,
+    "question": "Where do I place the roller I just used for painting the wall?",
+    "answer": "You place it on a board-like object with white paint on it, and there is a table covered with a white cloth in the surroundings.",
+    "class": "LM"
+   },
+   {
+    "id": 75,
+    "time": 107.0,
+    "question": "Do you remember where my phone is? It seems to be in some part of the kitchen.",
+    "answer": "If I remember correctly, your phone should be on the window in front of the sink in the kitchen.",
+    "class": "OS"
+   }
+  ]
+ },
+ {
+  "source": "streambench/Ego/08db2a47-de2a-4527-a8a1-6ba504d65375.mp4",
+  "category": "Ego",
+  "questions": [
+   {
+    "id": 76,
+    "time": 20.0,
+    "question": "What is the color of the rack used for holding different cups next to the sink in the kitchen?",
+    "answer": "Based on the image I see, the rack is green.",
+    "class": "SF"
+   },
+   {
+    "id": 77,
+    "time": 56.0,
+    "question": "Did I hang the black oven mitt on the wall?",
+    "answer": "Yes, I see that you hung a black item resembling an oven mitt on the wall.",
+    "class": "SM"
+   },
+   {
+    "id": 78,
+    "time": 79.0,
+    "question": "What are the environmentally friendly ways to dispose of kitchen waste?",
+    "answer": "A method for disposing of kitchen waste includes the following steps: filtering, crushing, and composting.",
+    "class": "KG"
+   },
+   {
+    "id": 79,
+    "time": 179.0,
+    "question": "I need to find my black microwave mitt. Can you help me think about where I can find it?",
+    "answer": "Based on the context information, you might have just hung the mitt on the wall. You can check the nearby wall.",
+    "class": "CI"
+   }
+  ]
+ },
+ {
+  "source": "streambench/Movie/Y9i-lSDG7yQ.mp4",
+  "category": "Movie",
+  "questions": [
+   {
+    "id": 80,
+    "time": 67.0,
+    "question": "Where is the towel or cloth that the woman with black hair touched and got wet?",
+    "answer": "It is pressed against the face by the person wearing a black hat.",
+    "class": "OS"
+   },
+   {
+    "id": 81,
+    "time": 110.0,
+    "question": "Based on what you see, Where are the stairs that the woman walked on?",
+    "answer": "The stairs are next to a tree with twisted, intertwined branches.",
+    "class": "LM"
+   },
+   {
+    "id": 82,
+    "time": 121.0,
+    "question": "Which country invented the first gun?",
+    "answer": "The first gun was invented in China.",
+    "class": "KG"
+   },
+   {
+    "id": 83,
+    "time": 171.0,
+    "question": "Are there any stairs in this video?",
+    "answer": "There are stairs in the video.",
+    "class": "CI"
+   }
+  ]
+ },
+ {
+  "source": "streambench/Movie/-dTb5H2Y8hA.mp4",
+  "category": "Movie",
+  "questions": [
+   {
+    "id": 84,
+    "time": 7.0,
+    "question": "What does the woman with platinum blonde hair holdi in her hand in the video?",
+    "answer": "The woman with platinum blonde hair holds a guitar in her hand.",
+    "class": "SF"
+   },
+   {
+    "id": 85,
+    "time": 36.0,
+    "question": "Where is the white square table lamp with a silver base?",
+    "answer": "The lamp is on the wooden table near the speaker.",
+    "class": "OS"
+   },
+   {
+    "id": 86,
+    "time": 43.0,
+    "question": "Where is the glass cup containing yellow liquid?",
+    "answer": " The glass is in the hand of the woman holding the guitar.",
+    "class": "SM"
+   },
+   {
+    "id": 87,
+    "time": 96.0,
+    "question": "What type of instrument is the guitar? Is it a percussion instrument or a string instrument?",
+    "answer": "The guitar is a string instrument.",
+    "class": "KG"
+   }
+  ]
+ },
+ {
+  "source": "streambench/WebVideo/pXR3DFCMEtA.mp4",
+  "category": "WebVideo",
+  "questions": [
+   {
+    "id": 88,
+    "time": 30.0,
+    "question": "Can you tell me what clothing the person in the video is wearing?",
+    "answer": "The person in the video wears a white chef's coat, a white chef's hat, and a green neckerchief.",
+    "class": "SF"
+   },
+   {
+    "id": 89,
+    "time": 119.0,
+    "question": "I need a tool to filter cherries soaked in water. Can you find out the appropriate tool in the video?",
+    "answer": "Yes, the strainer that the person holds in his right hand is a very good choice.",
+    "class": "OS"
+   },
+   {
+    "id": 90,
+    "time": 140.0,
+    "question": "What do you think the person's profession might be?",
+    "answer": "Based on his attire and tools, I think he might be a chef.",
+    "class": "CI"
+   },
+   {
+    "id": 91,
+    "time": 269.0,
+    "question": "Based on what you have seen, have you seen the person in the video holding a purple object in his right hand?",
+    "answer": "Yes, there has been indeed a scene in the video where the person held a purple object in his right hand.",
+    "class": "LM"
+   }
+  ]
+ },
+ {
+  "source": "streambench/WebVideo/P-mG7YxfFPA.mp4",
+  "category": "WebVideo",
+  "questions": [
+   {
+    "id": 92,
+    "time": 64.0,
+    "question": "Where did you see this knife, which is currently being used, before?",
+    "answer": "The knife that is being used is previously on the cabinet next to the cutting board.",
+    "class": "SM"
+   },
+   {
+    "id": 93,
+    "time": 185.0,
+    "question": "Which country did tomatoes originate from?",
+    "answer": "Tomatoes originated in western South America.",
+    "class": "KG"
+   },
+   {
+    "id": 94,
+    "time": 374.0,
+    "question": "Based on what you have seen, can you tell me if you have seen a pair of chopsticks?",
+    "answer": "Of course, if I remember correctly, there is a pair of chopsticks on the cabinet next to the cutting board.",
+    "class": "LM"
+   },
+   {
+    "id": 95,
+    "time": 447.0,
+    "question": "Do you remember if the short-haired woman in the video was wearing an apron?",
+    "answer": "Yes, The short-haired woman in the video is wearing a green apron.",
+    "class": "CI"
+   }
+  ]
+ },
+ {
+  "source": "streambench/Movie/Yrx2bv_LoG0.mp4",
+  "category": "Movie",
+  "questions": [
+   {
+    "id": 96,
+    "time": 13.0,
+    "question": "Does the video take place indoors or outdoors?",
+    "answer": "The video takes place indoors.",
+    "class": "SF"
+   },
+   {
+    "id": 97,
+    "time": 55.0,
+    "question": "Where is the table lamp with the gray lampshade?",
+    "answer": "The table lamp with the gray lampshade is next to the orange or reddish-orange sofa.",
+    "class": "OS"
+   },
+   {
+    "id": 98,
+    "time": 71.0,
+    "question": "Where is the orange-red drum set?",
+    "answer": "The orange-red drum set is in the left corner of the room near the door",
+    "class": "SM"
+   },
+   {
+    "id": 99,
+    "time": 82.0,
+    "question": "Based on what you see, what color is the bench in the hallway that the man in black and the man with white hair walked past?",
+    "answer": "The bench is orange or reddish-orange.",
+    "class": "LM"
+   }
+  ]
+ },
+ {
+  "source": "streambench/Ego/011b8b73-0ce4-4843-95ef-33b79610d212.mp4",
+  "category": "Ego",
+  "questions": [
+   {
+    "id": 100,
+    "time": 12.0,
+    "question": "What is that thing I just brought with my left hand?",
+    "answer": "It is a green bucket that appears to be empty, with nothing inside it.",
+    "class": "SF"
+   },
+   {
+    "id": 101,
+    "time": 40.0,
+    "question": "Where did I put the green bucket that I just brought over?",
+    "answer": "You bring it to support the wooden board, otherwise the board cannot be placed properly into the cutting machine.",
+    "class": "SM"
+   },
+   {
+    "id": 102,
+    "time": 142.0,
+    "question": "Cutting boards create a lot of debris, is there something suitable nearby to temporarily store the debris like bucket or something else?",
+    "answer": "The green bucket that you just brought over would be a good choice.",
+    "class": "KG"
+   },
+   {
+    "id": 103,
+    "time": 180.0,
+    "question": "Is the green bucket that I just brought inside the room? Please help me look for it.",
+    "answer": "The green bucket is placed under the wooden board outside the door.",
+    "class": "CI"
+   }
+  ]
+ },
+ {
+  "source": "streambench/Ego/0ace488e-5ae8-4d48-8f6a-0ce7b8777c1b.mp4",
+  "category": "Ego",
+  "questions": [
+   {
+    "id": 104,
+    "time": 74.0,
+    "question": "Can you see where my silver stainless steel cup is placed?",
+    "answer": "It looks like your cup is on a table. I see some other tools nearby, such as a drill.",
+    "class": "LM"
+   },
+   {
+    "id": 105,
+    "time": 107.0,
+    "question": "Can you help me figure out where my yellow ladder might be?",
+    "answer": "Based on the information I see, the yellow ladder should be in a large room. It is next to buckets of various sizes, and the room also has a large window.",
+    "class": "OS"
+   },
+   {
+    "id": 106,
+    "time": 146.0,
+    "question": "What are some ways to reduce the harm of formaldehyde in paint to the human body?",
+    "answer": "Firstly, you can buy some green plants to place in your home. Through photosynthesis and respiration, plants can help reduce the formaldehyde in the air. Secondly, you should ventilate the room more often to dilute the formaldehyde concentration in the air.",
+    "class": "KG"
+   },
+   {
+    "id": 107,
+    "time": 180.0,
+    "question": "I think I need to use my drill now for drilling holes. Can you help me figure out where the drill is placed?",
+    "answer": "Based on the conversation, you have also used a roller.",
+    "class": "CI"
+   }
+  ]
+ },
+ {
+  "source": "streambench/WebVideo/8EdWrHzl1xA.mp4",
+  "category": "WebVideo",
+  "questions": [
+   {
+    "id": 108,
+    "time": 45.0,
+    "question": "What material is the floor of this room made of?",
+    "answer": "The floor of this room is made of wood.",
+    "class": "SF"
+   },
+   {
+    "id": 109,
+    "time": 75.0,
+    "question": "What is the shape of the red pillow on the gray sofa?",
+    "answer": "The pillow is round.",
+    "class": "SM"
+   },
+   {
+    "id": 110,
+    "time": 115.0,
+    "question": "Where can you find a red towel?",
+    "answer": "You can find a red towel on the stove's railing.",
+    "class": "OS"
+   },
+   {
+    "id": 111,
+    "time": 145.0,
+    "question": "What can a fan be used for?",
+    "answer": "A fan is used for cooling down and circulating air in a room.",
+    "class": "KG"
+   }
+  ]
+ },
+ {
+  "source": "streambench/WebVideo/1v248kp3cEg.mp4",
+  "category": "WebVideo",
+  "questions": [
+   {
+    "id": 112,
+    "time": 12.0,
+    "question": "What color is the clothing of the man who is spinning something?",
+    "answer": "The man is wearing blue.",
+    "class": "SF"
+   },
+   {
+    "id": 113,
+    "time": 50.0,
+    "question": "What can the furnace that the man in blue clothes just put the iron rod into be used for?",
+    "answer": "The furnace that the man in blue clothes just inserted the iron rod into is likely used for heating metal to high temperatures. ",
+    "class": "KG"
+   },
+   {
+    "id": 114,
+    "time": 200.0,
+    "question": "What is the man in blue clothes with a white band around his head doing with the furnace in the video?",
+    "answer": "He is using the furnace to heat the iron rod.",
+    "class": "CI"
+   },
+   {
+    "id": 115,
+    "time": 360.0,
+    "question": "I forgot; can you tell me where the machine used for striking the iron rod is located?",
+    "answer": "The machine is next to the furnace that is heating the iron rod.",
+    "class": "LM"
+   }
+  ]
+ },
+ {
+  "source": "streambench/Movie/v3aqGRzL0BY.mp4",
+  "category": "Movie",
+  "questions": [
+   {
+    "id": 116,
+    "time": 36.0,
+    "question": "Where is the man who is not wearing a helmet?",
+    "answer": "The man is in the pilot's seat of a helicopter.",
+    "class": "SM"
+   },
+   {
+    "id": 117,
+    "time": 81.0,
+    "question": "Based on what you see, did the person who fell off the driver's seat wear a helmet?",
+    "answer": "The person wears a helmet.",
+    "class": "LM"
+   },
+   {
+    "id": 118,
+    "time": 130.0,
+    "question": "Where is the small handgun that the man without a helmet held in his hand?",
+    "answer": "The small handgun is on the ground.",
+    "class": "OS"
+   },
+   {
+    "id": 119,
+    "time": 158.0,
+    "question": "Are there any vehicles in this video?",
+    "answer": "There is a helicopter in the video.",
+    "class": "CI"
+   }
+  ]
+ },
+ {
+  "source": "streambench/WebVideo/0OBcASkqKkg.mp4",
+  "category": "WebVideo",
+  "questions": [
+   {
+    "id": 120,
+    "time": 22.0,
+    "question": "What do they use to cook?",
+    "answer": "They use a pot.",
+    "class": "SF"
+   },
+   {
+    "id": 121,
+    "time": 45.0,
+    "question": "What is it that they hang on the wall?",
+    "answer": "The various types of pots are hanging on the wall.",
+    "class": "SM"
+   },
+   {
+    "id": 122,
+    "time": 100.0,
+    "question": "What can the thing in the middle of the screen be used for?",
+    "answer": "It can be used to pulverize things into pieces and also to stir things.",
+    "class": "KG"
+   },
+   {
+    "id": 123,
+    "time": 190.0,
+    "question": "I need some knives to chop vegetables. Can you tell me where to find them?",
+    "answer": "You can find them on the wooden board on the table.",
+    "class": "OS"
+   }
+  ]
+ },
+ {
+  "source": "streambench/WebVideo/0ERd7jfi918.mp4",
+  "category": "WebVideo",
+  "questions": [
+   {
+    "id": 124,
+    "time": 20.0,
+    "question": "Is there a sink in this room?",
+    "answer": "There is a sink in the silver part of the wooden table.",
+    "class": "SF"
+   },
+   {
+    "id": 125,
+    "time": 50.0,
+    "question": "Are there any places to sit next to the sink?",
+    "answer": "There are wooden chairs next to the sink.",
+    "class": "OS"
+   },
+   {
+    "id": 126,
+    "time": 110.0,
+    "question": "What material is the floor where the yellow carpet and black sofa are placed?",
+    "answer": "It is made of wood.",
+    "class": "CI"
+   },
+   {
+    "id": 127,
+    "time": 180.0,
+    "question": "Where did a white plate appear?",
+    "answer": "There is a white plate on a white table surrounded by black chairs.",
+    "class": "LM"
+   }
+  ]
+ },
+ {
+  "source": "streambench/Ego/01e543ee-3d11-4b12-9428-192cc042f399.mp4",
+  "category": "Ego",
+  "questions": [
+   {
+    "id": 128,
+    "time": 50.0,
+    "question": "Can you help me find if there is a plastic bottle with a nozzle for cleaning near me?",
+    "answer": "You can check in front of the sink; there are many bottles there, and the one you're looking for might be among them.",
+    "class": "SM"
+   },
+   {
+    "id": 129,
+    "time": 74.0,
+    "question": "What is the main purpose of plastic wrap?",
+    "answer": "Plastic wrap can block moisture and prevent air from directly contacting food. It is primarily used in the kitchen for cooking, holding food, and storing food.",
+    "class": "KG"
+   },
+   {
+    "id": 130,
+    "time": 152.0,
+    "question": "I am looking for the green plastic wrap box I just used. Do you remember where it is?",
+    "answer": "You can check near the sink where you were earlier.",
+    "class": "LM"
+   },
+   {
+    "id": 131,
+    "time": 179.0,
+    "question": "Are there any oranges in the room? I want to eat some.",
+    "answer": "Yes, in the room that resembles a kitchen, you can find some oranges in the corner of the wall.",
+    "class": "CI"
+   }
+  ]
+ },
+ {
+  "source": "streambench/WebVideo/jxLAY5mG25M.mp4",
+  "category": "WebVideo",
+  "questions": [
+   {
+    "id": 132,
+    "time": 24.0,
+    "question": "I need something to help me beat the egg mixture. Can you help me locate the whisk in the current video?",
+    "answer": "Yes, The whisk is being held in the woman's hand in this video.",
+    "class": "OS"
+   },
+   {
+    "id": 133,
+    "time": 39.0,
+    "question": "What color jacket is the woman in the video wearing?",
+    "answer": "The woman is wearing a green jacket.",
+    "class": "SF"
+   },
+   {
+    "id": 134,
+    "time": 100.0,
+    "question": "In which country did stainless steel originate?",
+    "answer": "Stainless steel originated in the United Kingdom.",
+    "class": "KG"
+   },
+   {
+    "id": 135,
+    "time": 300.0,
+    "question": "Where is the white porcelain plates that had dough placed?",
+    "answer": "The white porcelain plates were placed on the cabinet near the vase.",
+    "class": "SM"
+   }
+  ]
+ },
+ {
+  "source": "streambench/WebVideo/NOJkWUlAEEo.mp4",
+  "category": "WebVideo",
+  "questions": [
+   {
+    "id": 136,
+    "time": 20.0,
+    "question": "What color is the clothing that the person in the video is wearing?",
+    "answer": "He is wearing blue.",
+    "class": "SF"
+   },
+   {
+    "id": 137,
+    "time": 50.0,
+    "question": "Can you tell me where the silver pencil is in the video? ",
+    "answer": "It's in the hands of the man wearing blue.",
+    "class": "OS"
+   },
+   {
+    "id": 138,
+    "time": 90.0,
+    "question": "What is a furnace used for in metalworking?",
+    "answer": "It's used for generating heat to melt and temper metals. ",
+    "class": "KG"
+   },
+   {
+    "id": 139,
+    "time": 180.0,
+    "question": "I can't quite remember, what was the background when the man was wearing a blue jacket?",
+    "answer": "The background was a grove of trees.",
+    "class": "LM"
+   }
+  ]
+ },
+ {
+  "source": "streambench/Ego/1f0d2ad1-25a5-4bbb-8777-2a5cd672ec7f.mp4",
+  "category": "Ego",
+  "questions": [
+   {
+    "id": 140,
+    "time": 21.0,
+    "question": "Is there a pair of pink rubber gloves next to the sink?",
+    "answer": "Yes, I see a pair of pink rubber gloves there.",
+    "class": "SF"
+   },
+   {
+    "id": 141,
+    "time": 54.0,
+    "question": "What food am I currently preparing in the kitchen?",
+    "answer": "It looks like you're making something similar to pancakes in a frying pan.",
+    "class": "SM"
+   },
+   {
+    "id": 142,
+    "time": 88.0,
+    "question": "I am looking for my blue towel, where can I find it?",
+    "answer": "I see a blue towel on the countertop next to the sink.",
+    "class": "LM"
+   },
+   {
+    "id": 143,
+    "time": 179.0,
+    "question": "What color are my plastic gloves?",
+    "answer": "Based on the context, they should be pink.",
+    "class": "CI"
+   }
+  ]
+ },
+ {
+  "source": "streambench/WebVideo/nEdaHcqfNMk.mp4",
+  "category": "WebVideo",
+  "questions": [
+   {
+    "id": 144,
+    "time": 74.0,
+    "question": "Can you tell me where the fork that I just held in my right hand is?",
+    "answer": "Yes, The fork is on the cabinet, next to the pot.",
+    "class": "OS"
+   },
+   {
+    "id": 145,
+    "time": 91.0,
+    "question": "Can you tell me where the meat wrapped in aluminum foil in the video was just taken from?",
+    "answer": "This piece of meat should have just been taken out of the microwave.",
+    "class": "SM"
+   },
+   {
+    "id": 146,
+    "time": 152.0,
+    "question": "What are the health benefits of legumes?",
+    "answer": "Beans are rich in nutrients and have numerous health benefits, including lowering cholesterol levels, regulating blood sugar and so on.",
+    "class": "KG"
+   },
+   {
+    "id": 147,
+    "time": 230.0,
+    "question": "Do you remember the spatula which was initially on the table and near the stove? Can you help me think of where it is?",
+    "answer": "Yes, It is placed on the white cutting board.",
+    "class": "CI"
+   }
+  ]
+ },
+ {
+  "source": "streambench/WebVideo/zlwC6pmyHcs.mp4",
+  "category": "WebVideo",
+  "questions": [
+   {
+    "id": 148,
+    "time": 32.0,
+    "question": "What is the color of the wall?",
+    "answer": "The wall is white or beige.",
+    "class": "SF"
+   },
+   {
+    "id": 149,
+    "time": 80.0,
+    "question": "Where is a red teapot?",
+    "answer": "There is a red teapot on the cabinet opposite the refrigerator.",
+    "class": "SM"
+   },
+   {
+    "id": 150,
+    "time": 155.0,
+    "question": "Based on what you see, where is the white chair with a yellow cushion on it?",
+    "answer": "The chair is located in the corner, with a window on each side.",
+    "class": "LM"
+   },
+   {
+    "id": 151,
+    "time": 300.0,
+    "question": "Does the house shown in the video have a toilet?",
+    "answer": "The house has a toilet.",
+    "class": "CI"
+   }
+  ]
+ },
+ {
+  "source": "streambench/WebVideo/6DpOmXdRgkw.mp4",
+  "category": "WebVideo",
+  "questions": [
+   {
+    "id": 152,
+    "time": 40.0,
+    "question": "What is the grab bar in the bathroom used for?",
+    "answer": "It provides support and stability to prevent falls.",
+    "class": "KG"
+   },
+   {
+    "id": 153,
+    "time": 70.0,
+    "question": "Where can I find a mirror?",
+    "answer": "You can find a mirror above the sink in the bathroom.",
+    "class": "OS"
+   },
+   {
+    "id": 154,
+    "time": 100.0,
+    "question": "Where is the mirror placed in this room?",
+    "answer": "It is above a white table.",
+    "class": "CI"
+   },
+   {
+    "id": 155,
+    "time": 120.0,
+    "question": "What is the item that was previously shown with the caption 'Dorm.1' on the bedside tables?",
+    "answer": "There is a lamp placed on each bedside table.",
+    "class": "LM"
+   }
+  ]
+ },
+ {
+  "source": "streambench/Ego/05ae9a21-12a3-48d9-8dec-8e8e1344852a.mp4",
+  "category": "Ego",
+  "questions": [
+   {
+    "id": 156,
+    "time": 20.0,
+    "question": "What am I holding in my left hand and right hand?",
+    "answer": "You are holding a long wooden brush in your left hand and a small metal spatula in your right hand.",
+    "class": "SF"
+   },
+   {
+    "id": 157,
+    "time": 50.0,
+    "question": "Is there a yellow tool resembling a glue gun on the table I am cleaning?",
+    "answer": "Yes, it looks like there is a yellow object that resembles a glue gun on the edge of the table.",
+    "class": "SM"
+   },
+   {
+    "id": 158,
+    "time": 74.0,
+    "question": "Based on the information you see, what do you think my profession is?",
+    "answer": "Based on the information I see, your profession might involve using and managing tools, and the place you are in looks like a warehouse, so I think your profession could be a worker.",
+    "class": "KG"
+   },
+   {
+    "id": 159,
+    "time": 108.0,
+    "question": "Where did I put the long-handled wooden brush I just used?",
+    "answer": "You placed it on a nearby table, where it looks like you were just using the brush to clean.",
+    "class": "LM"
+   }
+  ]
+ },
+ {
+  "source": "streambench/Movie/VevqDJM8KH0.mp4",
+  "category": "Movie",
+  "questions": [
+   {
+    "id": 160,
+    "time": 10.0,
+    "question": "What does the man wearing white hold in his hand?",
+    "answer": "The man holds a thin, long stick.",
+    "class": "SF"
+   },
+   {
+    "id": 161,
+    "time": 84.0,
+    "question": "Where is the white, round alarm clock?",
+    "answer": "The alarm clock is in the bookcase to the left of the curtain.",
+    "class": "SM"
+   },
+   {
+    "id": 162,
+    "time": 130.0,
+    "question": "Are there any tools or objects in the video that can be used to tell time?",
+    "answer": "There is a white, round alarm colock in the video.",
+    "class": "CI"
+   },
+   {
+    "id": 163,
+    "time": 145.0,
+    "question": "Where is the book with a portrait of an old man's head on the cover?",
+    "answer": "The book is on the ground nect to the fallen bookshelf.",
+    "class": "OS"
+   }
+  ]
+ },
+ {
+  "source": "streambench/Ego/067618dc-1a01-4023-9a7b-aa26217eeed7.mp4",
+  "category": "Ego",
+  "questions": [
+   {
+    "id": 164,
+    "time": 88.0,
+    "question": "What kind of meat is bacon?",
+    "answer": "Bacon is a type of meat that comes from the belly or back of a pig. It is typically cured and smoked, giving it its distinctive flavor.",
+    "class": "KG"
+   },
+   {
+    "id": 165,
+    "time": 127.0,
+    "question": "Can you help me think of where I might find various bottles containing seasonings?",
+    "answer": "Sure, you can check the corner near the stove; it looks like they might be next to the frying pan.",
+    "class": "LM"
+   },
+   {
+    "id": 166,
+    "time": 153.0,
+    "question": "I\u2019m looking for my paper towels, which are in a long roll. Can you help me think of where I might find them?",
+    "answer": "Sure, I see a long white roll above the sink.",
+    "class": "OS"
+   },
+   {
+    "id": 167,
+    "time": 179.0,
+    "question": "Based on the context, what do you think I am cooking in the frying pan?",
+    "answer": "Based on the context, it seems you might be cooking bacon in the frying pan.",
+    "class": "CI"
+   }
+  ]
+ },
+ {
+  "source": "streambench/WebVideo/FE2ScyqMpaE.mp4",
+  "category": "WebVideo",
+  "questions": [
+   {
+    "id": 168,
+    "time": 35.0,
+    "question": "Does the man in gray clothes in the video have hair?",
+    "answer": "No, he is bald.",
+    "class": "SF"
+   },
+   {
+    "id": 169,
+    "time": 60.0,
+    "question": "What is a saw generally used for?",
+    "answer": "It's used for cutting through hard materials like wood and metal.",
+    "class": "KG"
+   },
+   {
+    "id": 170,
+    "time": 85.0,
+    "question": "Are there any rulers in the video?",
+    "answer": "You can find a ruler on a piece of white paper on the gray table.",
+    "class": "OS"
+   },
+   {
+    "id": 171,
+    "time": 105.0,
+    "question": "What is the boy in black clothes in the video doing with the saw?",
+    "answer": "He is using the saw to cut wood.",
+    "class": "CI"
+   }
+  ]
+ },
+ {
+  "source": "streambench/Movie/KQcLnNoYMWU.mp4",
+  "category": "Movie",
+  "questions": [
+   {
+    "id": 172,
+    "time": 8.0,
+    "question": "What is the color of the liquid in the bucket?",
+    "answer": "The liquid in the bucket is white.",
+    "class": "SF"
+   },
+   {
+    "id": 173,
+    "time": 41.0,
+    "question": "Did you see a brick or tile sliding?",
+    "answer": "Yes, there s a brick sliding on the roof.",
+    "class": "SM"
+   },
+   {
+    "id": 174,
+    "time": 108.0,
+    "question": "Why are trains made up of multiple connected cars?",
+    "answer": "This allows them to transport large loads, distribute weight evenly, adapt to various needs, and improve braking and aerodynamics.",
+    "class": "KG"
+   },
+   {
+    "id": 175,
+    "time": 132.0,
+    "question": "Based on what you see, did you see anyone wearing a military uniform climb up the roof?",
+    "answer": "No.",
+    "class": "LM"
+   }
+  ]
+ },
+ {
+  "source": "streambench/Ego/030a3528-b0ed-4547-bd62-cfe7eb843a97.mp4",
+  "category": "Ego",
+  "questions": [
+   {
+    "id": 176,
+    "time": 23.0,
+    "question": "Is there a yellow bell pepper on the table that I can currently see for my cooking?",
+    "answer": "Yes, it looks like there are yellow pepper in a plastic bag to your left.",
+    "class": "SF"
+   },
+   {
+    "id": 177,
+    "time": 54.0,
+    "question": "I need to heat some milk in the microwave. Where can I find the microwave?",
+    "answer": "It's on the table, above the refrigerator, where you can see the microwave.",
+    "class": "SM"
+   },
+   {
+    "id": 178,
+    "time": 82.0,
+    "question": "Where can I find my green plastic water cup?",
+    "answer": "Your water cup is on the kitchen table near the sink.",
+    "class": "LM"
+   },
+   {
+    "id": 179,
+    "time": 179.0,
+    "question": "Did I just put the food from the black plate into the oven?",
+    "answer": "Yes, according to my judgment, you put both the food and the plate into something that looks like an oven.",
+    "class": "CI"
+   }
+  ]
+ },
+ {
+  "source": "streambench/Ego/09c8483b-845b-4382-90c1-0124169a7832.mp4",
+  "category": "Ego",
+  "questions": [
+   {
+    "id": 180,
+    "time": 56.0,
+    "question": "In the kitchen where I am currently, where can I find the frying pan?",
+    "answer": "You can check the white stove nearby; it seems you can find the frying pan there.",
+    "class": "SM"
+   },
+   {
+    "id": 181,
+    "time": 74.0,
+    "question": "Why is food stored in the refrigerator while it's still hot?",
+    "answer": "The purpose is to quickly lower the temperature to below 4\u00b0C before bacteria can multiply rapidly, reducing the time for bacteria to proliferate.",
+    "class": "KG"
+   },
+   {
+    "id": 182,
+    "time": 108.0,
+    "question": "Where did I get the ingredients that I just placed on the table?",
+    "answer": "It looks like you took them out of the refrigerator under the table.",
+    "class": "OS"
+   },
+   {
+    "id": 183,
+    "time": 146.0,
+    "question": "Did I just add some liquid like vegetable oil to the frying pan?",
+    "answer": "Yes, it looks like you added some liquid to the frying pan, which could be vegetable oil.",
+    "class": "LM"
+   }
+  ]
+ },
+ {
+  "source": "streambench/WebVideo/5BumKKY8cvE.mp4",
+  "category": "WebVideo",
+  "questions": [
+   {
+    "id": 184,
+    "time": 20.0,
+    "question": "What is this person doing in the video?",
+    "answer": "He is cutting open the green fruit and placing it in a bowl.",
+    "class": "SF"
+   },
+   {
+    "id": 185,
+    "time": 120.0,
+    "question": "I'm looking for something to store my fruit in. Can you tell me where I can find it?",
+    "answer": "You can find a bowl on the silver table to put those fruits in.",
+    "class": "OS"
+   },
+   {
+    "id": 186,
+    "time": 200.0,
+    "question": "What is this person doing in the video?",
+    "answer": "He is stirring a bubbling brown liquid.",
+    "class": "SM"
+   },
+   {
+    "id": 187,
+    "time": 370.0,
+    "question": "Where are the liquids poured in the end?",
+    "answer": "The liquids are poured into transparent small jars.",
+    "class": "CI"
+   }
+  ]
+ },
+ {
+  "source": "streambench/WebVideo/3S_ZU8soWkk.mp4",
+  "category": "WebVideo",
+  "questions": [
+   {
+    "id": 188,
+    "time": 90.0,
+    "question": "Where is the black refrigerator?",
+    "answer": "It is built into a wooden cabinet next to a window.",
+    "class": "OS"
+   },
+   {
+    "id": 189,
+    "time": 180.0,
+    "question": "Where are cribs typically found in a house?",
+    "answer": "Cradles are typically found in bedrooms or nurseries.",
+    "class": "KG"
+   },
+   {
+    "id": 190,
+    "time": 240.0,
+    "question": "Where is the white crib in this room?",
+    "answer": "The white crib is in the corner of the room, next to a white cabinet and a window.",
+    "class": "CI"
+   },
+   {
+    "id": 191,
+    "time": 300.0,
+    "question": "What color is the small stool next to the blue bed?",
+    "answer": "The stool is blue.",
+    "class": "LM"
+   }
+  ]
+ },
+ {
+  "source": "streambench/WebVideo/uyltJluLnfg.mp4",
+  "category": "WebVideo",
+  "questions": [
+   {
+    "id": 192,
+    "time": 9.0,
+    "question": "What color is the apron worn by the man in the video?",
+    "answer": "It is blue.",
+    "class": "SF"
+   },
+   {
+    "id": 193,
+    "time": 49.0,
+    "question": "I need a tool to slice carrots. Can you help me find out the appropriate tool?",
+    "answer": "Yes, the knife that the man is holding in his right hand is a great choice.",
+    "class": "OS"
+   },
+   {
+    "id": 194,
+    "time": 54.0,
+    "question": "Which country exports the most sausages?",
+    "answer": "Spain is the largest exporter of sausages.",
+    "class": "KG"
+   },
+   {
+    "id": 195,
+    "time": 70.0,
+    "question": "Could you tell me where you saw a blue bowl?",
+    "answer": "Yes, the blue bowl is on the table, to the left of the woman, next to an orange bowl.",
+    "class": "SM"
+   }
+  ]
+ },
+ {
+  "source": "streambench/Ego/08f8c4f1-162b-4a53-b46d-7ef95a1dc162.mp4",
+  "category": "Ego",
+  "questions": [
+   {
+    "id": 196,
+    "time": 31.0,
+    "question": "I am currently cleaning the living room. What color is the table on the floor in front of me?",
+    "answer": "It looks like the table is green.",
+    "class": "SF"
+   },
+   {
+    "id": 197,
+    "time": 56.0,
+    "question": "I need to use a drill to work on some furniture. Where in the room can I find my yellow drill?",
+    "answer": "Based on the video I see, you can find the yellow drill on the table near you.",
+    "class": "SM"
+   },
+   {
+    "id": 198,
+    "time": 74.0,
+    "question": "What is the purpose of painting furniture?",
+    "answer": "Painting can give the furniture surface a rolled texture, making the patterns more noticeable and clear, and it also makes future repairs more convenient.",
+    "class": "KG"
+   },
+   {
+    "id": 199,
+    "time": 146.0,
+    "question": "I'm looking for the empty soda can I just drank from. Can you help me think about where to find it?",
+    "answer": "I see a can on the nearby dining table. You can check there.",
+    "class": "LM"
+   }
+  ]
+ }
+]

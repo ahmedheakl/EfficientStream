@@ -318,7 +318,7 @@ final class TextAttention: Module {
         _kNorm.wrappedValue = FP32RMSNorm(dimensions: headDim, eps: c.rmsNormEps)
     }
 
-    func callAsFunction(_ x: MLXArray, cache: AttentionCache) -> MLXArray {
+    func callAsFunction(_ x: MLXArray, cache: AttentionCache, rotary: TextRotary? = nil) -> MLXArray {
         let (b, l) = (x.dim(0), x.dim(1))
         let qg = qProj(x).reshaped(b, l, numHeads, 2 * headDim)
         let parts = MLX.split(qg, parts: 2, axis: -1)
@@ -326,13 +326,43 @@ final class TextAttention: Module {
         var q = qNorm(parts[0]).transposed(0, 2, 1, 3)
         var k = kNorm(kProj(x).reshaped(b, l, numKVHeads, headDim)).transposed(0, 2, 1, 3)
         let v = vProj(x).reshaped(b, l, numKVHeads, headDim).transposed(0, 2, 1, 3)
-        q = rope(q, offset: cache.offset)
-        k = rope(k, offset: cache.offset)
+        switch rotary {
+        case nil:
+            q = rope(q, offset: cache.offset)
+            k = rope(k, offset: cache.offset)
+        case .start(let p):
+            q = rope(q, offset: p)
+            k = rope(k, offset: p)
+        case .table(let cos, let sin):
+            q = applyRotaryTable(q, cos: cos, sin: sin)
+            k = applyRotaryTable(k, cos: cos, sin: sin)
+        }
         let (keys, values) = cache.append(keys: k, values: v)
+        if cache.captureQuery { cache.lastQuery = q[0..., 0..., (l - 1) ..< l, 0...] }
         let o = MLXFast.scaledDotProductAttention(
             queries: q, keys: keys, values: values, scale: scale, mask: l > 1 ? .causal : .none)
         return oProj(o.transposed(0, 2, 1, 3).reshaped(b, l, -1) * sigmoid(gate))
     }
+}
+
+/// Positions for the text model's rotary embedding. `nil` (MiniCPM-V-4.6): positions continue from the cache.
+/// `.start(p)`: consecutive positions from `p` (Qwen3.5-VL text after the prompt: M-RoPE positions do not follow the
+/// cache length). `.table`: per-token cos/sin [L, rotary dims], the interleaved M-RoPE of a multimodal prompt.
+enum TextRotary {
+    case start(Int)
+    case table(cos: MLXArray, sin: MLXArray)
+}
+
+/// Rotate-half rotary over the first `cos.dim(-1)` dims of x [B, H, L, D] (transformers' apply_rotary_pos_emb with
+/// partial rotary; cos/sin cast to x's dtype as there).
+func applyRotaryTable(_ x: MLXArray, cos: MLXArray, sin: MLXArray) -> MLXArray {
+    let r = cos.dim(-1)
+    let half = r / 2
+    let rot = x[0..., 0..., 0..., 0 ..< r]
+    let x1 = rot[0..., 0..., 0..., 0 ..< half]
+    let x2 = rot[0..., 0..., 0..., half ..< r]
+    let out = rot * cos.asType(x.dtype) + concatenated([-x2, x1], axis: -1) * sin.asType(x.dtype)
+    return x.dim(-1) == r ? out : concatenated([out, x[0..., 0..., 0..., r...]], axis: -1)
 }
 
 /// Qwen3.5's RMSNorm, (1 + w) * x / rms(x) computed in float32 (the export stores 1 + w as float32).
@@ -476,13 +506,18 @@ final class TextDecoderLayer: Module {
         _mlp.wrappedValue = TextMLP(c)
     }
 
-    func callAsFunction(_ x: MLXArray, cache: LayerCache) -> MLXArray {
-        let r: MLXArray
-        switch cache {
-        case .linear(let c): r = linearAttn!(inputLayerNorm(x), cache: c)
-        case .attention(let c): r = selfAttn!(inputLayerNorm(x), cache: c)
+    func callAsFunction(_ x: MLXArray, cache: LayerCache, rotary: TextRotary? = nil) -> MLXArray {
+        let mix = { () -> MLXArray in
+            switch cache {
+            case .linear(let c): return self.linearAttn!(self.inputLayerNorm(x), cache: c)
+            case .attention(let c): return self.selfAttn!(self.inputLayerNorm(x), cache: c, rotary: rotary)
+            }
         }
-        let h = x + r
+        if let p = LayerProfiler.active {
+            let h = x + p.time(isLinear ? "gated delta layers" : "full attention layers", mix)
+            return p.time("MLPs") { h + self.mlp(self.postAttentionLayerNorm(h)) }
+        }
+        let h = x + mix()
         return h + mlp(postAttentionLayerNorm(h))
     }
 }
@@ -499,36 +534,94 @@ final class TextModel: Module {
     }
 
     /// Final-normed hidden states for `embeddings` [1, L, H], advancing `caches`.
-    func callAsFunction(embeddings: MLXArray, caches: [LayerCache]) -> MLXArray {
+    func callAsFunction(embeddings: MLXArray, caches: [LayerCache], rotary: TextRotary? = nil) -> MLXArray {
         var h = embeddings
         for (layer, cache) in zip(layers, caches) {
-            h = layer(h, cache: cache)
+            h = layer(h, cache: cache, rotary: rotary)
         }
         return norm(h)
     }
 
     /// Tied output head.
     func logits(_ hidden: MLXArray) -> MLXArray {
-        embedTokens.asLinear(hidden)
+        if let p = LayerProfiler.active { return p.time("output head") { embedTokens.asLinear(hidden) } }
+        return embedTokens.asLinear(hidden)
+    }
+}
+
+/// Times the text model's parts while `active` is set (benchmarks only: it evaluates after every part, which removes
+/// the GPU's overlap between them, so the shares matter more than the sum).
+public final class LayerProfiler: @unchecked Sendable {
+    nonisolated(unsafe) public static var active: LayerProfiler?
+    public private(set) var seconds: [String: Double] = [:]
+
+    public init() {}
+
+    func time(_ key: String, _ body: () -> MLXArray) -> MLXArray {
+        let t0 = Date()
+        let x = body()
+        eval(x)
+        seconds[key, default: 0] += Date().timeIntervalSince(t0)
+        return x
     }
 }
 
 // MARK: - Caches
 
+/// Keys and values in buffers grown `step` tokens at a time and written in place (mlx-lm's KVCacheSimple): an append
+/// copies only the new tokens, not the whole cache. MLX arrays stay values: while another cache object holds the same
+/// buffer (a fork), the next write copies it instead of changing what the fork sees.
 final class AttentionCache {
     var keys: MLXArray?
     var values: MLXArray?
-    var offset: Int { keys?.dim(2) ?? 0 }
+    var offset = 0
+    static let step = 1024
+    /// While set, each call keeps its last token's query (rotated) [1, heads, 1, headDim] (QwenStreamer `.compress`:
+    /// how much the token that decides a second attends to each frame block).
+    var captureQuery = false
+    var lastQuery: MLXArray?
 
     func append(keys k: MLXArray, values v: MLXArray) -> (MLXArray, MLXArray) {
-        if let keys, let values {
-            self.keys = concatenated([keys, k], axis: 2)
-            self.values = concatenated([values, v], axis: 2)
-        } else {
-            keys = k
-            values = v
+        let previous = offset
+        let n = k.dim(2)
+        if keys == nil || previous + n > keys!.dim(2) {
+            let grow = (n + Self.step - 1) / Self.step * Self.step
+            let zk = MLXArray.zeros([k.dim(0), k.dim(1), grow, k.dim(3)], dtype: k.dtype)
+            let zv = MLXArray.zeros([v.dim(0), v.dim(1), grow, v.dim(3)], dtype: v.dtype)
+            if let k0 = keys, let v0 = values {
+                keys = concatenated([k0[.ellipsis, ..<previous, 0...], zk], axis: 2)
+                values = concatenated([v0[.ellipsis, ..<previous, 0...], zv], axis: 2)
+            } else {
+                keys = zk
+                values = zv
+            }
         }
-        return (keys!, values!)
+        offset += n
+        keys![.ellipsis, previous ..< offset, 0...] = k
+        values![.ellipsis, previous ..< offset, 0...] = v
+        return (keys![.ellipsis, ..<offset, 0...], values![.ellipsis, ..<offset, 0...])
+    }
+    /// The share of `query`'s attention [1, heads, 1, headDim] (softmax over the cached tokens, averaged over the
+    /// heads) that falls on each of `spans`.
+    func attentionShare(_ query: MLXArray, spans: [Range<Int>]) -> [Float] {
+        guard let k0 = keys, offset > 0 else { return spans.map { _ in 0 } }
+        let k = k0[.ellipsis, ..<offset, 0...]
+        let (heads, kvHeads, d) = (query.dim(1), k.dim(1), query.dim(3))
+        let q = query.reshaped(1, kvHeads, heads / kvHeads, d).asType(.float32)
+        let scores = matmul(q, k.asType(.float32).transposed(0, 1, 3, 2)) * pow(Float(d), -0.5)
+        let p = softmax(scores, axis: -1).mean(axes: [0, 1, 2])
+        let shares = spans.map { $0.isEmpty ? MLXArray(Float(0)) : p[$0.lowerBound ..< $0.upperBound].sum() }
+        let out = stacked(shares)
+        eval(out)
+        return out.asArray(Float.self)
+    }
+
+    /// Drops the tokens [a, b) (later ones move down).
+    func evict(_ a: Int, _ b: Int) {
+        guard let k0 = keys, let v0 = values, a < b, b <= offset else { return }
+        keys = concatenated([k0[.ellipsis, ..<a, 0...], k0[.ellipsis, b ..< offset, 0...]], axis: 2)
+        values = concatenated([v0[.ellipsis, ..<a, 0...], v0[.ellipsis, b ..< offset, 0...]], axis: 2)
+        offset -= b - a
     }
 }
 

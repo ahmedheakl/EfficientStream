@@ -46,6 +46,9 @@ final class StreamController {
     private(set) var memoryMB: Double = 0
     /// Frames not stored on time because the previous one was still being indexed.
     private(set) var lateStores = 0
+    /// Demo mode (DemoModel): the question as typed so far, mirrored into the question bar, and send requests.
+    var demoTyping: String?
+    private(set) var demoSends = 0
     /// Seconds between stored frames (2 = the evaluated 0.5 fps).
     var indexInterval: Double = 2 {
         didSet {
@@ -86,12 +89,16 @@ final class StreamController {
     func start() { if source == .camera { camera.start() } }
     func stop() { camera.stop(); video.pause() }
 
-    func openVideo(_ url: URL) async {
+    func openVideo(_ url: URL, start: Double = 0) async {
         use(.video)
         resetStream()
         await video.load(url)
+        if start > 0 { await video.seek(to: start) }
         video.play()
     }
+
+    /// Demo mode: sends the question in the question bar, as the send button does.
+    func demoSend() { demoSends += 1 }
 
     func resetStream() {
         session.reset()
@@ -182,7 +189,9 @@ final class StreamController {
 final class PendingCount: @unchecked Sendable {
     private let lock = NSLock()
     private var n = 0
-    func tryAcquire() -> Bool { lock.withLock { if n >= 2 { return false }; n += 1; return true } }
+    private let limit: Int
+    init(limit: Int = 2) { self.limit = limit }
+    func tryAcquire() -> Bool { lock.withLock { if n >= limit { return false }; n += 1; return true } }
     func release() { lock.withLock { n -= 1 } }
 }
 

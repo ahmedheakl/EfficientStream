@@ -1,0 +1,109 @@
+{
+ "timing": {
+  "ff_out": 1.0,
+  "rt_lead": 0.3,
+  "rt_tail": 1.1,
+  "intro": 1.6,
+  "outro": 2.6
+ },
+ "takes": {
+  "take3": {
+   "video": "take3.mov",
+   "rec_log": "rec3.log",
+   "console_log": "console3.log",
+   "offset": 0.226
+  }
+ },
+ "footer": "Screen recording of the app: the waiting is sped up; questions and answers play in real time. iPhone 17 Pro · MiniCPM-V-4.6 + MobileCLIP2-S0 · fully offline, nothing leaves the phone.",
+ "title_footer": "iPhone 17 Pro  ·  MiniCPM-V-4.6 + MobileCLIP2-S0  ·  fully offline, nothing leaves the phone",
+ "intro": [
+  [
+   "EfficientStream",
+   96,
+   "Bold",
+   [
+    245,
+    247,
+    250
+   ]
+  ],
+  [
+   "Ask anything about a live video, at any moment.",
+   42,
+   "Regular",
+   [
+    200,
+    208,
+    224
+   ]
+  ],
+  [
+   "Answered on the phone, from memory of everything it has seen.",
+   42,
+   "Regular",
+   [
+    148,
+    160,
+    184
+   ]
+  ]
+ ],
+ "scenes": [
+  {
+   "take": "take3",
+   "segment": 7,
+   "title": "Personal memory",
+   "subtitle": "Smart glasses that remember: ask about something you did minutes ago."
+  },
+  {
+   "take": "take3",
+   "segment": 2,
+   "title": "Sports companion",
+   "subtitle": "Catch up on the moment you missed, during a live match."
+  },
+  {
+   "take": "take3",
+   "segment": 1,
+   "title": "Repair assistant",
+   "subtitle": "Tracks a hardware teardown and names the parts as they come off."
+  },
+  {
+   "take": "take3",
+   "segment": 0,
+   "title": "Reading the world",
+   "subtitle": "Reads signs and printed text, for low-vision users."
+  }
+ ],
+ "outro": [
+  [
+   "1.0–1.3 s to the first words  ·  37 tokens/s  ·  3.3 GB",
+   54,
+   "Bold",
+   [
+    245,
+    247,
+    250
+   ]
+  ],
+  [
+   "Every frame indexed in 0.18 s as the video streams. Each answer looks at the current frame and the 16 most relevant past moments.",
+   32,
+   "Regular",
+   [
+    148,
+    160,
+    184
+   ]
+  ],
+  [
+   "Measured on the phone over 100 streaming benchmark questions (StreamBench, OVO-Bench, StreamingBench)",
+   26,
+   "Regular",
+   [
+    96,
+    165,
+    250
+   ]
+  ]
+ ]
+}

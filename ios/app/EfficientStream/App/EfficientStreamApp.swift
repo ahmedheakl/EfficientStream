@@ -6,16 +6,24 @@ import SwiftUI
 struct EfficientStreamApp: App {
     @State private var app = AppModel()
     @State private var bench = BenchModel()
+    @State private var qwenBench = QwenBenchModel()
 
     var body: some Scene {
         WindowGroup {
             Group {
                 switch app.state {
                 case .ready:
-                    if let runs = BenchModel.requestedRuns, let es = app.es {
+                    if let qwen = app.qwen {
+                        QwenBenchView(bench: qwenBench).task { await qwenBench.run(qwen: qwen) }
+                    } else if let qc = app.qwenController {
+                        QwenStreamView(controller: qc) { Task { await app.switchModel(to: .efficientStream) } }
+                    } else if let runs = BenchModel.requestedRuns, let es = app.es {
                         BenchView(bench: bench).task { await bench.run(es: es, runs: runs) }
                     } else if let controller = app.controller {
-                        StreamView(controller: controller)
+                        StreamView(controller: controller) { Task { await app.switchModel(to: .qwen) } }
+                            .task {
+                                if let script = DemoModel.script { await DemoModel.run(controller, script: script) }
+                            }
                     }
                 case .loading:
                     LoadingView()

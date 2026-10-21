@@ -1,0 +1,6 @@
+{"rate": 4, "interval": 2, "segments": [
+ {"video": "demo/yt/zudt0WmyvFI.mp4", "start": 0, "rate": 4, "questions": [{"at": 136, "text": "What did I take out of the fridge?"}, {"at": 149, "text": "Where did the hot water come from?"}], "hold": 3},
+ {"video": "demo/yt/wfHADzgF_P4.mp4", "start": 0, "rate": 2, "questions": [{"at": 64, "text": "Which ingredients went into the blender?"}], "hold": 3},
+ {"video": "demo/yt/kF33nbNyn7Y.mp4", "start": 0, "rate": 4, "questions": [{"at": 150, "text": "What was the first ingredient added to the bowl?"}, {"at": 192, "text": "What fruit was the syrup made from?"}], "hold": 3},
+ {"video": "demo/yt/B3-RcyfsDxE.mp4", "start": 0, "rate": 1, "questions": [{"at": 38, "text": "What was the pedestrian who crossed in front of us wearing?"}], "hold": 3}
+]}

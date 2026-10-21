@@ -7,6 +7,7 @@ import UniformTypeIdentifiers
 /// Questions can be asked at any moment while the feed runs; each answer is about "now".
 struct StreamView: View {
     let controller: StreamController
+    var switchModel: () -> Void = {}
     @State private var question = ""
     @State private var multipleChoice = false
     @State private var options = ["", "", "", ""]
@@ -47,6 +48,10 @@ struct StreamView: View {
             .onChange(of: scenePhase) { _, phase in
                 if phase == .active { controller.start() } else if phase == .background { controller.stop() }
             }
+            .onChange(of: controller.demoTyping) { _, t in
+                if let t { question = t; focused = true }
+            }
+            .onChange(of: controller.demoSends) { _, _ in send() }
             .sheet(isPresented: $showInfo) { InfoView(controller: controller) }
         }
     }
@@ -86,6 +91,9 @@ struct StreamView: View {
             }
             Text("\(controller.storedCount)/\(controller.session.config.storeBudget) stored").monospacedDigit()
             Text("every \(Int(controller.indexInterval)) s").monospacedDigit()
+            if controller.source == .video, controller.video.rate != 1 {
+                Text(String(format: "%g×", controller.video.rate)).monospacedDigit()
+            }
             if controller.memoryMB > 0 { Text(String(format: "%.1f GB", controller.memoryMB / 1024)).monospacedDigit() }
         }
         .font(.caption.weight(.semibold))
@@ -157,6 +165,7 @@ struct StreamView: View {
                 Button("Restart stream", systemImage: "arrow.counterclockwise") { controller.resetStream() }
                 Button("Clear answers", systemImage: "trash") { controller.clearHistory() }
                 Button("About", systemImage: "info.circle") { showInfo = true }
+                Button("Use Streaming Qwen3.5-0.8B", systemImage: "arrow.triangle.swap") { switchModel() }
             } label: { Image(systemName: "ellipsis.circle") }
         }
     }

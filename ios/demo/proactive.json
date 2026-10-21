@@ -1,0 +1,95 @@
+{
+ "video": "proactive/take3.mov",
+ "rec_log": "proactive/rec3.log",
+ "console_log": "proactive/console3.log",
+ "offset": 0.226,
+ "lead": 0.2,
+ "tail": 1.9,
+ "intro_seconds": 1.3,
+ "outro_seconds": 2.0,
+ "title": "Proactive mode",
+ "subtitle": "It watches the stream and speaks up by itself when it happens. No question needed.",
+ "model_line": "Streaming Qwen3.5-0.8B (OneStreamer recipe), on the phone",
+ "prompt": "Tell me when the pen goes into the box.",
+ "seconds": [
+  170,
+  171,
+  172,
+  173,
+  174,
+  175,
+  176,
+  177,
+  178,
+  179,
+  180,
+  181,
+  182
+ ],
+ "evidence": {
+  "video": "~/src/es-bench/videos/7359d4784c.mp4",
+  "t": 179.6,
+  "box": [
+   0.37,
+   0.4,
+   0.58,
+   0.65
+  ]
+ },
+ "footer": "Screen recording of the app, in real time (not sped up). iPhone 17 Pro · fully offline, nothing leaves the phone.",
+ "title_footer": "iPhone 17 Pro  ·  Streaming Qwen3.5-0.8B  ·  fully offline, nothing leaves the phone",
+ "intro": [
+  [
+   "Proactive mode",
+   96,
+   "Bold",
+   [
+    245,
+    247,
+    250
+   ]
+  ],
+  [
+   "Tell it what to watch for. It checks the live stream every second",
+   40,
+   "Regular",
+   [
+    200,
+    208,
+    224
+   ]
+  ],
+  [
+   "and speaks up only when it happens.",
+   40,
+   "Regular",
+   [
+    148,
+    160,
+    184
+   ]
+  ]
+ ],
+ "outro": [
+  [
+   "One check per second: 0.22 s on the phone",
+   54,
+   "Bold",
+   [
+    245,
+    247,
+    250
+   ]
+  ],
+  [
+   "Silent until the event, then it says what happened (1.1 s for the response)",
+   32,
+   "Regular",
+   [
+    148,
+    160,
+    184
+   ]
+  ]
+ ]
+}

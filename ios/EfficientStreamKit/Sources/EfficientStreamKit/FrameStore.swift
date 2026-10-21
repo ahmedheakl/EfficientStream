@@ -54,7 +54,11 @@ public struct BoundedStore: Sendable {
 /// Indices of the k rows most similar to `query` (stable on ties), in ascending (time) order.
 public func topKInTimeOrder(_ embeddings: [[Float]], query: [Float], k: Int) -> [Int] {
     if embeddings.count <= k { return Array(embeddings.indices) }
+    return Array(mostSimilar(embeddings, query: query).prefix(k)).sorted()
+}
+
+/// Indices of all rows, most similar to `query` first (stable on ties).
+public func mostSimilar(_ embeddings: [[Float]], query: [Float]) -> [Int] {
     let sims = embeddings.map { e in zip(e, query).reduce(Float(0)) { $0 + $1.0 * $1.1 } }
-    let order = sims.indices.sorted { sims[$0] > sims[$1] || (sims[$0] == sims[$1] && $0 < $1) }
-    return order.prefix(k).sorted()
+    return sims.indices.sorted { sims[$0] > sims[$1] || (sims[$0] == sims[$1] && $0 < $1) }
 }

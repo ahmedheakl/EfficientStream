@@ -14,6 +14,8 @@ public struct StreamResult: Sendable {
     public var probs: [Double]?
     /// Times of the thumbnails shown (the latest frame is `now`).
     public var frameTimes: [Double]
+    /// Times of the stored frames most similar to the question, most similar first (at most 5).
+    public var closestTimes: [Double] = []
     public var now: Double
     public var promptTokens: Int
     /// Question -> answer.
@@ -253,6 +255,7 @@ public final class StreamSession: @unchecked Sendable {
                     let q = es.answerer.sanitize(question)
                     let opts = options?.map { es.answerer.sanitize($0) }
                     var picked: [StoredFrame] = []
+                    var closest: [Double] = []
                     tm.candidates = candidates.count
                     if !candidates.isEmpty && cfg.retrieveK > 0 {
                         let qe = try es.index.embed(text: q)
@@ -263,6 +266,7 @@ public final class StreamSession: @unchecked Sendable {
                         tm.frameEmbeds = lap()
                         picked = topKInTimeOrder(embeddings, query: qe, k: cfg.retrieveK).map { candidates[$0] }
                         tm.topK = lap()
+                        closest = mostSimilar(embeddings, query: qe).prefix(5).map { candidates[$0].time }
                     }
                     var parts: [PromptPart] = []
                     var images: [EncodedImage] = []
@@ -305,8 +309,8 @@ public final class StreamSession: @unchecked Sendable {
                     }
                     cont.resume(
                         returning: StreamResult(
-                            text: a.text, probs: a.probs, frameTimes: picked.map(\.time), now: now,
-                            promptTokens: a.promptTokens, seconds: tm.total,
+                            text: a.text, probs: a.probs, frameTimes: picked.map(\.time), closestTimes: closest,
+                            now: now, promptTokens: a.promptTokens, seconds: tm.total,
                             secondsToFirstToken: tm.timeToFirstToken, timings: tm))
                 } catch {
                     cont.resume(throwing: error)

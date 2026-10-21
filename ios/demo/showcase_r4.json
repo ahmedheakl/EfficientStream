@@ -1,0 +1,8 @@
+{"segments": [
+ {"video": "demo/yt/rAdL2qYHg-A.mp4", "start": 0, "seconds": 33, "prompt": "Tell me when the toast pops out.", "hold": 2.5},
+ {"video": "demo/yt/B3-RcyfsDxE.mp4", "start": 0, "seconds": 12, "prompt": "Tell me when a pedestrian crosses in front of the car.", "hold": 2.5},
+ {"video": "demo/yt/rZPAJADW6tQ.mp4", "start": 14, "seconds": 30, "questions": [{"at": 26, "text": "What did the dog just catch?"}, {"at": 40, "text": "What is the dog doing now?"}], "hold": 2.5},
+ {"video": "demo/yt/IWP5apRncAI.mp4", "start": 0, "seconds": 21, "questions": [{"at": 17, "text": "Where is the cat now?"}], "hold": 2.5},
+ {"video": "demo/yt/wfHADzgF_P4.mp4", "start": 0, "seconds": 67, "questions": [{"at": 64, "text": "Which ingredients went into the blender?"}], "hold": 3},
+ {"video": "demo/yt/zudt0WmyvFI.mp4", "start": 0, "seconds": 151, "prompt": "Tell me when I crack the egg.", "questions": [{"at": 45, "text": "What am I doing right now?"}, {"at": 136, "text": "What did I take out of the fridge?"}, {"at": 148, "text": "What machine did the hot water come from?"}], "hold": 3}
+]}

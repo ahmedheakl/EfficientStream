@@ -1,0 +1,4 @@
+{"segments": [
+ {"video": "demo/yt/wfHADzgF_P4.mp4", "start": 0, "seconds": 67, "questions": [{"at": 64, "text": "Which ingredients went into the blender?"}], "hold": 3},
+ {"video": "demo/yt/zudt0WmyvFI.mp4", "start": 0, "seconds": 151, "prompt": "Tell me when I crack the egg.", "questions": [{"at": 45, "text": "What am I doing right now?"}, {"at": 136, "text": "What did I take out of the fridge?"}, {"at": 148, "text": "What machine did the hot water come from?"}], "hold": 3}
+]}

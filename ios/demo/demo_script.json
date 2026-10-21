@@ -1,0 +1,12 @@
+{"rate": 4, "interval": 2, "segments": [
+ {"video": "bench/videos/ad51ba17d2.mp4", "questions": [{"at": 20, "text": "What does the poster on the wall say?"}]},
+ {"video": "bench/videos/ca35d31f5f.mp4", "questions": [{"at": 112, "text": "What did they just remove from the graphics card?"}]},
+ {"video": "bench/videos/c60b7aa354.mp4", "questions": [{"at": 52, "text": "Who just scored?"}, {"at": 127, "text": "What's the score now?"}]},
+ {"video": "bench/videos/ffbf0cc03d.mp4", "questions": [{"at": 190, "text": "What will the teacher explain next?"}]},
+ {"video": "bench/videos/64401c59cf.mp4", "questions": [{"at": 174, "text": "What did they just make?"}]},
+ {"video": "bench/videos/cff7749649.mp4", "questions": [{"at": 193, "text": "What is this person about to do?"}]},
+ {"video": "bench/videos/b854fd477f.mp4", "questions": [{"at": 62.5, "text": "What does it say on the players' shirts?"}]},
+ {"video": "bench/videos/379fc8fe52.mp4", "questions": [{"at": 263, "text": "Where did I pick the plate from?"}]},
+ {"video": "bench/videos/7359d4784c.mp4", "questions": [{"at": 184, "text": "What did the hands do just now?"}]},
+ {"video": "bench/videos/ce8d705527.mp4", "questions": [{"at": 120, "text": "What did the chef just do to the chili pepper?"}]}
+]}

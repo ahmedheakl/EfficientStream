@@ -16,6 +16,16 @@ final class AppModel {
     private(set) var state: State = .needsModels
     private(set) var controller: StreamController?
     private(set) var es: EfficientStream?
+    /// The streaming Qwen3.5-0.8B (loaded instead of the pipeline when one of its modes is requested).
+    private(set) var qwen: StreamQwen?
+    private(set) var qwenController: QwenStreamController?
+
+    enum Model: String {
+        case efficientStream, qwen
+    }
+
+    /// The model the stream screen uses (one is loaded at a time).
+    private(set) var model = Model(rawValue: UserDefaults.standard.string(forKey: "model") ?? "") ?? .qwen
     private(set) var loadSeconds: Double = 0
 
     static var documents: URL { FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0] }
@@ -38,6 +48,31 @@ final class AppModel {
 
     func loadIfPossible() async {
         guard state != .loading, state != .ready else { return }
+        if QwenBenchModel.requested {
+            state = .loading
+            let start = Date()
+            do {
+                qwen = try await StreamQwen(directory: QwenBenchModel.directory)
+                loadSeconds = Date().timeIntervalSince(start)
+                print(String(format: "ESQWEN loaded in %.1f s", loadSeconds))
+                state = .ready
+            } catch {
+                state = .failed(error.localizedDescription)
+            }
+            return
+        }
+        if model == .qwen && StreamQwen.modelsPresent(in: QwenBenchModel.directory) {
+            state = .loading
+            do {
+                let q = try await StreamQwen(directory: QwenBenchModel.directory)
+                StreamQwen.limitGPUCache(megabytes: 512)
+                qwenController = QwenStreamController(qwen: q)
+                state = .ready
+            } catch {
+                state = .failed(error.localizedDescription)
+            }
+            return
+        }
         guard let directory = Self.installedModelsDirectory else {
             state = .needsModels
             return
@@ -53,6 +88,21 @@ final class AppModel {
         } catch {
             state = .failed(error.localizedDescription)
         }
+    }
+
+    /// Unloads the current model and loads the other one.
+    func switchModel(to m: Model) async {
+        guard m != model else { return }
+        model = m
+        UserDefaults.standard.set(m.rawValue, forKey: "model")
+        controller?.stop()
+        qwenController?.stop()
+        controller = nil
+        es = nil
+        qwenController = nil
+        StreamQwen.clearGPUCache()
+        state = .needsModels
+        await loadIfPossible()
     }
 
     func retry() async {

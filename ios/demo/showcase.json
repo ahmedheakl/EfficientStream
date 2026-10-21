@@ -1,0 +1,63 @@
+{
+ "takes": {
+  "q": {"video": "take_q.mov", "rec_log": "rec_q.log", "console_log": "console_q.log", "kind": "qwen", "offset": 0.186},
+  "m": {"video": "take_m.mov", "rec_log": "rec_m.log", "console_log": "console_m.log", "kind": "minicpm", "offset": 0.170},
+  "m2": {"video": "take_m2.mov", "rec_log": "rec_m2.log", "console_log": "console_m2.log", "kind": "minicpm", "offset": 0.179}
+ },
+ "top_right": "Live on iPhone 17 Pro  ·  fully offline",
+ "title": "EfficientStream",
+ "title_lines": [
+  ["Streaming video understanding, live on an iPhone", 44, [15, 23, 42]],
+  ["Proactive response  ·  Perception  ·  Memory", 32, [100, 116, 139]]
+ ],
+ "title_footer": "Screen recordings of the app on an iPhone 17 Pro, any speed-up labelled  ·  nothing leaves the phone  ·  example videos from YouTube",
+ "overview_title": "A question can come at any moment of the stream",
+ "outro_title": "Measured on the phone in these examples",
+ "sections": [
+  {
+   "key": "proactive",
+   "name": "Proactive Response",
+   "when": "The question comes first",
+   "blurb": "Tell it what to watch for. It stays silent while nothing happens and speaks up the moment it does.",
+   "model": "Streaming Qwen3.5-0.8B",
+   "examples": [
+    {"take": "q", "segment": 0, "title": "Tell me when the toast pops", "source": "../yt/rAdL2qYHg-A.mp4",
+     "model": "Streaming Qwen3.5-0.8B  ·  watches 4 frames per second and decides every second: stay silent or speak up",
+     "ff": [[3, 26, 6]], "tail": 2.0},
+    {"take": "q", "segment": 1, "title": "Alert the driver to a pedestrian", "source": "../yt/B3-RcyfsDxE.mp4",
+     "model": "Streaming Qwen3.5-0.8B  ·  watches 4 frames per second and decides every second: stay silent or speak up",
+     "tail": 2.0}
+   ]
+  },
+  {
+   "key": "perception",
+   "name": "Perception",
+   "when": "The question comes mid-stream",
+   "blurb": "Ask about what is happening right now. It answers in about a second while the video keeps playing.",
+   "model": "Streaming Qwen3.5-0.8B",
+   "examples": [
+    {"take": "q", "segment": 2, "title": "Follow the action as it happens", "source": "../yt/rZPAJADW6tQ.mp4",
+     "model": "Streaming Qwen3.5-0.8B  ·  a question looks at the last 16 seconds (one frame per second)",
+     "note": "Asked while the video keeps playing; the answer looks at the last 16 seconds.", "hold": 2.5},
+    {"take": "q", "segment": 5, "title": "Check on a pet", "source": "../yt/IWP5apRncAI.mp4",
+     "model": "Streaming Qwen3.5-0.8B  ·  a question looks at the last 16 seconds (one frame per second)",
+     "note": "Asked while the video keeps playing; the answer looks at the last 16 seconds.", "hold": 2.5}
+   ]
+  },
+  {
+   "key": "memory",
+   "name": "Memory",
+   "when": "The question comes at the end",
+   "blurb": "Ask about something that happened minutes ago. It recalls the moment from its memory of the stream.",
+   "model": "MiniCPM-V-4.6 + MobileCLIP2 retrieval",
+   "examples": [
+    {"take": "m2", "segment": 0, "title": "Remember what I did earlier", "source": "../yt/zudt0WmyvFI.mp4",
+     "model": "MiniCPM-V-4.6 + MobileCLIP2-S0  ·  remembers the whole stream; a question recalls the frames closest to it",
+     "hold": 3.0},
+    {"take": "m", "segment": 1, "title": "Remember every ingredient", "source": "../yt/wfHADzgF_P4.mp4",
+     "model": "MiniCPM-V-4.6 + MobileCLIP2-S0  ·  remembers the whole stream; a question recalls the frames closest to it",
+     "hold": 3.0}
+   ]
+  }
+ ]
+}
