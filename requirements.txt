@@ -1,0 +1,10 @@
+torch>=2.4
+torchvision>=0.19
+transformers>=5.19
+open_clip_torch>=3.3
+timm>=1.0
+pillow>=10
+numpy>=1.26
+opencv-python>=4.8
+huggingface_hub>=0.34
+# recommended on GPU (fast gated DeltaNet kernels): flash-linear-attention, causal-conv1d, flash-attn
