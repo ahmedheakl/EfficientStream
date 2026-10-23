@@ -78,6 +78,7 @@ Notes for reading these numbers:
 | `tests/test_cpu.py` | unit tests that need no weights: `python -m pytest tests/` |
 | `docs/MOBILE.md` | what it takes to run this on an iPhone |
 | `proactive/stream_qwen.py` | the proactive streaming model (below), self-contained |
+| `eval/` | the benchmark harness of the proactive streaming model (`eval/README.md`) |
 
 The package was checked against the evaluated benchmark rows (fed the evaluated stored frames): the same answer on
 60 of 60 multiple-choice and 29 of 30 open-ended questions, the same prompt length on all 90; see "Verification" in
